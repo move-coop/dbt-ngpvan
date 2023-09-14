@@ -2108,3 +2108,89 @@ Compilation Error
 [0m09:29:24.451361 [debug] [MainThread]: Command `dbt run` failed at 09:29:24.451039 after 4.67 seconds
 [0m09:29:24.452688 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1032eadf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068c98b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106925dc0>]}
 [0m09:29:24.453833 [debug] [MainThread]: Flushing usage events
+[0m09:35:35.072930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f56d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c73d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c73a00>]}
+
+
+============================== 09:35:35.079863 | 22ab8631-3bbc-437c-8e50-00dd930ec2df ==============================
+[0m09:35:35.079863 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:35:35.081337 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run', 'no_print': 'None', 'printer_width': '80', 'partial_parse': 'True', 'fail_fast': 'False', 'cache_selected_only': 'False', 'log_format': 'default', 'log_cache_events': 'False', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'quiet': 'False', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'write_json': 'True', 'use_experimental_parser': 'False', 'debug': 'False', 'introspect': 'True', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True'}
+[0m09:35:35.755580 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '22ab8631-3bbc-437c-8e50-00dd930ec2df', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c73a00>]}
+[0m09:35:35.769897 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '22ab8631-3bbc-437c-8e50-00dd930ec2df', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078a9fd0>]}
+[0m09:35:35.772127 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:35:35.841563 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:35:35.863907 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:35:35.864813 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '22ab8631-3bbc-437c-8e50-00dd930ec2df', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106c73d60>]}
+[0m09:35:35.896617 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Error reading dbt_tmc: base/van/_src_van.yml - Runtime Error
+    Syntax error near line 4
+    ------------------------------
+    1  | version: 2
+    2  | 
+    3  | definitions:
+    4  |   - van_source_template: &van_source_template
+    5  |     tables:
+    6  |       - name: activistcodes
+    7  |         columns:
+    
+    Raw Error:
+    ------------------------------
+    while constructing a mapping
+      in "<unicode string>", line 202, column 5
+    expected a mapping or list of mappings for merging, but found scalar
+      in "<unicode string>", line 4, column 26
+[0m09:35:35.897906 [debug] [MainThread]: Command `dbt run` failed at 09:35:35.897599 after 0.87 seconds
+[0m09:35:35.898794 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104f56d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078bd820>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1078bd7f0>]}
+[0m09:35:35.899497 [debug] [MainThread]: Flushing usage events
+[0m09:36:29.300120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104017d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d5fca0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d5f940>]}
+
+
+============================== 09:36:29.305641 | acc6aa0e-ecf2-4f7d-85b6-f423070c12bd ==============================
+[0m09:36:29.305641 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:36:29.307100 [debug] [MainThread]: running dbt with arguments {'write_json': 'True', 'version_check': 'True', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'fail_fast': 'False', 'use_experimental_parser': 'False', 'partial_parse': 'True', 'target_path': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'no_print': 'None', 'printer_width': '80', 'debug': 'False', 'log_format': 'default', 'invocation_command': 'dbt run', 'introspect': 'True', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'static_parser': 'True', 'use_colors': 'True', 'cache_selected_only': 'False', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'profiles_dir': '/Users/elyseweiss/github/dbt-van'}
+[0m09:36:29.680572 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'acc6aa0e-ecf2-4f7d-85b6-f423070c12bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d5f940>]}
+[0m09:36:29.696365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'acc6aa0e-ecf2-4f7d-85b6-f423070c12bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106972490>]}
+[0m09:36:29.697462 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:36:29.758470 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:36:29.780024 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:36:29.780779 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'acc6aa0e-ecf2-4f7d-85b6-f423070c12bd', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d5fe80>]}
+[0m09:36:29.794923 [error] [MainThread]: Encountered an error:
+Parsing Error
+  Error reading dbt_tmc: base/van/_src_van.yml - Runtime Error
+    Syntax error near line 4
+    ------------------------------
+    1  | version: 2
+    2  | 
+    3  | definitions:
+    4  |   - van_source_template: &van_source_template
+    5  |     name: schema_name
+    6  |     loader: VAN Pipeline
+    7  |     tables:
+    
+    Raw Error:
+    ------------------------------
+    while constructing a mapping
+      in "<unicode string>", line 204, column 5
+    expected a mapping or list of mappings for merging, but found scalar
+      in "<unicode string>", line 4, column 26
+[0m09:36:29.796361 [debug] [MainThread]: Command `dbt run` failed at 09:36:29.796019 after 0.53 seconds
+[0m09:36:29.797099 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104017d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10698c910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10698c8e0>]}
+[0m09:36:29.797766 [debug] [MainThread]: Flushing usage events
+[0m09:37:03.937747 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1045ece20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10632ddf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10632da90>]}
+
+
+============================== 09:37:03.943418 | dd489613-4368-4f74-aa8f-264b6a9643e7 ==============================
+[0m09:37:03.943418 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:37:03.944679 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'version_check': 'True', 'use_experimental_parser': 'False', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'log_format': 'default', 'use_colors': 'True', 'quiet': 'False', 'warn_error': 'None', 'printer_width': '80', 'write_json': 'True', 'partial_parse': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'debug': 'False', 'cache_selected_only': 'False', 'static_parser': 'True', 'invocation_command': 'dbt run', 'send_anonymous_usage_stats': 'True', 'introspect': 'True', 'fail_fast': 'False', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'no_print': 'None', 'log_path': '/Users/elyseweiss/github/dbt-van/logs'}
+[0m09:37:04.422545 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'dd489613-4368-4f74-aa8f-264b6a9643e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10632da90>]}
+[0m09:37:04.438262 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'dd489613-4368-4f74-aa8f-264b6a9643e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106f45fa0>]}
+[0m09:37:04.439724 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:37:04.510155 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:37:04.536592 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:37:04.537319 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'dd489613-4368-4f74-aa8f-264b6a9643e7', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106387550>]}
+[0m09:37:07.560857 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dbt_tmc.base_van__codetypes' (models/base/van/base_van__codetypes.sql) depends on a source named 'tmc_van.tsm_tmc_codetypes' which was not found
+[0m09:37:07.562606 [debug] [MainThread]: Command `dbt run` failed at 09:37:07.562227 after 3.67 seconds
+[0m09:37:07.563436 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1045ece20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107cb57c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107cb5850>]}
+[0m09:37:07.564091 [debug] [MainThread]: Flushing usage events
