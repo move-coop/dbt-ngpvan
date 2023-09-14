@@ -1,4 +1,4 @@
-dbt_tmc:
+dbt_van:
   target: dev
   outputs:
     dev:
