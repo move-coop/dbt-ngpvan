@@ -1,3 +1,39 @@
+dbt-van
+
+Copyright 2023 The Movement Cooperative & withDataLove
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this library except in compliance with the License,
+with the Additional NOTICE under Section 4(d) to include preserving
+the following author attribution statement:
+
+NOTICE
+
+dbv-van was originally authored by The Movement Cooperative in partnership 
+with withDataLove, and is developed and maintained by people who support the 
+following values:
+- Ending discrimination and violence based on race, ethnicity,  gender,
+sexual identification, age, religion, disabilities and immigration status.
+- Economic equality.
+- Reproductive rights or access to reproductive health care, specifically
+access to abortions.
+- Environmental protection, regulations and laws.
+- Firearm safety and gun violence prevention.
+- The ability of governmental entities to provide services
+(such as health care, food, education) to all.
+- The rights of workers to collectively bargain for wages, benefits
+and safe working conditions.
+
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+
                                  Apache License
                            Version 2.0, January 2004
                         http://www.apache.org/licenses/

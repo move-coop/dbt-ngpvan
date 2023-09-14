@@ -1,0 +1,2110 @@
+[0m16:25:52.792195 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104a18d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106737c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1067378e0>]}
+
+
+============================== 16:25:52.797711 | 9afb9dc0-c83a-47cd-bea3-7e88b6cbe76f ==============================
+[0m16:25:52.797711 [info ] [MainThread]: Running with dbt=1.6.1
+[0m16:25:52.799652 [debug] [MainThread]: running dbt with arguments {'use_experimental_parser': 'False', 'quiet': 'False', 'target_path': 'None', 'partial_parse': 'True', 'static_parser': 'True', 'fail_fast': 'False', 'printer_width': '80', 'cache_selected_only': 'False', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'log_path': 'logs', 'log_cache_events': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run-operation generate_source --args { "schema_name": "tmc_van", "generate_columns": "true", "table_names": ["tsm_tmc_activistcodes", "tsm_tmc_codes_vf", "tsm_tmc_codetypes", "tsm_tmc_committees", "tsm_tmc_contactsactivistcodes_vf", "tsm_tmc_contactscodes_vf", "tsm_tmc_contactscontacts_vf", "tsm_tmc_contactsnotes_vf", "tsm_tmc_contactssurveyresponses_vf", "tsm_tmc_contacttypes", "tsm_tmc_inputtypes", "tsm_tmc_surveyquestions", "tsm_tmc_surveyresponses", "tsm_tmc_users", "tsm_tmc_usersusergroups"]}', 'indirect_selection': 'eager', 'no_print': 'None', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True', 'use_colors': 'True', 'debug': 'False', 'version_check': 'True', 'introspect': 'True', 'write_json': 'True', 'log_format': 'default'}
+[0m16:25:52.801261 [error] [MainThread]: Encountered an error:
+Runtime Error
+  dbt_project.yml does not parse to a dictionary
+[0m16:25:52.803645 [debug] [MainThread]: Command `dbt run-operation` failed at 16:25:52.802259 after 0.08 seconds
+[0m16:25:52.804482 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x104a18d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106737c40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106737e20>]}
+[0m16:25:52.805130 [debug] [MainThread]: Flushing usage events
+[0m16:26:56.384518 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107420df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109149cd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109149970>]}
+
+
+============================== 16:26:56.406191 | 5d5b00cc-4836-4888-8201-9d79ab97c6ce ==============================
+[0m16:26:56.406191 [info ] [MainThread]: Running with dbt=1.6.1
+[0m16:26:56.409672 [debug] [MainThread]: running dbt with arguments {'invocation_command': 'dbt run-operation generate_source --args { "schema_name": "tmc_van", "generate_columns": "true", "table_names": ["tsm_tmc_activistcodes", "tsm_tmc_codes_vf", "tsm_tmc_codetypes", "tsm_tmc_committees", "tsm_tmc_contactsactivistcodes_vf", "tsm_tmc_contactscodes_vf", "tsm_tmc_contactscontacts_vf", "tsm_tmc_contactsnotes_vf", "tsm_tmc_contactssurveyresponses_vf", "tsm_tmc_contacttypes", "tsm_tmc_inputtypes", "tsm_tmc_surveyquestions", "tsm_tmc_surveyresponses", "tsm_tmc_users", "tsm_tmc_usersusergroups"]}', 'version_check': 'True', 'write_json': 'True', 'debug': 'False', 'cache_selected_only': 'False', 'no_print': 'None', 'use_experimental_parser': 'False', 'log_cache_events': 'False', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'partial_parse': 'True', 'use_colors': 'True', 'send_anonymous_usage_stats': 'True', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'target_path': 'None', 'static_parser': 'True', 'log_format': 'default', 'quiet': 'False', 'introspect': 'True', 'indirect_selection': 'eager', 'printer_width': '80', 'fail_fast': 'False'}
+[0m16:26:57.220557 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '5d5b00cc-4836-4888-8201-9d79ab97c6ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109149970>]}
+[0m16:26:57.238577 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '5d5b00cc-4836-4888-8201-9d79ab97c6ce', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109d6e160>]}
+[0m16:26:57.241314 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m16:26:57.244902 [error] [MainThread]: Encountered an error:
+Compilation Error
+  dbt found 3 package(s) specified in packages.yml, but only 0 package(s) installed in dbt_packages. Run "dbt deps" to install package dependencies.
+[0m16:26:57.247035 [debug] [MainThread]: Command `dbt run-operation` failed at 16:26:57.246627 after 0.95 seconds
+[0m16:26:57.247671 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x107420df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dcd670>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109dcd6a0>]}
+[0m16:26:57.248161 [debug] [MainThread]: Flushing usage events
+[0m16:37:11.703499 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a30d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11476ccd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11476c970>]}
+
+
+============================== 16:37:11.712120 | e8329b85-c1b8-4e2d-b37a-fb85395efe9b ==============================
+[0m16:37:11.712120 [info ] [MainThread]: Running with dbt=1.6.1
+[0m16:37:11.713301 [debug] [MainThread]: running dbt with arguments {'static_parser': 'True', 'cache_selected_only': 'False', 'write_json': 'True', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'log_cache_events': 'False', 'printer_width': '80', 'quiet': 'False', 'warn_error': 'None', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'fail_fast': 'False', 'log_format': 'default', 'debug': 'False', 'indirect_selection': 'eager', 'invocation_command': 'dbt deps', 'no_print': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'introspect': 'True', 'version_check': 'True', 'send_anonymous_usage_stats': 'True', 'partial_parse': 'True', 'target_path': 'None'}
+[0m16:37:12.183272 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e8329b85-c1b8-4e2d-b37a-fb85395efe9b', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11477a430>]}
+[0m16:37:12.208112 [debug] [MainThread]: Set downloads directory='/var/folders/pp/6d7tzwkn665586sv7wllddsh0000gn/T/dbt-downloads-b465p2ma'
+[0m16:37:12.209890 [debug] [MainThread]: Making package index registry request: GET https://hub.getdbt.com/api/v1/index.json
+[0m16:37:12.468436 [debug] [MainThread]: Response from registry index: GET https://hub.getdbt.com/api/v1/index.json 200
+[0m16:37:12.469694 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/calogica/dbt_expectations.json
+[0m16:37:12.582524 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/calogica/dbt_expectations.json 200
+[0m16:37:12.597883 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/codegen.json
+[0m16:37:12.710433 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/codegen.json 200
+[0m16:37:12.713665 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json
+[0m16:37:12.819452 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/dbt-labs/dbt_utils.json 200
+[0m16:37:12.826966 [debug] [MainThread]: Making package registry request: GET https://hub.getdbt.com/api/v1/calogica/dbt_date.json
+[0m16:37:12.938545 [debug] [MainThread]: Response from registry: GET https://hub.getdbt.com/api/v1/calogica/dbt_date.json 200
+[0m16:37:12.969066 [info ] [MainThread]: Installing calogica/dbt_expectations
+[0m16:37:13.747163 [info ] [MainThread]: Installed from version 0.8.5
+[0m16:37:13.748545 [info ] [MainThread]: Updated version available: 0.9.0
+[0m16:37:13.749981 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'e8329b85-c1b8-4e2d-b37a-fb85395efe9b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147bb310>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147bb3d0>]}
+[0m16:37:13.751691 [info ] [MainThread]: Installing dbt-labs/codegen
+[0m16:37:14.015774 [info ] [MainThread]: Installed from version 0.9.0
+[0m16:37:14.018164 [info ] [MainThread]: Updated version available: 0.10.0
+[0m16:37:14.019395 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'e8329b85-c1b8-4e2d-b37a-fb85395efe9b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3790>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3940>]}
+[0m16:37:14.020469 [info ] [MainThread]: Installing dbt-labs/dbt_utils
+[0m16:37:14.522762 [info ] [MainThread]: Installed from version 1.1.1
+[0m16:37:14.523888 [info ] [MainThread]: Up to date!
+[0m16:37:14.525210 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'e8329b85-c1b8-4e2d-b37a-fb85395efe9b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3640>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3b20>]}
+[0m16:37:14.526855 [info ] [MainThread]: Installing calogica/dbt_date
+[0m16:37:14.724013 [info ] [MainThread]: Installed from version 0.7.2
+[0m16:37:14.725596 [info ] [MainThread]: Updated version available: 0.9.1
+[0m16:37:14.726924 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'package', 'label': 'e8329b85-c1b8-4e2d-b37a-fb85395efe9b', 'property_': 'install', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3c10>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1147c3af0>]}
+[0m16:37:14.728705 [info ] [MainThread]: 
+[0m16:37:14.729623 [info ] [MainThread]: Updates available for packages: ['calogica/dbt_expectations', 'dbt-labs/codegen', 'calogica/dbt_date']                 
+Update your versions in packages.yml, then run dbt deps
+[0m16:37:14.737417 [debug] [MainThread]: Command `dbt deps` succeeded at 16:37:14.737014 after 3.09 seconds
+[0m16:37:14.738036 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x112a30d00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1100c2910>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x11476ceb0>]}
+[0m16:37:14.738605 [debug] [MainThread]: Flushing usage events
+[0m16:40:15.031669 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103391fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050d6d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050d6a30>]}
+
+
+============================== 16:40:15.037909 | bf4c9602-8c01-4ff5-885f-d140cab4bb66 ==============================
+[0m16:40:15.037909 [info ] [MainThread]: Running with dbt=1.6.1
+[0m16:40:15.038913 [debug] [MainThread]: running dbt with arguments {'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'debug': 'False', 'send_anonymous_usage_stats': 'True', 'version_check': 'True', 'no_print': 'None', 'quiet': 'False', 'warn_error': 'None', 'target_path': 'None', 'indirect_selection': 'eager', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'use_experimental_parser': 'False', 'introspect': 'True', 'log_format': 'default', 'use_colors': 'True', 'log_cache_events': 'False', 'invocation_command': 'dbt run-operation generate_source --args { "schema_name": "tmc_van", "generate_columns": "true", "table_names": ["tsm_tmc_activistcodes", "tsm_tmc_codes_vf", "tsm_tmc_codetypes", "tsm_tmc_committees", "tsm_tmc_contactsactivistcodes_vf", "tsm_tmc_contactscodes_vf", "tsm_tmc_contactscontacts_vf", "tsm_tmc_contactsnotes_vf", "tsm_tmc_contactssurveyresponses_vf", "tsm_tmc_contacttypes", "tsm_tmc_inputtypes", "tsm_tmc_surveyquestions", "tsm_tmc_surveyresponses", "tsm_tmc_users", "tsm_tmc_usersusergroups"]}', 'write_json': 'True', 'printer_width': '80', 'partial_parse': 'True', 'cache_selected_only': 'False', 'fail_fast': 'False'}
+[0m16:40:15.767817 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050d6a30>]}
+[0m16:40:15.802179 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d02400>]}
+[0m16:40:15.810429 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m16:40:15.924116 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m16:40:15.928756 [info ] [MainThread]: Unable to do partial parsing because saved manifest not found. Starting full parse.
+[0m16:40:15.929925 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d86610>]}
+[0m16:40:18.317568 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106007c70>]}
+[0m16:40:18.341986 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d8ddc0>]}
+[0m16:40:18.343131 [info ] [MainThread]: Found 0 sources, 0 exposures, 0 metrics, 743 macros, 0 groups, 0 semantic models
+[0m16:40:18.344485 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bf4c9602-8c01-4ff5-885f-d140cab4bb66', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d79c70>]}
+[0m16:40:18.345622 [debug] [MainThread]: Acquiring new redshift connection 'macro_generate_source'
+[0m16:40:18.346170 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:18.346624 [debug] [MainThread]: On macro_generate_source: BEGIN
+[0m16:40:18.347069 [debug] [MainThread]: Opening a new connection, currently in state init
+[0m16:40:18.347586 [debug] [MainThread]: Redshift adapter: Connecting to Redshift using 'database' credentials
+[0m16:40:18.813183 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:40:18.815652 [debug] [MainThread]: On macro_generate_source: COMMIT
+[0m16:40:18.817381 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:18.818814 [debug] [MainThread]: On macro_generate_source: COMMIT
+[0m16:40:18.851002 [debug] [MainThread]: SQL status: COMMIT in 0.0 seconds
+[0m16:40:18.902861 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:18.903536 [debug] [MainThread]: On macro_generate_source: BEGIN
+[0m16:40:18.934698 [debug] [MainThread]: SQL status: BEGIN in 0.0 seconds
+[0m16:40:18.935463 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:18.936079 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_activistcodes'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_activistcodes'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_activistcodes'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:40:32.740011 [debug] [MainThread]: SQL status: SELECT in 14.0 seconds
+[0m16:40:32.753884 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:32.754964 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_codes_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_codes_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_codes_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:40:49.455474 [debug] [MainThread]: SQL status: SELECT in 17.0 seconds
+[0m16:40:49.463620 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:40:49.464368 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_codetypes'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_codetypes'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_codetypes'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:41:05.109563 [debug] [MainThread]: SQL status: SELECT in 16.0 seconds
+[0m16:41:05.186004 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:41:05.186723 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_committees'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_committees'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_committees'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:41:19.435541 [debug] [MainThread]: SQL status: SELECT in 14.0 seconds
+[0m16:41:19.444754 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:41:19.445684 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contactsactivistcodes_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contactsactivistcodes_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contactsactivistcodes_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:41:33.067746 [debug] [MainThread]: SQL status: SELECT in 14.0 seconds
+[0m16:41:33.083799 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:41:33.085021 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contactscodes_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contactscodes_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contactscodes_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:41:45.508600 [debug] [MainThread]: SQL status: SELECT in 12.0 seconds
+[0m16:41:45.514108 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:41:45.514881 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contactscontacts_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contactscontacts_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contactscontacts_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:41:56.281140 [debug] [MainThread]: SQL status: SELECT in 11.0 seconds
+[0m16:41:56.297159 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:41:56.298394 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contactsnotes_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contactsnotes_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contactsnotes_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:09.065714 [debug] [MainThread]: SQL status: SELECT in 13.0 seconds
+[0m16:42:09.076588 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:09.077890 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contactssurveyresponses_vf'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contactssurveyresponses_vf'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contactssurveyresponses_vf'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:20.890545 [debug] [MainThread]: SQL status: SELECT in 12.0 seconds
+[0m16:42:20.909336 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:20.910904 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_contacttypes'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_contacttypes'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_contacttypes'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:30.249073 [debug] [MainThread]: SQL status: SELECT in 9.0 seconds
+[0m16:42:30.262126 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:30.263837 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_inputtypes'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_inputtypes'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_inputtypes'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:37.274630 [debug] [MainThread]: SQL status: SELECT in 7.0 seconds
+[0m16:42:37.280065 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:37.280787 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_surveyquestions'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_surveyquestions'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_surveyquestions'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:44.283556 [debug] [MainThread]: SQL status: SELECT in 7.0 seconds
+[0m16:42:44.293245 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:44.294003 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_surveyresponses'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_surveyresponses'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_surveyresponses'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:50.630629 [debug] [MainThread]: SQL status: SELECT in 6.0 seconds
+[0m16:42:50.639317 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:50.640042 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_users'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_users'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_users'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:42:57.449547 [debug] [MainThread]: SQL status: SELECT in 7.0 seconds
+[0m16:42:57.463289 [debug] [MainThread]: Using redshift connection "macro_generate_source"
+[0m16:42:57.464617 [debug] [MainThread]: On macro_generate_source: /* {"app": "dbt", "dbt_version": "1.6.1", "profile_name": "dbt_tmc", "target_name": "dev", "connection_name": "macro_generate_source"} */
+
+      with bound_views as (
+        select
+          ordinal_position,
+          table_schema,
+          column_name,
+          data_type,
+          character_maximum_length,
+          numeric_precision,
+          numeric_scale
+
+        from information_schema."columns"
+        where table_name = 'tsm_tmc_usersusergroups'
+    ),
+
+    unbound_views as (
+      select
+        ordinal_position,
+        view_schema,
+        col_name,
+        case
+          when col_type ilike 'character varying%' then
+            'character varying'
+          when col_type ilike 'numeric%' then 'numeric'
+          else col_type
+        end as col_type,
+        case
+          when col_type like 'character%'
+          then nullif(REGEXP_SUBSTR(col_type, '[0-9]+'), '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when col_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(col_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+
+      from pg_get_late_binding_view_cols()
+      cols(view_schema name, view_name name, col_name name,
+           col_type varchar, ordinal_position int)
+      where view_name = 'tsm_tmc_usersusergroups'
+    ),
+
+    external_views as (
+      select
+        columnnum,
+        schemaname,
+        columnname,
+        case
+          when external_type ilike 'character varying%' or external_type ilike 'varchar%'
+          then 'character varying'
+          when external_type ilike 'numeric%' then 'numeric'
+          else external_type
+        end as external_type,
+        case
+          when external_type like 'character%' or external_type like 'varchar%'
+          then nullif(
+            REGEXP_SUBSTR(external_type, '[0-9]+'),
+            '')::int
+          else null
+        end as character_maximum_length,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 1),
+            '')::int
+          else null
+        end as numeric_precision,
+        case
+          when external_type like 'numeric%'
+          then nullif(
+            SPLIT_PART(REGEXP_SUBSTR(external_type, '[0-9,]+'), ',', 2),
+            '')::int
+          else null
+        end as numeric_scale
+      from
+        pg_catalog.svv_external_columns
+      where
+        schemaname = 'tmc_van'
+        and tablename = 'tsm_tmc_usersusergroups'
+
+    ),
+
+    unioned as (
+      select * from bound_views
+      union all
+      select * from unbound_views
+      union all
+      select * from external_views
+    )
+
+    select
+      column_name,
+      data_type,
+      character_maximum_length,
+      numeric_precision,
+      numeric_scale
+
+    from unioned
+    
+    where table_schema = 'tmc_van'
+    
+    order by ordinal_position
+  
+[0m16:43:06.126360 [debug] [MainThread]: SQL status: SELECT in 9.0 seconds
+[0m16:43:06.131902 [info ] [MainThread]: version: 2
+
+sources:
+  - name: tmc_van
+    tables:
+      - name: tsm_tmc_activistcodes
+        columns:
+          - name: activistcodeid
+          - name: stateid
+          - name: activistcodetype
+          - name: activistcodename
+          - name: activistcodedescription
+          - name: reportquestion
+          - name: dempoints
+          - name: reppoints
+          - name: indpoints
+          - name: committeecreatedby
+          - name: actiontypeid
+          - name: campaignid
+          - name: active
+
+      - name: tsm_tmc_codes_vf
+        columns:
+          - name: statecode
+          - name: codeid
+          - name: codename
+          - name: committeeid
+          - name: isactive
+          - name: parentcodeid
+          - name: createdby
+          - name: datecreated
+          - name: staticfullname
+          - name: codetypeid
+          - name: datemodified
+
+      - name: tsm_tmc_codetypes
+        columns:
+          - name: codetypeid
+          - name: codetypename
+
+      - name: tsm_tmc_committees
+        columns:
+          - name: committeeid
+          - name: stateid
+          - name: committeename
+          - name: committeeshortname
+          - name: committeetypename
+          - name: active
+          - name: parentcommitteeid
+          - name: mastercommitteeid
+
+      - name: tsm_tmc_contactsactivistcodes_vf
+        columns:
+          - name: statecode
+          - name: contactsactivistcodeid
+          - name: vanid
+          - name: activistcodeid
+          - name: committeeid
+          - name: datecreated
+          - name: inputtypeid
+          - name: contacttypeid
+          - name: username
+          - name: canvassedby
+          - name: campaignid
+          - name: contentid
+          - name: datemodified
+          - name: contactscontactid
+          - name: datecanvassed
+
+      - name: tsm_tmc_contactscodes_vf
+        columns:
+          - name: statecode
+          - name: contactscodeid
+          - name: vanid
+          - name: codeid
+          - name: committeeid
+          - name: datecreated
+          - name: inputtypeid
+          - name: datemodified
+          - name: createdby
+
+      - name: tsm_tmc_contactscontacts_vf
+        columns:
+          - name: statecode
+          - name: contactscontactid
+          - name: vanid
+          - name: resultid
+          - name: committeeid
+          - name: datecreated
+          - name: datecanvassed
+          - name: inputtypeid
+          - name: contacttypeid
+          - name: username
+          - name: canvassedby
+          - name: campaignid
+          - name: contentid
+          - name: createdby
+          - name: personcommitteeid
+          - name: contactsphoneid
+          - name: teamid
+          - name: divisionid
+          - name: datemodified
+
+      - name: tsm_tmc_contactsnotes_vf
+        columns:
+          - name: statecode
+          - name: contactsnoteid
+          - name: vanid
+          - name: createdby
+          - name: datecreated
+          - name: committeeid
+          - name: suppressedby
+          - name: datesuppressed
+          - name: notetext
+          - name: datefollowup
+          - name: followupcompletedby
+          - name: datefollowupcompleted
+          - name: contactscontactid
+          - name: datemodified
+          - name: notecategoryname
+          - name: contactsonlineformid
+          - name: contactsstoryid
+          - name: notecategoryid
+
+      - name: tsm_tmc_contactssurveyresponses_vf
+        columns:
+          - name: statecode
+          - name: contactssurveyresponseid
+          - name: vanid
+          - name: contactscontactid
+          - name: surveyquestionid
+          - name: surveyresponseid
+          - name: datecreated
+          - name: datecanvassed
+          - name: inputtypeid
+          - name: contacttypeid
+          - name: committeeid
+          - name: username
+          - name: canvassedby
+          - name: campaignid
+          - name: contentid
+          - name: datemodified
+          - name: teamid
+          - name: divisionid
+
+      - name: tsm_tmc_contacttypes
+        columns:
+          - name: contacttypeid
+          - name: contacttypename
+
+      - name: tsm_tmc_inputtypes
+        columns:
+          - name: inputtypeid
+          - name: inputtypename
+
+      - name: tsm_tmc_surveyquestions
+        columns:
+          - name: surveyquestionid
+          - name: stateid
+          - name: cycle
+          - name: surveyquestiontype
+          - name: surveyquestionname
+          - name: surveyquestiontext
+          - name: mastersurveyquestionid
+          - name: createdcommitteeid
+          - name: active
+
+      - name: tsm_tmc_surveyresponses
+        columns:
+          - name: surveyquestionid
+          - name: surveyresponseid
+          - name: surveyresponsename
+          - name: dempoints
+          - name: reppoints
+          - name: indpoints
+          - name: mastersurveyresponseid
+
+      - name: tsm_tmc_users
+        columns:
+          - name: userid
+          - name: username
+          - name: firstname
+          - name: lastname
+          - name: canvassername
+          - name: address1
+          - name: city
+          - name: state
+          - name: zip
+          - name: email
+          - name: homephone
+          - name: cellphone
+
+      - name: tsm_tmc_usersusergroups
+        columns:
+          - name: userid
+          - name: usergroupid
+          - name: usergroupname
+          - name: datecreated
+          - name: createdby
+
+[0m16:43:06.134151 [debug] [MainThread]: On macro_generate_source: ROLLBACK
+[0m16:43:06.171710 [debug] [MainThread]: On macro_generate_source: Close
+[0m16:43:06.179060 [debug] [MainThread]: Command `dbt run-operation` succeeded at 16:43:06.178671 after 171.19 seconds
+[0m16:43:06.180214 [debug] [MainThread]: Connection 'macro_generate_source' was properly closed.
+[0m16:43:06.181284 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103391fd0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050d6a30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105d8de20>]}
+[0m16:43:06.182365 [debug] [MainThread]: Flushing usage events
+[0m09:13:26.978299 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e2ee20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb47df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10bb47a90>]}
+
+
+============================== 09:13:26.984668 | 686fb67c-01ce-4807-afff-0ac746bee730 ==============================
+[0m09:13:26.984668 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:13:26.985831 [debug] [MainThread]: running dbt with arguments {'cache_selected_only': 'False', 'static_parser': 'True', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'debug': 'False', 'introspect': 'True', 'log_format': 'default', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'log_cache_events': 'False', 'indirect_selection': 'eager', 'no_print': 'None', 'partial_parse': 'True', 'warn_error': 'None', 'write_json': 'True', 'printer_width': '80', 'target_path': 'None', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'version_check': 'True', 'quiet': 'False', 'invocation_command': 'dbt run', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])'}
+[0m09:13:27.529129 [error] [MainThread]: Encountered an error:
+Runtime Error
+  at path []: Additional properties are not allowed ('van' was unexpected)
+
+Error encountered in /Users/elyseweiss/github/dbt-van/dbt_project.yml
+[0m09:13:27.532233 [debug] [MainThread]: Command `dbt run` failed at 09:13:27.531156 after 0.61 seconds
+[0m09:13:27.533093 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x109e2ee20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c777700>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x10c777a90>]}
+[0m09:13:27.534034 [debug] [MainThread]: Flushing usage events
+[0m09:16:02.668455 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ea6e20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105bc1df0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105bc1a90>]}
+
+
+============================== 09:16:02.677719 | 3dce2ef2-dbdc-44f7-aeb3-d3ac73fe4651 ==============================
+[0m09:16:02.677719 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:16:02.679460 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'fail_fast': 'False', 'log_cache_events': 'False', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'quiet': 'False', 'printer_width': '80', 'partial_parse': 'True', 'use_colors': 'True', 'indirect_selection': 'eager', 'log_format': 'default', 'use_experimental_parser': 'False', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'write_json': 'True', 'debug': 'False', 'invocation_command': 'dbt run', 'version_check': 'True', 'static_parser': 'True', 'warn_error': 'None', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'no_print': 'None', 'introspect': 'True'}
+[0m09:16:03.791732 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3dce2ef2-dbdc-44f7-aeb3-d3ac73fe4651', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105bc1a90>]}
+[0m09:16:03.806254 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3dce2ef2-dbdc-44f7-aeb3-d3ac73fe4651', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1067fadf0>]}
+[0m09:16:03.808547 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:16:03.866386 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:16:03.887498 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:16:03.888662 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3dce2ef2-dbdc-44f7-aeb3-d3ac73fe4651', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c1b550>]}
+[0m09:16:06.537690 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dbt_tmc.base_van__codetypes' (models/base/van/base_van__codetypes.sql) depends on a source named 'tmc_van.tsm_tmc_codetypes' which was not found
+[0m09:16:06.539417 [debug] [MainThread]: Command `dbt run` failed at 09:16:06.539044 after 3.94 seconds
+[0m09:16:06.540394 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x103ea6e20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074dfa90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1074dfee0>]}
+[0m09:16:06.541079 [debug] [MainThread]: Flushing usage events
+[0m09:17:36.076186 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111456d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113176d60>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113176a00>]}
+
+
+============================== 09:17:36.083491 | 3ce0e3d5-d55f-4855-917b-46a8b5fb4c88 ==============================
+[0m09:17:36.083491 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:17:36.086002 [debug] [MainThread]: running dbt with arguments {'target_path': 'None', 'printer_width': '80', 'static_parser': 'True', 'quiet': 'False', 'warn_error': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'partial_parse': 'True', 'write_json': 'True', 'send_anonymous_usage_stats': 'True', 'cache_selected_only': 'False', 'use_experimental_parser': 'False', 'log_format': 'default', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'indirect_selection': 'eager', 'use_colors': 'True', 'log_cache_events': 'False', 'fail_fast': 'False', 'version_check': 'True', 'invocation_command': 'dbt run', 'debug': 'False', 'no_print': 'None', 'introspect': 'True'}
+[0m09:17:36.811948 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '3ce0e3d5-d55f-4855-917b-46a8b5fb4c88', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113176a00>]}
+[0m09:17:36.839253 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '3ce0e3d5-d55f-4855-917b-46a8b5fb4c88', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113daafa0>]}
+[0m09:17:36.843499 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:17:36.921844 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:17:36.949968 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:17:36.950889 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '3ce0e3d5-d55f-4855-917b-46a8b5fb4c88', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x113176d60>]}
+[0m09:17:40.175766 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dbt_tmc.base_van__codetypes' (models/base/van/base_van__codetypes.sql) depends on a source named 'tmc_van.tsm_tmc_codetypes' which was not found
+[0m09:17:40.177486 [debug] [MainThread]: Command `dbt run` failed at 09:17:40.177147 after 4.17 seconds
+[0m09:17:40.178764 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x111456d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114a8fe80>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x114a8fe50>]}
+[0m09:17:40.180067 [debug] [MainThread]: Flushing usage events
+[0m09:29:20.064459 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1032eadf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105008d90>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105008a30>]}
+
+
+============================== 09:29:20.079207 | 0b47bc5d-eeb2-4d7e-b08f-c835e4e824e1 ==============================
+[0m09:29:20.079207 [info ] [MainThread]: Running with dbt=1.6.1
+[0m09:29:20.081025 [debug] [MainThread]: running dbt with arguments {'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'no_print': 'None', 'target_path': 'None', 'invocation_command': 'dbt run', 'fail_fast': 'False', 'profiles_dir': '/Users/elyseweiss/github/dbt-van', 'introspect': 'True', 'partial_parse': 'True', 'write_json': 'True', 'static_parser': 'True', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'indirect_selection': 'eager', 'debug': 'False', 'use_colors': 'True', 'log_path': '/Users/elyseweiss/github/dbt-van/logs', 'log_format': 'default', 'printer_width': '80', 'cache_selected_only': 'False', 'version_check': 'True', 'warn_error': 'None', 'send_anonymous_usage_stats': 'True'}
+[0m09:29:20.867565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '0b47bc5d-eeb2-4d7e-b08f-c835e4e824e1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105008a30>]}
+[0m09:29:20.884296 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '0b47bc5d-eeb2-4d7e-b08f-c835e4e824e1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x105c3feb0>]}
+[0m09:29:20.886076 [info ] [MainThread]: Registered adapter: redshift=1.4.0
+[0m09:29:21.004343 [debug] [MainThread]: checksum: efe19d9f5b93d1a98cc804fbfcdb6b3aced98b974af664946fee1cde8837deb7, vars: {}, profile: , target: , version: 1.6.1
+[0m09:29:21.036082 [info ] [MainThread]: Unable to do partial parsing because a project config has changed
+[0m09:29:21.036887 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'partial_parser', 'label': '0b47bc5d-eeb2-4d7e-b08f-c835e4e824e1', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1050604f0>]}
+[0m09:29:24.449887 [error] [MainThread]: Encountered an error:
+Compilation Error
+  Model 'model.dbt_tmc.base_van__codetypes' (models/base/van/base_van__codetypes.sql) depends on a source named 'tmc_van.tsm_tmc_codetypes' which was not found
+[0m09:29:24.451361 [debug] [MainThread]: Command `dbt run` failed at 09:29:24.451039 after 4.67 seconds
+[0m09:29:24.452688 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1032eadf0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x1068c98b0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x106925dc0>]}
+[0m09:29:24.453833 [debug] [MainThread]: Flushing usage events
