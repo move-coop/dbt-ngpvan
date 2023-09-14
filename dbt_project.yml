@@ -1,8 +1,8 @@
-name: 'dbt_tmc'
+name: 'dbt_van'
 version: '1.0.0'
 config-version: 2
 
-profile: 'dbt_tmc'
+profile: 'dbt_van'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -19,10 +19,26 @@ clean-targets:
 tests:
   +severity: warn  # all tests
 
+models:
+  dbt_van:
+    base:
+      +schema: dbt_base
+      +materialized: view
+      +bind: false
+      mobilize:
+        +materialized: table
+    staging:
+      +schema: dbt_staging
+      +materialized: table
+    intermediate:
+      +schema: dbt_intermediate
+      +materialized: table
+
+
 vars:
   vendors:
     van:
-      - schema: tmc_van 
+      - schema: tmc_van
         tables:
           activistcodes:
               - name: tsm_tmc_activistcodes

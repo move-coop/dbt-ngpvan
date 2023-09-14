@@ -1,205 +1,217 @@
 version: 2
 
 definitions:
+
+  - activistcodes_table_template: &activist_codes
+      name: activistcodes
+      columns:
+        - name: activistcodeid
+        - name: stateid
+        - name: activistcodetype
+        - name: activistcodename
+        - name: activistcodedescription
+        - name: reportquestion
+        - name: dempoints
+        - name: reppoints
+        - name: indpoints
+        - name: committeecreatedby
+        - name: actiontypeid
+        - name: campaignid
+        - name: active
+
+  # - name: codes
+  #   columns:
+  #     - name: statecode
+  #     - name: codeid
+  #     - name: codename
+  #     - name: committeeid
+  #     - name: isactive
+  #     - name: parentcodeid
+  #     - name: createdby
+  #     - name: datecreated
+  #     - name: staticfullname
+  #     - name: codetypeid
+  #     - name: datemodified
+
+  - codetypes_table_template: &codetypes
+      name: codetypes
+      columns:
+        - name: codetypeid
+        - name: codetypename
+
+  # - name: committees
+  #   columns:
+  #     - name: committeeid
+  #     - name: stateid
+  #     - name: committeename
+  #     - name: committeeshortname
+  #     - name: committeetypename
+  #     - name: active
+  #     - name: parentcommitteeid
+  #     - name: mastercommitteeid
+
+  # - name: contactsactivistcodes
+  #   columns:
+  #     - name: statecode
+  #     - name: contactsactivistcodeid
+  #     - name: vanid
+  #     - name: activistcodeid
+  #     - name: committeeid
+  #     - name: datecreated
+  #     - name: inputtypeid
+  #     - name: contacttypeid
+  #     - name: username
+  #     - name: canvassedby
+  #     - name: campaignid
+  #     - name: contentid
+  #     - name: datemodified
+  #     - name: contactscontactid
+  #     - name: datecanvassed
+
+  # - name: contactscodes
+  #   columns:
+  #     - name: statecode
+  #     - name: contactscodeid
+  #     - name: vanid
+  #     - name: codeid
+  #     - name: committeeid
+  #     - name: datecreated
+  #     - name: inputtypeid
+  #     - name: datemodified
+  #     - name: createdby
+
+  # - name: contactscontacts
+  #   columns:
+  #     - name: statecode
+  #     - name: contactscontactid
+  #     - name: vanid
+  #     - name: resultid
+  #     - name: committeeid
+  #     - name: datecreated
+  #     - name: datecanvassed
+  #     - name: inputtypeid
+  #     - name: contacttypeid
+  #     - name: username
+  #     - name: canvassedby
+  #     - name: campaignid
+  #     - name: contentid
+  #     - name: createdby
+  #     - name: personcommitteeid
+  #     - name: contactsphoneid
+  #     - name: teamid
+  #     - name: divisionid
+  #     - name: datemodified
+
+  # - name: contactsnotes
+  #   columns:
+  #     - name: statecode
+  #     - name: contactsnoteid
+  #     - name: vanid
+  #     - name: createdby
+  #     - name: datecreated
+  #     - name: committeeid
+  #     - name: suppressedby
+  #     - name: datesuppressed
+  #     - name: notetext
+  #     - name: datefollowup
+  #     - name: followupcompletedby
+  #     - name: datefollowupcompleted
+  #     - name: contactscontactid
+  #     - name: datemodified
+  #     - name: notecategoryname
+  #     - name: contactsonlineformid
+  #     - name: contactsstoryid
+  #     - name: notecategoryid
+
+  # - name: contactssurveyresponses
+  #   columns:
+  #     - name: statecode
+  #     - name: contactssurveyresponseid
+  #     - name: vanid
+  #     - name: contactscontactid
+  #     - name: surveyquestionid
+  #     - name: surveyresponseid
+  #     - name: datecreated
+  #     - name: datecanvassed
+  #     - name: inputtypeid
+  #     - name: contacttypeid
+  #     - name: committeeid
+  #     - name: username
+  #     - name: canvassedby
+  #     - name: campaignid
+  #     - name: contentid
+  #     - name: datemodified
+  #     - name: teamid
+  #     - name: divisionid
+
+  # - name: contacttypes
+  #   columns:
+  #     - name: contacttypeid
+  #     - name: contacttypename
+
+  # - name: inputtypes
+  #   columns:
+  #     - name: inputtypeid
+  #     - name: inputtypename
+
+  # - name: surveyquestions
+  #   columns:
+  #     - name: surveyquestionid
+  #     - name: stateid
+  #     - name: cycle
+  #     - name: surveyquestiontype
+  #     - name: surveyquestionname
+  #     - name: surveyquestiontext
+  #     - name: mastersurveyquestionid
+  #     - name: createdcommitteeid
+  #     - name: active
+
+  # - name: surveyresponses
+  #   columns:
+  #     - name: surveyquestionid
+  #     - name: surveyresponseid
+  #     - name: surveyresponsename
+  #     - name: dempoints
+  #     - name: reppoints
+  #     - name: indpoints
+  #     - name: mastersurveyresponseid
+
+  # - name: users
+  #   columns:
+  #     - name: userid
+  #     - name: username
+  #     - name: firstname
+  #     - name: lastname
+  #     - name: canvassername
+  #     - name: address1
+  #     - name: city
+  #     - name: state
+  #     - name: zip
+  #     - name: email
+  #     - name: homephone
+  #     - name: cellphone
+
+  # - name: usersusergroups
+  #   columns:
+  #     - name: userid
+  #     - name: usergroupid
+  #     - name: usergroupname
+  #     - name: datecreated
+  #     - name: createdby
+
+
   - van_source_template: &van_source_template
       name: schema_name
       loader: VAN Pipeline
       tables:
-        - name: activistcodes
-          columns:
-            - name: activistcodeid
-            - name: stateid
-            - name: activistcodetype
-            - name: activistcodename
-            - name: activistcodedescription
-            - name: reportquestion
-            - name: dempoints
-            - name: reppoints
-            - name: indpoints
-            - name: committeecreatedby
-            - name: actiontypeid
-            - name: campaignid
-            - name: active
+       tables:
+        - <<: *activist_codes
+        - <<: *codetypes
 
-        - name: codes
-          columns:
-            - name: statecode
-            - name: codeid
-            - name: codename
-            - name: committeeid
-            - name: isactive
-            - name: parentcodeid
-            - name: createdby
-            - name: datecreated
-            - name: staticfullname
-            - name: codetypeid
-            - name: datemodified
-
-        - name: codetypes
-          columns:
-            - name: codetypeid
-            - name: codetypename
-
-        - name: committees
-          columns:
-            - name: committeeid
-            - name: stateid
-            - name: committeename
-            - name: committeeshortname
-            - name: committeetypename
-            - name: active
-            - name: parentcommitteeid
-            - name: mastercommitteeid
-
-        - name: contactsactivistcodes
-          columns:
-            - name: statecode
-            - name: contactsactivistcodeid
-            - name: vanid
-            - name: activistcodeid
-            - name: committeeid
-            - name: datecreated
-            - name: inputtypeid
-            - name: contacttypeid
-            - name: username
-            - name: canvassedby
-            - name: campaignid
-            - name: contentid
-            - name: datemodified
-            - name: contactscontactid
-            - name: datecanvassed
-
-        - name: contactscodes
-          columns:
-            - name: statecode
-            - name: contactscodeid
-            - name: vanid
-            - name: codeid
-            - name: committeeid
-            - name: datecreated
-            - name: inputtypeid
-            - name: datemodified
-            - name: createdby
-
-        - name: contactscontacts
-          columns:
-            - name: statecode
-            - name: contactscontactid
-            - name: vanid
-            - name: resultid
-            - name: committeeid
-            - name: datecreated
-            - name: datecanvassed
-            - name: inputtypeid
-            - name: contacttypeid
-            - name: username
-            - name: canvassedby
-            - name: campaignid
-            - name: contentid
-            - name: createdby
-            - name: personcommitteeid
-            - name: contactsphoneid
-            - name: teamid
-            - name: divisionid
-            - name: datemodified
-
-        - name: contactsnotes
-          columns:
-            - name: statecode
-            - name: contactsnoteid
-            - name: vanid
-            - name: createdby
-            - name: datecreated
-            - name: committeeid
-            - name: suppressedby
-            - name: datesuppressed
-            - name: notetext
-            - name: datefollowup
-            - name: followupcompletedby
-            - name: datefollowupcompleted
-            - name: contactscontactid
-            - name: datemodified
-            - name: notecategoryname
-            - name: contactsonlineformid
-            - name: contactsstoryid
-            - name: notecategoryid
-
-        - name: contactssurveyresponses
-          columns:
-            - name: statecode
-            - name: contactssurveyresponseid
-            - name: vanid
-            - name: contactscontactid
-            - name: surveyquestionid
-            - name: surveyresponseid
-            - name: datecreated
-            - name: datecanvassed
-            - name: inputtypeid
-            - name: contacttypeid
-            - name: committeeid
-            - name: username
-            - name: canvassedby
-            - name: campaignid
-            - name: contentid
-            - name: datemodified
-            - name: teamid
-            - name: divisionid
-
-        - name: contacttypes
-          columns:
-            - name: contacttypeid
-            - name: contacttypename
-
-        - name: inputtypes
-          columns:
-            - name: inputtypeid
-            - name: inputtypename
-
-        - name: surveyquestions
-          columns:
-            - name: surveyquestionid
-            - name: stateid
-            - name: cycle
-            - name: surveyquestiontype
-            - name: surveyquestionname
-            - name: surveyquestiontext
-            - name: mastersurveyquestionid
-            - name: createdcommitteeid
-            - name: active
-
-        - name: surveyresponses
-          columns:
-            - name: surveyquestionid
-            - name: surveyresponseid
-            - name: surveyresponsename
-            - name: dempoints
-            - name: reppoints
-            - name: indpoints
-            - name: mastersurveyresponseid
-
-        - name: users
-          columns:
-            - name: userid
-            - name: username
-            - name: firstname
-            - name: lastname
-            - name: canvassername
-            - name: address1
-            - name: city
-            - name: state
-            - name: zip
-            - name: email
-            - name: homephone
-            - name: cellphone
-
-        - name: usersusergroups
-          columns:
-            - name: userid
-            - name: usergroupid
-            - name: usergroupname
-            - name: datecreated
-            - name: createdby
 
 sources:
   - <<: *van_source_template
     name: tmc_van
+    tables:
+      - <<: *codetypes
+      - name: tsm_tmc_codetypes
