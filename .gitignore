@@ -10,8 +10,4 @@ logs/
 .vscode
 service_accounts/**/*.json
 development.env
-
-# remove if we decide to figure out docker dev
-docker-compose.yml
-Dockerfile
-requirements.txt
+*.ipynb
