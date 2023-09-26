@@ -1,0 +1,17 @@
+# dbt default
+target/
+dbt_packages/
+logs/
+
+# added
+.env
+.DS_Store
+.user.yml
+.vscode
+service_accounts/**/*.json
+development.env
+
+# remove if we decide to figure out docker dev
+docker-compose.yml
+Dockerfile
+requirements.txt
