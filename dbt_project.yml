@@ -16,22 +16,14 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
-tests:
-  +severity: warn  # all tests
-
 models:
   dbt_van:
     base:
       +schema: dbt_base
-      +materialized: view
-      +bind: false
-    staging:
-      +schema: dbt_staging
-      +materialized: table
-    intermediate:
-      +schema: dbt_intermediate
       +materialized: table
 
+tests:
+  +severity: warn  # all tests
 
 vars:
   vendors:
@@ -39,32 +31,32 @@ vars:
       - schema: tmc_van
         tables:
           activistcodes:
-              - name: tsm_tmc_activistcodes
+            - name: tsm_tmc_activistcodes
           codes:
-              - name: tsm_tmc_codes_vf
+            - name: tsm_tmc_codes_vf
           codetypes:
-              - name: tsm_tmc_codetypes
+            - name: tsm_tmc_codetypes
           committees:
-              - name: tsm_tmc_committees
+            - name: tsm_tmc_committees
           contactsactivistcodes:
-              - name: tsm_tmc_contactsactivistcodes_vf
+            - name: tsm_tmc_contactsactivistcodes_vf
           contactscodes:
-              - name: tsm_tmc_contactscodes_vf
+            - name: tsm_tmc_contactscodes_vf
           contactscontacts:
-              - name: tsm_tmc_contactscontacts_vf
+            - name: tsm_tmc_contactscontacts_vf
           contactsnotes:
-              - name: tsm_tmc_contactsnotes
+            - name: tsm_tmc_contactsnotes_vf
           contactssurveyresponses:
-              - name: tsm_tmc_contactssurveyresponses_vf
+            - name: tsm_tmc_contactssurveyresponses_vf
           contacttypes:
-              - name: tsm_tmc_contacttypes
+            - name: tsm_tmc_contacttypes
           inputtypes:
-              - name: tsm_tmc_inputtypes
+            - name: tsm_tmc_inputtypes
           surveyquestions:
-              - name: tsm_tmc_surveyquestions
+            - name: tsm_tmc_surveyquestions
           surveyresponses:
-              - name: tsm_tmc_surveyresponses
+            - name: tsm_tmc_surveyresponses
           users:
-              - name: tsm_tmc_usersusergroups
+            - name: tsm_tmc_usersusergroups
           usersusergroups:
-              - name: tsm_tmc_usersusergroups
+            - name: tsm_tmc_usersusergroups

@@ -2,7 +2,7 @@ version: 2
 
 definitions:
 
-    - activistcodes_table_template: &activist_codes
+  - activistcodes_table_template: &activistcodes
       name: activistcodes
       columns:
         - name: activistcodeid
@@ -19,7 +19,7 @@ definitions:
         - name: campaignid
         - name: active
 
-    - codes_table_template: &codes
+  - codes_table_template: &codes
       name: codes
       columns:
         - name: statecode
@@ -33,14 +33,14 @@ definitions:
         - name: staticfullname
         - name: codetypeid
         - name: datemodified
-  
-    - codetypes_table_template: &codetypes
+
+  - codetypes_table_template: &codetypes
       name: codetypes
       columns:
         - name: codetypeid
         - name: codetypename
 
-    - committees_table_template: &committees
+  - committees_table_template: &committees
       name: committees
       columns:
         - name: committeeid
@@ -52,7 +52,7 @@ definitions:
         - name: parentcommitteeid
         - name: mastercommitteeid
 
-    - contactsactivistcodes_table_template: &contactsactivistcodes
+  - contactsactivistcodes_table_template: &contactsactivistcodes
       name: contactsactivistcodes
       columns:
         - name: statecode
@@ -70,8 +70,8 @@ definitions:
         - name: datemodified
         - name: contactscontactid
         - name: datecanvassed
-    
-    - contactscodes_table_template: &contactscodes
+
+  - contactscodes_table_template: &contactscodes
       name: contactscodes
       columns:
         - name: statecode
@@ -84,7 +84,7 @@ definitions:
         - name: datemodified
         - name: createdby
 
-    - contactscontacts_table_template: &contactscontacts
+  - contactscontacts_table_template: &contactscontacts
       name: contactscontacts
       columns:
         - name: statecode
@@ -107,7 +107,7 @@ definitions:
         - name: divisionid
         - name: datemodified
 
-    - contactsnotes_table_template: &contactsnotes
+  - contactsnotes_table_template: &contactsnotes
       name: contactsnotes
       columns:
         - name: statecode
@@ -126,8 +126,8 @@ definitions:
         - name: datemodified
         - name: notecategoryname
         - name: contactsonlineformid
-    
-    - contactssurveyresponses_table_template: &contactssurveyresponses
+
+  - contactssurveyresponses_table_template: &contactssurveyresponses
       name: contactssurveyresponses
       columns:
         - name: statecode
@@ -149,19 +149,19 @@ definitions:
         - name: teamid
         - name: divisionid
 
-    - contacttypes_table_template: &contacttypes
+  - contacttypes_table_template: &contacttypes
       name: contacttypes
       columns:
         - name: contacttypeid
         - name: contacttypename
 
-    - inputtypes_table_template: &inputtypes
+  - inputtypes_table_template: &inputtypes
       name: inputtypes
       columns:
         - name: inputtypeid
         - name: inputtypename
 
-    - surveyquestions_table_template: &surveyquestions
+  - surveyquestions_table_template: &surveyquestions
       name: surveyquestions
       columns:
         - name: surveyquestionid
@@ -174,7 +174,7 @@ definitions:
         - name: createdcommitteeid
         - name: active
 
-    - surveyresponses_table_template: &surveyresponses
+  - surveyresponses_table_template: &surveyresponses
       name: surveyresponses
       columns:
         - name: surveyquestionid
@@ -185,7 +185,7 @@ definitions:
         - name: indpoints
         - name: mastersurveyresponseid
 
-    - users_table_template: &users
+  - users_table_template: &users
       name: users
       columns:
         - name: userid
@@ -201,7 +201,7 @@ definitions:
         - name: homephone
         - name: cellphone
 
-    - usersusergroups_table_template: &usersusergroups
+  - usersusergroups_table_template: &usersusergroups
       name: usersusergroups
       columns:
         - name: userid
@@ -209,10 +209,9 @@ definitions:
         - name: usergroupname
         - name: datecreated
         - name: createdby
- 
-    - van_source_template: &van_source_template
+
+  - van_source_template: &van_source_template
       name: schema_name
-      loader: VAN Pipeline
       tables:
         - <<: *activistcodes
         - <<: *codes
@@ -236,32 +235,32 @@ sources:
     name: tmc_van
     tables:
       - <<: *activistcodes
-      - name: tsm_tmc_activistcodes
+        name: tsm_tmc_activistcodes
       - <<: *codes
-      - name: tsm_tmc_codes_vf
+        name: tsm_tmc_codes_vf
       - <<: *codetypes
-      - name: tsm_tmc_codetypes
+        name: tsm_tmc_codetypes
       - <<: *committees
-      - name: tsm_tmc_committees
+        name: tsm_tmc_committees
       - <<: *contactsactivistcodes
-      - name: tsm_tmc_contactsactivistcodes_vf
+        name: tsm_tmc_contactsactivistcodes_vf
       - <<: *contactscodes
-      - name: tsm_tmc_contactscodes_vf
+        name: tsm_tmc_contactscodes_vf
       - <<: *contactscontacts
-      - name: tsm_tmc_contactscontacts_vf
+        name: tsm_tmc_contactscontacts_vf
       - <<: *contactsnotes
-      - name: tsm_tmc_contactsnotes_vf
+        name: tsm_tmc_contactsnotes_vf
       - <<: *contactssurveyresponses
-      - name: tsm_tmc_contactssurveyresponses_vf
+        name: tsm_tmc_contactssurveyresponses_vf
       - <<: *contacttypes
-      - name: tsm_tmc_contacttypes
+        name: tsm_tmc_contacttypes
       - <<: *inputtypes
-      - name: tsm_tmc_inputtypes
+        name: tsm_tmc_inputtypes
       - <<: *surveyquestions
-      - name: tsm_tmc_surveyquestions
+        name: tsm_tmc_surveyquestions
       - <<: *surveyresponses
-      - name: tsm_tmc_surveyresponses
+        name: tsm_tmc_surveyresponses
       - <<: *users
-      - name: tsm_tmc_users
+        name: tsm_tmc_users
       - <<: *usersusergroups
-      - name: tsm_tmc_usersusergroups
+        name: tsm_tmc_usersusergroups
