@@ -14,8 +14,7 @@ WITH base AS (
 , segment_by AS (
 
     SELECT
-        *,
-        committeeid
+        *
 
     FROM base
 )

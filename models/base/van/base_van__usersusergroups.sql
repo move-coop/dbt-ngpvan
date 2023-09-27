@@ -27,7 +27,7 @@ SELECT
     staging_metadata_fields(
         vendor='van',
         segment_by_column='committeeid',
-        segment_primary_keys=['usersusergroupid']
+        segment_primary_keys=['userid', 'usergroupid']
     ) 
     }}
 FROM segment_by
