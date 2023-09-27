@@ -1,1 +1,0 @@
-{"_invocation_id": "891c2277-2c75-4a3f-b22d-3552f98aee1d", "linked": {"0": {"name": "source.dbt_van.tmc_van.codetypes", "type": "source"}, "1": {"name": "source.dbt_van.tmc_van.tsm_tmc_codetypes", "type": "source", "succ": [2]}, "2": {"name": "model.dbt_van.base_van__codetypes", "type": "model"}}}

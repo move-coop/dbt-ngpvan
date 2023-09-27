@@ -1,0 +1,13 @@
+# dbt default
+target/
+dbt_packages/
+logs/
+
+# added
+.env
+.DS_Store
+.user.yml
+.vscode
+service_accounts/**/*.json
+development.env
+*.ipynb
