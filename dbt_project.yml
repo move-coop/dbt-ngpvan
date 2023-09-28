@@ -21,6 +21,9 @@ models:
     base:
       +schema: dbt_base
       +materialized: table
+    staging:
+      +schema: dbt_staging
+      +materialized: table
 
 tests:
   +severity: warn  # all tests

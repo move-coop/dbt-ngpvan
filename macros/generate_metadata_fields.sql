@@ -1,5 +1,5 @@
-{% macro staging_metadata_fields(vendor, segment_by_column, segment_primary_keys) -%}
-    
+{% macro generate_metadata_fields(vendor, segment_by_column, segment_primary_keys) -%}
+
     {%- set surrogate_key_cols = ["'" ~ vendor ~ "'", segment_by_column] -%}
 
     {%- for primary_key in segment_primary_keys -%}

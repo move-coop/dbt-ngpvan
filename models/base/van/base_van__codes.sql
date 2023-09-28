@@ -20,13 +20,13 @@ WITH base AS (
 )
 
 
-SELECT 
+SELECT
     *,
-    {{ 
-    staging_metadata_fields(
+    {{
+    generate_metadata_fields(
         vendor='van',
         segment_by_column='committeeid',
         segment_primary_keys=['codeid']
-    ) 
+    )
     }}
 FROM segment_by

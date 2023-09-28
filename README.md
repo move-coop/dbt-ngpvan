@@ -15,7 +15,7 @@ This package currently only includes voterfile side data.
 - Types of Transformations:
     - None
 - Metadata Added:
-    - 
+    -
 - Testing Approach:
     - None
 
@@ -24,15 +24,15 @@ This package currently only includes voterfile side data.
     - Prep layer for staging primarily for the purpose of unioning data across pipelines into a common table
     (this is helpful for folks who may be unioning mulitiple pipelines)
     - This greatly simplifies the logic in the staging layer
-- Schema: prod_dbt_base
+- Schema: dbt_base
 - Table Names: base_van__{table}
-- Default Materialization: view
+- Default Materialization: table
 - Types of Transformations:
     - Union together common data
-    - rename `committeeid` column to `committeeid`
+    - rename committee id columns to `committeeid`
 - Metadata Added:
     - Source schema and table
-    - 
+    -
 - Testing Approach:
     - None
 
@@ -40,10 +40,10 @@ This package currently only includes voterfile side data.
 - Function:
     - This layer creates the basic building blocks utilized for all downstream data transformations
     - Standardizes and cleans incoming raw data
-- Schema: prod_dbt_staging
+- Schema: dbt_staging
 - Table Names: stg_van__{table}
 - Types of Transformations:
-    - Clean and format fields such as timezones for dates, common phone or email formats etc.    
+    - Clean and format fields such as timezones for dates, common phone or email formats etc.
 - Metadata Added:
     - Segment By fields are added to every model
     - Join in table as needed to populate `committeeid`
@@ -59,7 +59,7 @@ This package currently only includes voterfile side data.
 #### Intermediate
 - Function:
     - Create tables that are most useful for querying
-- Schema: prod_dbt_intermediate
+- Schema: dbt_intermediate
 - Table Names:
     - int_van__{table} - tool specific tables
 - Types of Transformations:
@@ -77,4 +77,4 @@ This package currently only includes voterfile side data.
 ### Source Template
 This package leverages a source template to allow for pipeline data to flow from multiple
 schemas. Tables are expected to have the same columns, but may have unique prefix or
-suffix patterns. 
+suffix patterns.

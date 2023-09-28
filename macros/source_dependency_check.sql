@@ -14,13 +14,13 @@
 
     {% if table_exists %}
 
-        {{ log("[Debug] Source table "~schema~"."~identifier~" exists", info=True) }}
+        {{ log("[Debug] Source table "~schema~"."~identifier~" exists", debug=True) }}
 
         true
 
     {% else %}
 
-        {{ log("[Debug] Source table "~schema~"."~identifier~" does not exist", info=True) }}
+        {{ log("[Debug] Source table "~schema~"."~identifier~" does not exist", debug=True) }}
 
         false
 

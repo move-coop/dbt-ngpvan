@@ -6,7 +6,7 @@ dbt_van:
       host: '{{ env_var(''DEV_REDSHIFT_USER_HOST'') }}'
       password: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_PASSWORD'') }}'
       port: '{{ env_var(''DEV_REDSHIFT_USER_PORT'') | as_number }}'
-      schema: '{{ ''dbt_'' + env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
+      schema: '{{ ''dbt_'' + env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') + ''_dev'' }}'
       threads: 4
       type: redshift
       user: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
