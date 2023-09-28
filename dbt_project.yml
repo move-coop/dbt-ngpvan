@@ -1,0 +1,65 @@
+name: 'dbt_van'
+version: '1.0.0'
+config-version: 2
+
+profile: 'dbt_van'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  dbt_van:
+    base:
+      +schema: dbt_base
+      +materialized: table
+    staging:
+      +schema: dbt_staging
+      +materialized: table
+
+tests:
+  +severity: warn  # all tests
+
+vars:
+  vendors:
+    van:
+      - schema: tmc_van
+        tables:
+          activistcodes:
+            - name: tsm_tmc_activistcodes
+          codes:
+            - name: tsm_tmc_codes_vf
+          codetypes:
+            - name: tsm_tmc_codetypes
+          committees:
+            - name: tsm_tmc_committees
+          contactsactivistcodes:
+            - name: tsm_tmc_contactsactivistcodes_vf
+          contactscodes:
+            - name: tsm_tmc_contactscodes_vf
+          contactscontacts:
+            - name: tsm_tmc_contactscontacts_vf
+          contactsnotes:
+            - name: tsm_tmc_contactsnotes_vf
+          contactssurveyresponses:
+            - name: tsm_tmc_contactssurveyresponses_vf
+          contacttypes:
+            - name: tsm_tmc_contacttypes
+          inputtypes:
+            - name: tsm_tmc_inputtypes
+          surveyquestions:
+            - name: tsm_tmc_surveyquestions
+          surveyresponses:
+            - name: tsm_tmc_surveyresponses
+          users:
+            - name: tsm_tmc_usersusergroups
+          usersusergroups:
+            - name: tsm_tmc_usersusergroups

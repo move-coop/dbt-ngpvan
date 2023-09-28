@@ -1,0 +1,23 @@
+dbt_van:
+  target: dev
+  outputs:
+    dev:
+      dbname: '{{ env_var(''DEV_REDSHIFT_USER_DATABASE'') }}'
+      host: '{{ env_var(''DEV_REDSHIFT_USER_HOST'') }}'
+      password: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_PASSWORD'') }}'
+      port: '{{ env_var(''DEV_REDSHIFT_USER_PORT'') | as_number }}'
+      schema: '{{ ''dbt_'' + env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') + ''_dev'' }}'
+      threads: 4
+      type: redshift
+      user: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
+      connect_timeout: 999999
+    prod:
+      dbname: '{{ env_var(''PROD_REDSHIFT_USER_DATABASE'') }}'
+      host: '{{ env_var(''PROD_REDSHIFT_USER_HOST'') }}'
+      password: '{{ env_var(''PROD_REDSHIFT_USER_CREDENTIAL_PASSWORD'') }}'
+      port: '{{ env_var(''PROD_REDSHIFT_USER_PORT'') | as_number }}'
+      schema: prod
+      threads: 4
+      type: redshift
+      user: '{{ env_var(''PROD_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
+      connect_timeout: 999999
