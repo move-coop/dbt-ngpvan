@@ -44,6 +44,7 @@
     {%- if table_list and table_list['table'] -%}
         {%- set tbl_relations = [] -%}
         {%- for row in table_list['table'] -%}
+            {{ log("row: " ~ row, info=True) }}
             {%- set tbl_relation = api.Relation.create(
                 database=database,
                 schema=row.table_schema,
