@@ -39,7 +39,7 @@
     {% endcall %}
 
     {%- set table_list = load_result('get_tables') -%}
-    {# {{ log("table_list: " ~ table_list, info=True) }} #}
+    {{ log("table_list: " ~ table_list, info=True) }}
 
     {%- if table_list and table_list['table'] -%}
         {%- set tbl_relations = [] -%}
