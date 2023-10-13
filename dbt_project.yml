@@ -31,35 +31,35 @@ tests:
 vars:
   vendors:
     van:
-      - schema: tmc_van
+      - schema: None
         tables:
           activistcodes:
-            - name: tsm_tmc_activistcodes
+            - name: activistcodes
           codes:
-            - name: tsm_tmc_codes_vf
+            - name: codes
           codetypes:
-            - name: tsm_tmc_codetypes
+            - name: codetypes
           committees:
-            - name: tsm_tmc_committees
+            - name: committees
           contactsactivistcodes:
-            - name: tsm_tmc_contactsactivistcodes_vf
+            - name: contactsactivistcodes
           contactscodes:
-            - name: tsm_tmc_contactscodes_vf
+            - name: contactscodes
           contactscontacts:
-            - name: tsm_tmc_contactscontacts_vf
+            - name: contactscontacts
           contactsnotes:
-            - name: tsm_tmc_contactsnotes_vf
+            - name: contactsnotes
           contactssurveyresponses:
-            - name: tsm_tmc_contactssurveyresponses_vf
+            - name: contactssurveyresponses
           contacttypes:
-            - name: tsm_tmc_contacttypes
+            - name: contacttypes
           inputtypes:
-            - name: tsm_tmc_inputtypes
+            - name: inputtypes
           surveyquestions:
-            - name: tsm_tmc_surveyquestions
+            - name: surveyquestions
           surveyresponses:
-            - name: tsm_tmc_surveyresponses
+            - name: surveyresponses
           users:
-            - name: tsm_tmc_usersusergroups
+            - name: usersusergroups
           usersusergroups:
-            - name: tsm_tmc_usersusergroups
+            - name: usersusergroups

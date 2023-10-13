@@ -11,3 +11,5 @@ logs/
 service_accounts/**/*.json
 development.env
 *.ipynb
+profiles.yml
+dbt_project_tmc_rs.yml
