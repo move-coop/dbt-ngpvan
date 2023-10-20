@@ -1,7 +1,7 @@
 dbt_van:
   target: dev
   outputs:
-    dev:
+    rs_dev:
       dbname: '{{ env_var(''DEV_REDSHIFT_USER_DATABASE'') }}'
       host: '{{ env_var(''DEV_REDSHIFT_USER_HOST'') }}'
       password: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_PASSWORD'') }}'
@@ -11,7 +11,7 @@ dbt_van:
       type: redshift
       user: '{{ env_var(''DEV_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
       connect_timeout: 999999
-    prod:
+    rs_prod:
       dbname: '{{ env_var(''PROD_REDSHIFT_USER_DATABASE'') }}'
       host: '{{ env_var(''PROD_REDSHIFT_USER_HOST'') }}'
       password: '{{ env_var(''PROD_REDSHIFT_USER_CREDENTIAL_PASSWORD'') }}'
@@ -21,3 +21,19 @@ dbt_van:
       type: redshift
       user: '{{ env_var(''PROD_REDSHIFT_USER_CREDENTIAL_USERNAME'') }}'
       connect_timeout: 999999
+    dev:
+      type: bigquery
+      method: service-account
+      keyfile: ./service_accounts/tmc-dev-394022-b3cd7a44d0c2.json
+      project: tmc-dev-394022
+      dataset: '{{ ''dbt_'' + env_var(''DEV_SCHEMA_NAME'') }}'
+      threads: 4
+      location: us-central1
+    prod:
+      type: bigquery
+      method: service-account
+      keyfile: ./service_accounts/tmc-data-warehouse-6cd730dc34db.json
+      project: tmc-data-warehouse
+      dataset: prod
+      threads: 4
+      location: us-central1

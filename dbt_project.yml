@@ -19,47 +19,16 @@ clean-targets:
 models:
   dbt_van:
     base:
-      +schema: dbt_base
+      +schema: "{{ 'base' if 'prod' in target.name else 'dev' }}"
       +materialized: table
     staging:
-      +schema: dbt_staging
+      +schema: "{{ 'staging' if 'prod' in target.name else 'dev' }}"
       +materialized: table
 
 tests:
   +severity: warn  # all tests
 
 vars:
-  vendors:
-    van:
-      - schema: None
-        tables:
-          activistcodes:
-            - name: activistcodes
-          codes:
-            - name: codes
-          codetypes:
-            - name: codetypes
-          committees:
-            - name: committees
-          contactsactivistcodes:
-            - name: contactsactivistcodes
-          contactscodes:
-            - name: contactscodes
-          contactscontacts:
-            - name: contactscontacts
-          contactsnotes:
-            - name: contactsnotes
-          contactssurveyresponses:
-            - name: contactssurveyresponses
-          contacttypes:
-            - name: contacttypes
-          inputtypes:
-            - name: inputtypes
-          surveyquestions:
-            - name: surveyquestions
-          surveyresponses:
-            - name: surveyresponses
-          users:
-            - name: usersusergroups
-          usersusergroups:
-            - name: usersusergroups
+  dbt_van_config:
+    schema_list: []
+    table_logic: pattern

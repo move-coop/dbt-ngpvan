@@ -8,7 +8,7 @@ logs/
 .DS_Store
 .user.yml
 .vscode
-service_accounts/**/*.json
+service_accounts/
 development.env
 *.ipynb
 profiles.yml
