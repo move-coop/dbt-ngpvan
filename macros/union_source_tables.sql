@@ -45,12 +45,12 @@
     {% endcall %}
 
     {%- set table_list = load_result('get_tables') -%}
-    {{ log("table_list: " ~ table_list, info=True) }}
+    {# {{ log("table_list: " ~ table_list, info=True) }} #}
 
     {%- if table_list and table_list['table'] -%}
         {%- set tbl_relations = [] -%}
         {%- for row in table_list['table'] -%}
-            {{ log("row: " ~ row, info=True) }}
+            {# {{ log("row: " ~ row, info=True) }} #}
             {%- set relation = api.Relation.create(
                 database=database,
                 schema=row.table_schema,
@@ -61,7 +61,7 @@
                 {%- if relation_exists -%}
 
                     {%- do tbl_relations.append(relation) -%}
-                    {{ log("tbl_relations: " ~ tbl_relations, info=True) }}
+                    {# {{ log("tbl_relations: " ~ tbl_relations, info=True) }} #}
                 {%- else -%}
                     {%- if execute -%}
                         {{ log("couldnt find relation " ~ row.table_schema ~ "." ~ row.table_name, info=True) }}
