@@ -2,6 +2,12 @@
 
 {%- if execute -%}
 
+{# {{ log("table_pattern: " ~ table_pattern, info=True) }} #}
+
+{%- set config = var('dbt_van_config') -%}
+
+{%- set schema_list = config['schema_list'] -%}
+
 {%- if schema_list -%}
 
     {%- call statement('get_tables', fetch_result=True) %}
@@ -14,8 +20,8 @@
             FROM {{ adapter.quote(database) }}.{{ schema }}.INFORMATION_SCHEMA.TABLES
             WHERE (
                 {% if table_pattern %}
-                    LOWER(table_name) LIKE LOWER('{{ table_pattern }}')
-                        {% if table_list -%} OR {%- endif %}
+                    REGEXP_SUBSTR(LOWER(table_name), r'(?:^|^[\w]+_)({{ table_pattern }}){1}(?:$|_[\w]+$)', 1) != ''
+                    {% if table_list -%} OR {%- endif %}
                 {% endif %}
                 {% if table_list %}
                     {% for include_table in table_list %}
@@ -45,7 +51,7 @@
         {%- set tbl_relations = [] -%}
         {%- for row in table_list['table'] -%}
             {{ log("row: " ~ row, info=True) }}
-            {%- set tbl_relation = api.Relation.create(
+            {%- set relation = api.Relation.create(
                 database=database,
                 schema=row.table_schema,
                 identifier=row.table_name
@@ -54,25 +60,25 @@
             {%- set relation_exists=relation is not none -%}
                 {%- if relation_exists -%}
 
-                    {%- do tbl_relations.append(tbl_relation) -%}
+                    {%- do tbl_relations.append(relation) -%}
+                    {{ log("tbl_relations: " ~ tbl_relations, info=True) }}
                 {%- else -%}
                     {%- if execute -%}
                         {{ log("couldnt find relation " ~ row.table_schema ~ "." ~ row.table_name, info=True) }}
                     {%- endif -%}
                 {%- endif -%}
 
-            {%- do tbl_relations.append(tbl_relation) -%}
         {%- endfor -%}
 
         {%- if not column_override -%}
-            {{-  dbt_utils.union_relations(relations) -}}
+            {{-  dbt_utils.union_relations(tbl_relations) -}}
 
         {%- else -%}
-            {{- dbt_utils.union_relations(relations, column_override=column_override)}}
+            {{- dbt_utils.union_relations(tbl_relations, column_override=column_override)}}
         {%- endif -%}
 
     {%- else -%}
-        {{ return([]) }}
+        {{ return('SELECT NULL AS no_sources') }}
     {%- endif -%}
 
 {%- endif -%}
