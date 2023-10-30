@@ -53,7 +53,8 @@ WITH
             source_table,
             vendor,
             segment_by,
-            CONCAT(segment_by, '-', contactssurveyresponseid) AS segmented_contacts_survey_response_id
+            CONCAT(segment_by, '-', contactssurveyresponseid) AS segmented_contacts_survey_response_id,
+            CONCAT(segment_by, '-', vanid) AS segmented_van_id
         FROM base
         LEFT JOIN results USING (resultid)
         LEFT JOIN committees USING (committeeid)

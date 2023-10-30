@@ -54,7 +54,8 @@ WITH
             _dbt_source_relation,
             vendor,
             segment_by,
-            CONCAT(segment_by, '-', contactscontactid) AS segmented_contacts_contact_id
+            CONCAT(segment_by, '-', contactscontactid) AS segmented_contacts_contact_id,
+            CONCAT(segment_by, '-', vanid) AS segmented_van_id
 
         FROM contactscontacts
         LEFT JOIN results USING (resultid)

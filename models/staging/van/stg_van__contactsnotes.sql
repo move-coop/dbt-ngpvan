@@ -29,7 +29,8 @@ WITH
             source_table,
             vendor,
             segment_by,
-            CONCAT(segment_by, '-', contactsnoteid) AS segmented_contacts_note_id
+            CONCAT(segment_by, '-', contactsnoteid) AS segmented_contacts_note_id,
+            CONCAT(segment_by, '-', vanid) AS segmented_van_id
         FROM base
     )
 

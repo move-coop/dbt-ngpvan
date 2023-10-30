@@ -2,11 +2,18 @@ version: 2
 
 models:
   - name: stg_van__activistcodes
+  - name: stg_van__campaigns
   - name: stg_van__codes
+  - name: stg_van__codetypes
   - name: stg_van__contactsactivistcodes
   - name: stg_van__contactscodes
   - name: stg_van__contactscontacts
   - name: stg_van__contactsnotes
   - name: stg_van__contactssurveyresponses
+  - name: stg_van__contacttypes
+  - name: stg_van__inputtypes
+  - name: stg_van__results
   - name: stg_van__surveyquestions
   - name: stg_van__surveyresponses
+  - name: stg_van__users
+  - name: stg_van__usersusergroups

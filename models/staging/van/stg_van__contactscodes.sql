@@ -30,7 +30,8 @@ WITH
             base.source_table,
             base.vendor,
             base.segment_by,
-            CONCAT(base.segment_by, '-', base.contactscodeid) AS segmented_contacts_code_id
+            CONCAT(base.segment_by, '-', base.contactscodeid) AS segmented_contacts_code_id,
+            CONCAT(segment_by, '-', vanid) AS segmented_van_id
 
         FROM base
         LEFT JOIN committees USING (committeeid)

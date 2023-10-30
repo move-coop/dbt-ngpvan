@@ -50,7 +50,9 @@ WITH
             source_table,
             vendor,
             segment_by,
-            CONCAT(segment_by, '-', contactsactivistcodeid) AS segmented_contacts_activist_code_id
+            CONCAT(segment_by, '-', contactsactivistcodeid) AS segmented_contacts_activist_code_id,
+            CONCAT(segment_by, '-', activistcodeid) AS segmented_activist_code_id,
+            CONCAT(segment_by, '-', vanid) AS segmented_van_id
         FROM base
         LEFT JOIN results USING (resultid)
         LEFT JOIN committees USING (committeeid)
