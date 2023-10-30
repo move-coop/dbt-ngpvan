@@ -4,7 +4,7 @@
 
 {# {{ log("table_pattern: " ~ table_pattern, info=True) }} #}
 
-{%- set config = var('dbt_van_config') -%}
+{%- set config = var('dbt_ngpvan_config') -%}
 
 {%- set schema_list = config['schema_list'] -%}
 
