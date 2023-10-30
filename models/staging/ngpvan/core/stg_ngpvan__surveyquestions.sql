@@ -13,12 +13,10 @@ SELECT
     surveyquestiontext AS survey_question_text,
     mastersurveyquestionid AS master_survey_question_id,
     createdcommitteeid AS committee_id,
-    active AS is_active,
-    _dbt_source_relation,
-    source_schema,
-    source_table,
-    vendor,
-    segment_by,
+    active AS active_status_id,
+
+    -- additional columns
+    {{ metadata__select_fields(from_cte='base') }},
     CONCAT(segment_by, '-', surveyquestionid) AS segmented_survey_question_id
 
 FROM base

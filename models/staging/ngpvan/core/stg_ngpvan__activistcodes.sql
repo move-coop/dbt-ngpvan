@@ -18,13 +18,12 @@ WITH
             committeeid AS committee_id,
             actiontypeid AS action_type_id,
             campaignid AS campaign_id,
-            active AS is_active,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor,
-            segment_by,
+            active AS active_status_id,
+
+            -- additional columns
+            {{ metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', activistcodeid) AS segmented_activist_code_id
+
         FROM base
     )
 

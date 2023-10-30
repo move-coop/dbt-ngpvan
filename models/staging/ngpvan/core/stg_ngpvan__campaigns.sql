@@ -15,11 +15,9 @@ WITH
             {{ normalize_timestamp_to_utc('datecreated')}} AS created_at,
             createdby AS created_by_user_id,
             isactive AS active_status_id, --[0, 1, 5] unclear what these status ids translate to
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor,
-            segment_by,
+
+            -- additional columns
+            {{ metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', campaignid) AS segmented_campaign_id
 
         FROM base

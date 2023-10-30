@@ -36,7 +36,7 @@ vars:
       core:
         enabled: true
       myvoters:
-        enabled: false
+        enabled: true
       digital:
         enabled: false
       ngp:

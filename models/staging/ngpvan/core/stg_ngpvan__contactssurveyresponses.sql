@@ -48,13 +48,12 @@ WITH
             {{ normalize_timestamp_to_utc('datemodified') }} AS utc_modified_at,
             teamid AS team_id,
             divisionid AS division_id,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor,
-            segment_by,
+
+            -- additional columns
+            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(segment_by, '-', contactssurveyresponseid) AS segmented_contacts_survey_response_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
+
         FROM base
         LEFT JOIN results USING (resultid)
         LEFT JOIN committees USING (committeeid)

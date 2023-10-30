@@ -24,13 +24,12 @@ WITH
             contactsonlineformid AS contacts_online_form_id,
             contactsstoryid AS contacts_story_id,
             notecategoryid AS note_category_id,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor,
-            segment_by,
+
+            -- additional columns
+            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(segment_by, '-', contactsnoteid) AS segmented_contacts_note_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
+
         FROM base
     )
 

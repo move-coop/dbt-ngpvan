@@ -1,6 +1,6 @@
 
 WITH
-    contactscontacts AS (
+    base AS (
         SELECT * FROM {{ ref('base_ngpvan__contactscontacts') }}
     ),
 
@@ -51,13 +51,11 @@ WITH
             {{ normalize_timestamp_to_utc('datemodified') }} AS utc_modified_at,
 
             -- additional columns
-            _dbt_source_relation,
-            vendor,
-            segment_by,
+            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(segment_by, '-', contactscontactid) AS segmented_contacts_contact_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
 
-        FROM contactscontacts
+        FROM base
         LEFT JOIN results USING (resultid)
         LEFT JOIN committees USING (committeeid)
         LEFT JOIN inputtypes USING (inputtypeid)

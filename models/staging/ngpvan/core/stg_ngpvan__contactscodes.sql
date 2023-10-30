@@ -25,11 +25,8 @@ WITH
             inputtypes.inputtypename AS input_type,
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
             base.createdby AS created_by_user_id,
-            base._dbt_source_relation,
-            base.source_schema,
-            base.source_table,
-            base.vendor,
-            base.segment_by,
+
+            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(base.segment_by, '-', base.contactscodeid) AS segmented_contacts_code_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
 
