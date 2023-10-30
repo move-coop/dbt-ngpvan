@@ -22,9 +22,10 @@ WITH
 SELECT
     *,
     {{
-    generate_metadata_fields(
+    metadata__generate_fields(
         vendor='van',
-        segment_by_column='committeeid'
+        segment_by_column='committeeid',
+        myvoters=var('dbt_ngpvan_config')['packages']['myvoters']['enabled']
     )
     }}
 FROM segment_by

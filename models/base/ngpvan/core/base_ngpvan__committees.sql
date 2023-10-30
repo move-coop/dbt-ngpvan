@@ -22,8 +22,8 @@ WITH
 SELECT
     *,
     {{
-    generate_metadata_fields(
-        vendor='van',
+    metadata__generate_fields(
+        vendor='ngpvan',
         segment_by_column='committeeid'
     )
     }}

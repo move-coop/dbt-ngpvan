@@ -4,7 +4,7 @@ WITH
 
         {{
             union_source_tables(
-                table_pattern='inputtypes'
+                table_pattern='publicusers'
             )
         }}
 
@@ -24,7 +24,7 @@ SELECT
     {{
     metadata__generate_fields(
         vendor='ngpvan',
-        segment_by_column=none
+        segment_by_column='committeeid'
     )
     }}
 FROM segment_by
