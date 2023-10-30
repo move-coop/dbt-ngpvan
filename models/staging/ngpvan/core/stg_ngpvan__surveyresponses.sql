@@ -1,7 +1,7 @@
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__surveyresponses') }}
+        SELECT * FROM {{ ref('base_ngpvan__surveyresponses') }}
     ),
 
     surveyquestions AS (
@@ -9,7 +9,7 @@ WITH
             surveyquestionid,
             createdcommitteeid,
             createdcommitteeid AS segment_by
-        FROM {{ ref('base_van__surveyquestions') }}
+        FROM {{ ref('base_ngpvan__surveyquestions') }}
     ),
 
     responses AS (

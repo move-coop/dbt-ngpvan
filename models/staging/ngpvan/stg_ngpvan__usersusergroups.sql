@@ -1,7 +1,7 @@
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__usersusergroups') }}
+        SELECT * FROM {{ ref('base_ngpvan__usersusergroups') }}
     ),
 
     renamed AS (

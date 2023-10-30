@@ -1,27 +1,27 @@
 
 WITH
     contactscontacts AS (
-        SELECT * FROM {{ ref('base_van__contactscontacts') }}
+        SELECT * FROM {{ ref('base_ngpvan__contactscontacts') }}
     ),
 
     results AS (
-        SELECT * FROM {{ ref('base_van__results') }}
+        SELECT * FROM {{ ref('base_ngpvan__results') }}
     ),
 
     committees AS (
-        SELECT * FROM {{ ref('base_van__committees') }}
+        SELECT * FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     inputtypes AS (
-        SELECT * FROM {{ ref('base_van__inputtypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__inputtypes') }}
     ),
 
     contacttypes AS (
-        SELECT * FROM {{ ref('base_van__contacttypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__contacttypes') }}
     ),
 
     campaigns AS (
-        SELECT * FROM {{ ref('base_van__campaigns') }}
+        SELECT * FROM {{ ref('base_ngpvan__campaigns') }}
     ),
 
     renamed AS (

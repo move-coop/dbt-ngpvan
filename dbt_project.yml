@@ -29,6 +29,26 @@ tests:
   +severity: warn  # all tests
 
 vars:
-  dbt_van_config:
-    schema_list: []
+  dbt_ngpvan_config:
+    schema_list: [raw_van, raw_van__tmc]
     table_logic: pattern
+    packages:
+      core:
+        enabled: true
+      myvoters:
+        enabled: false
+      digital:
+        enabled: false
+      ngp:
+        enabled: false
+      basic_dev:
+        enabled: false
+      standard_dev:
+        enabled: false
+      pro_dev:
+        enabled: false
+      ea360:
+        enabled: false
+    add_ons: []
+    segmentation: true
+    lookup_tables: true

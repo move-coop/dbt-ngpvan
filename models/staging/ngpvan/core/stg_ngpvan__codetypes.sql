@@ -1,7 +1,11 @@
+{{ config(
+        enabled=var('dbt_ngpvan_config')['lookup_tables']
+) }}
+
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__codetypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__codetypes') }}
     ),
 
     renamed AS (

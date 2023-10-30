@@ -1,15 +1,15 @@
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__contactscodes') }}
+        SELECT * FROM {{ ref('base_ngpvan__contactscodes') }}
     ),
 
     committees AS (
-        SELECT * FROM {{ ref('base_van__committees') }}
+        SELECT * FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     inputtypes AS (
-        SELECT * FROM {{ ref('base_van__inputtypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__inputtypes') }}
     ),
 
     renamed AS (

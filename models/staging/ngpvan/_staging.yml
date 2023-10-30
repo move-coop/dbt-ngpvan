@@ -1,19 +1,19 @@
 version: 2
 
 models:
-  - name: stg_van__activistcodes
-  - name: stg_van__campaigns
-  - name: stg_van__codes
-  - name: stg_van__codetypes
-  - name: stg_van__contactsactivistcodes
-  - name: stg_van__contactscodes
-  - name: stg_van__contactscontacts
-  - name: stg_van__contactsnotes
-  - name: stg_van__contactssurveyresponses
-  - name: stg_van__contacttypes
-  - name: stg_van__inputtypes
-  - name: stg_van__results
-  - name: stg_van__surveyquestions
-  - name: stg_van__surveyresponses
-  - name: stg_van__users
-  - name: stg_van__usersusergroups
+  - name: stg_ngpvan__activistcodes
+  - name: stg_ngpvan__campaigns
+  - name: stg_ngpvan__codes
+  - name: stg_ngpvan__codetypes
+  - name: stg_ngpvan__contactsactivistcodes
+  - name: stg_ngpvan__contactscodes
+  - name: stg_ngpvan__contactscontacts
+  - name: stg_ngpvan__contactsnotes
+  - name: stg_ngpvan__contactssurveyresponses
+  - name: stg_ngpvan__contacttypes
+  - name: stg_ngpvan__inputtypes
+  - name: stg_ngpvan__results
+  - name: stg_ngpvan__surveyquestions
+  - name: stg_ngpvan__surveyresponses
+  - name: stg_ngpvan__users
+  - name: stg_ngpvan__usersusergroups

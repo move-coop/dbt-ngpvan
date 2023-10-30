@@ -1,7 +1,7 @@
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__contacttypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__contacttypes') }}
     ),
 
     renamed AS (

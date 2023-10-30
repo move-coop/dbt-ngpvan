@@ -1,7 +1,7 @@
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_van__inputtypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__inputtypes') }}
     ),
 
     renamed AS (
