@@ -30,6 +30,7 @@ tests:
 
 vars:
   dbt_ngpvan_config:
+    vendor_name: ngpvan
     schema_list: [raw_van, raw_van__tmc]
     table_logic: pattern
     packages:
