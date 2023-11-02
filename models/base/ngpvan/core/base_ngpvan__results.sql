@@ -1,9 +1,15 @@
 
+{{
+    config(
+        alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__results'
+    )
+}}
+
 WITH
     base AS (
 
         {{
-            union_source_tables(
+            ngpvan__union_source_tables(
                 table_pattern='results'
             )
         }}
@@ -21,9 +27,8 @@ WITH
 SELECT
     *,
     {{
-    metadata__generate_fields(
-        vendor='ngpvan',
-        segment_by_column=none
+    ngpvan__metadata__generate_fields(
+        segment_by_column='NULL'
     )
     }}
 FROM segment_by
