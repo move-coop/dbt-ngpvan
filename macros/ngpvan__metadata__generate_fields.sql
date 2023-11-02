@@ -1,11 +1,10 @@
-{% macro metadata__generate_fields(vendor, segment_by_column=none, myvoters=false) -%}
-
-
+{% macro ngpvan__metadata__generate_fields(segment_by_column=none, myvoters=false) -%}
 
     SPLIT(REPLACE(_dbt_source_relation, '"', ''), '.')[1] AS source_schema,
-    SPLIT(REPLACE(_dbt_source_relation, '"', ''), '.')[2] AS source_table,
+    SPLIT(REPLACE(_dbt_source_relation, '"', ''), '.')[2] AS source_table
 
-    {%- if myvoters == true %}
+    {%- if myvoters == true -%}
+    ,
     CASE WHEN RIGHT(SPLIT(REPLACE(_dbt_source_relation, '"', ''), '.')[2], 3) IN ('_vf', 'myv')
             THEN 0
             ELSE 1
@@ -13,12 +12,11 @@
     CASE WHEN RIGHT(SPLIT(REPLACE(_dbt_source_relation, '"', ''), '.')[2], 3) IN ('_vf', 'myv')
             THEN TRUE
             ELSE FALSE
-        END AS is_myvoters,
-    {% endif -%}
-    '{{ vendor }}' AS vendor
+        END AS is_myvoters
+    {%- endif -%}
     {%- if segment_by_column -%}
-        ,
-        {{ segment_by_column }} AS segment_by
-    {% endif -%}
+    ,
+    {{ segment_by_column }} AS segment_by
+    {%- endif -%}
 
 {%- endmacro %}
