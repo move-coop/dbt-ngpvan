@@ -1,4 +1,10 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__campaigns'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__campaigns') }}
@@ -17,7 +23,7 @@ WITH
             isactive AS active_status_id, --[0, 1, 5] unclear what these status ids translate to
 
             -- additional columns
-            {{ metadata__select_fields(from_cte='base') }},
+            {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', campaignid) AS segmented_campaign_id
 
         FROM base

@@ -1,3 +1,9 @@
+{{
+    config(
+        enabled=var('dbt_ngpvan_config')['lookup_tables'],
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__results'
+    )
+}}
 
 WITH
     base AS (
@@ -9,10 +15,9 @@ WITH
             resultid AS result_id,
             resultshortname AS result_name,
             resultdescription AS result_description,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor
+
+            -- additional columns
+            {{ ngpvan__metadata__select_fields() }}
 
         FROM base
     )

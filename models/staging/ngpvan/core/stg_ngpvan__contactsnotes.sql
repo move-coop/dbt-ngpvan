@@ -1,4 +1,10 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactsnotes'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__contactsnotes') }}
@@ -26,7 +32,7 @@ WITH
             notecategoryid AS note_category_id,
 
             -- additional columns
-            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
+            {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(segment_by, '-', contactsnoteid) AS segmented_contacts_note_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
 

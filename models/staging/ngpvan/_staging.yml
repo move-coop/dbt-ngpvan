@@ -5,6 +5,7 @@ models:
   - name: stg_ngpvan__campaigns
   - name: stg_ngpvan__codes
   - name: stg_ngpvan__codetypes
+  - name: stg_ngpvan__committees
   - name: stg_ngpvan__contactsactivistcodes
   - name: stg_ngpvan__contactscodes
   - name: stg_ngpvan__contactscontacts

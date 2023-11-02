@@ -1,4 +1,10 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__activistcodes'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__activistcodes') }}
@@ -21,7 +27,7 @@ WITH
             active AS active_status_id,
 
             -- additional columns
-            {{ metadata__select_fields(from_cte='base') }},
+            {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', activistcodeid) AS segmented_activist_code_id
 
         FROM base

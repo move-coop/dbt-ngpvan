@@ -1,7 +1,9 @@
-{{ config(
-        enabled=var('dbt_ngpvan_config')['lookup_tables']
-) }}
-
+{{
+    config(
+        enabled=var('dbt_ngpvan_config')['lookup_tables'],
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__codetypes'
+    )
+}}
 
 WITH
     base AS (
@@ -12,10 +14,9 @@ WITH
         SELECT
             codetypeid AS code_type_id,
             codetypename AS code_type,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor
+
+            -- additional columns
+            {{ ngpvan__metadata__select_fields(from_cte='base') }}
 
         FROM base
     )

@@ -1,4 +1,10 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__surveyresponses'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__surveyresponses') }}
@@ -22,11 +28,9 @@ WITH
             base.indpoints AS independent_points,
             base.mastersurveyresponseid AS master_survey_response_id,
             surveyquestions.createdcommitteeid AS committee_id,
-            base._dbt_source_relation,
-            base.source_schema,
-            base.source_table,
-            base.vendor,
-            surveyquestions.segment_by,
+
+            -- additional columns
+            {{ ngpvan__metadata__select_fields(from_cte='base', segment_by='surveyquestions.segment_by') }},
             CONCAT(surveyquestions.segment_by, '-', base.surveyresponseid) AS segmented_survey_response_id
         FROM base
         LEFT JOIN surveyquestions USING (surveyquestionid)

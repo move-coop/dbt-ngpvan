@@ -1,3 +1,9 @@
+{{
+    config(
+        enabled=var('dbt_ngpvan_config')['lookup_tables'],
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contacttypes'
+    )
+}}
 
 WITH
     base AS (
@@ -8,10 +14,9 @@ WITH
         SELECT
             contacttypeid AS contact_type_id,
             contacttypename AS contact_type,
-            _dbt_source_relation,
-            source_schema,
-            source_table,
-            vendor
+
+            -- additional columns
+            {{ ngpvan__metadata__select_fields() }}
 
         FROM base
     )

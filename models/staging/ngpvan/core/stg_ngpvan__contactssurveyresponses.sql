@@ -1,15 +1,13 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactssurveyresponses'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__contactssurveyresponses') }}
-    ),
-
-    results AS (
-        SELECT * FROM {{ ref('base_ngpvan__results') }}
-    ),
-
-    committees AS (
-        SELECT * FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     inputtypes AS (
@@ -20,43 +18,35 @@ WITH
         SELECT * FROM {{ ref('base_ngpvan__contacttypes') }}
     ),
 
-    campaigns AS (
-        SELECT * FROM {{ ref('base_ngpvan__campaigns') }}
-    ),
-
     renamed AS (
         SELECT
-            statecode AS van_state_code,
-            contactssurveyresponseid AS contacts_survey_response_id,
-            vanid AS van_id,
-            contactscontactid AS contacts_contact_id,
-            surveyquestionid AS survey_question_id,
-            surveyresponseid AS survey_response_id,
-            {{ normalize_timestamp_to_utc('datecreated') }} AS utc_created_at,
-            {{ normalize_timestamp_to_utc('datecanvassed') }} AS utc_canvassed_at,
+            base.statecode AS van_state_code,
+            base.contactssurveyresponseid AS contacts_survey_response_id,
+            base.vanid AS van_id,
+            base.contactscontactid AS contacts_contact_id,
+            base.surveyquestionid AS survey_question_id,
+            base.surveyresponseid AS survey_response_id,
+            {{ normalize_timestamp_to_utc('base.datecreated') }} AS utc_created_at,
+            {{ normalize_timestamp_to_utc('base.datecanvassed') }} AS utc_canvassed_at,
             inputtypeid AS input_type_id,
             inputtypes.inputtypename AS input_type,
             contacttypeid AS contact_type_id,
             contacttypes.contacttypename AS contact_type,
-            committeeid AS committee_id,
-            committees.committeename AS committee_name,
-            username,
-            canvassedby AS canvassed_by_user_id,
-            campaignid AS campaign_id,
-            campaigns.campaignname AS campaign_name,
-            contentid AS content_id,
-            {{ normalize_timestamp_to_utc('datemodified') }} AS utc_modified_at,
-            teamid AS team_id,
-            divisionid AS division_id,
+            base.committeeid AS committee_id,
+            base.username AS canvassed_by_username,
+            base.canvassedby AS canvassed_by_user_id,
+            base.campaignid AS campaign_id,
+            base.contentid AS content_id,
+            {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
+            base.teamid AS team_id,
+            base.divisionid AS division_id,
 
             -- additional columns
-            {{ metadata__select_fields(from_cte='base', myvoters=true) }},
-            CONCAT(segment_by, '-', contactssurveyresponseid) AS segmented_contacts_survey_response_id,
-            CONCAT(segment_by, '-', vanid) AS segmented_van_id
+            {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
+            CONCAT(base.segment_by, '-', base.contactssurveyresponseid) AS segmented_contacts_survey_response_id,
+            CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
 
         FROM base
-        LEFT JOIN results USING (resultid)
-        LEFT JOIN committees USING (committeeid)
         LEFT JOIN inputtypes USING (inputtypeid)
         LEFT JOIN contacttypes USING (contacttypeid)
     )
