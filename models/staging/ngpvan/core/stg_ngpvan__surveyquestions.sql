@@ -1,4 +1,10 @@
 
+{{
+    config(
+        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__surveyquestions'
+    )
+}}
+
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__surveyquestions') }}
@@ -16,7 +22,7 @@ SELECT
     active AS active_status_id,
 
     -- additional columns
-    {{ metadata__select_fields(from_cte='base') }},
+    {{ ngpvan__metadata__select_fields(from_cte='base') }},
     CONCAT(segment_by, '-', surveyquestionid) AS segmented_survey_question_id
 
 FROM base

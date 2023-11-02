@@ -1,12 +1,6 @@
 
 {{
     config(
-        alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__campaigns'
-    )
-}}
-
-{{
-    config(
         alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__users'
     )
 }}
