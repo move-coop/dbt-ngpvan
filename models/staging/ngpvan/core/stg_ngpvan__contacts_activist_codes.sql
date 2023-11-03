@@ -1,17 +1,7 @@
 
-{{
-    config(
-        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactscontacts'
-    )
-}}
-
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_ngpvan__contactscontacts') }}
-    ),
-
-    results AS (
-        SELECT * FROM {{ ref('base_ngpvan__results') }}
+        SELECT * FROM {{ ref('base_ngpvan__contactsactivistcodes') }}
     ),
 
     inputtypes AS (
@@ -23,17 +13,13 @@ WITH
     ),
 
     renamed AS (
-
         SELECT
             base.statecode AS van_state_code,
-            base.contactscontactid AS contacts_contact_id,
+            base.contactsactivistcodeid AS contacts_activist_code_id,
             base.vanid AS van_id,
-            resultid AS result_id,
-            results.resultshortname AS result_name,
-            COALESCE(base.committeeid, base.personcommitteeid) AS committee_id,
-            --base.committeename,
+            base.activistcodeid AS activist_code_id,
+            base.committeeid AS committee_id,
             {{ normalize_timestamp_to_utc('base.datecreated') }} AS utc_created_at,
-            {{ normalize_timestamp_to_utc('base.datecanvassed') }} AS utc_canvassed_at,
             inputtypeid AS input_type_id,
             inputtypes.inputtypename AS input_type,
             contacttypeid AS contact_method_type_id,
@@ -42,22 +28,19 @@ WITH
             base.canvassedby AS canvassed_by_user_id,
             base.campaignid AS campaign_id,
             base.contentid AS content_id,
-            base.createdby AS created_by_user_id,
-            base.contactsphoneid AS contacts_phone_id,
-            base.teamid AS team_id,
-            base.divisionid AS division_id,
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
+            base.contactscontactid AS contacts_contact_id,
+            {{ normalize_timestamp_to_utc('base.datecanvassed') }} AS utc_canvassed_at,
 
-            -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
-            CONCAT(base.segment_by, '-', base.contactscontactid) AS segmented_contacts_contact_id,
+            CONCAT(base.segment_by, '-', base.contactsactivistcodeid) AS segmented_contacts_activist_code_id,
+            CONCAT(base.segment_by, '-', base.activistcodeid) AS segmented_activist_code_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
 
         FROM base
-        LEFT JOIN results USING (resultid)
         LEFT JOIN inputtypes USING (inputtypeid)
         LEFT JOIN contacttypes USING (contacttypeid)
-
     )
 
 SELECT * FROM renamed
+

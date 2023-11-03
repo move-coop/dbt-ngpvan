@@ -1,10 +1,4 @@
 
-{{
-    config(
-        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactssurveyresponses'
-    )
-}}
-
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__contactssurveyresponses') }}
@@ -30,8 +24,8 @@ WITH
             {{ normalize_timestamp_to_utc('base.datecanvassed') }} AS utc_canvassed_at,
             inputtypeid AS input_type_id,
             inputtypes.inputtypename AS input_type,
-            contacttypeid AS contact_type_id,
-            contacttypes.contacttypename AS contact_type,
+            contacttypeid AS contact_method_type_id,
+            contacttypes.contacttypename AS contact_method_type,
             base.committeeid AS committee_id,
             base.username AS canvassed_by_username,
             base.canvassedby AS canvassed_by_user_id,

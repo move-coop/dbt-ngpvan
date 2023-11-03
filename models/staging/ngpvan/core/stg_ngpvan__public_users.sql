@@ -1,10 +1,4 @@
 
-{{
-    config(
-        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__publicusers'
-    )
-}}
-
 WITH
     base AS (
         SELECT * FROM {{ ref('base_ngpvan__publicusers') }}

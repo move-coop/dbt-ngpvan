@@ -1,9 +1,3 @@
-{{
-    config(
-        enabled=var('dbt_ngpvan_config')['lookup_tables'],
-        alias='stg_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__inputtypes'
-    )
-}}
 
 WITH
     base AS (
