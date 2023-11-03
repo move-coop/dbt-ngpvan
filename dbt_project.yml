@@ -1,8 +1,8 @@
-name: 'dbt_van'
+name: 'dbt_ngpvan'
 version: '1.0.0'
 config-version: 2
 
-profile: 'dbt_van'
+profile: 'dbt_ngpvan'
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -17,12 +17,15 @@ clean-targets:
   - "dbt_packages"
 
 models:
-  dbt_van:
+  dbt_ngpvan:
     base:
       +schema: "{{ 'base' if 'prod' in target.name else 'dev' }}"
       +materialized: table
     staging:
       +schema: "{{ 'staging' if 'prod' in target.name else 'dev' }}"
+      +materialized: table
+    intermediate:
+      +schema: "{{ 'intermediate' if 'prod' in target.name else 'dev' }}"
       +materialized: table
 
 tests:
@@ -31,7 +34,7 @@ tests:
 vars:
   dbt_ngpvan_config:
     vendor_name: ngpvan
-    schema_list: [raw_van, raw_van__tmc]
+    schema_list: []
     table_logic: pattern
     packages:
       core:
