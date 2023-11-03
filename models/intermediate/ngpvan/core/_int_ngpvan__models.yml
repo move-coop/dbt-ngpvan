@@ -1,7 +1,0 @@
-version: 2
-
-models:
-  - name: int_ngpvan__01__activistcodes
-  - name: int_ngpvan__01__admins
-  - name: int_ngpvan__01__contact_attempts
-  - name: int_ngpvan__02__activistcodes
