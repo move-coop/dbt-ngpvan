@@ -32,6 +32,7 @@ WITH
             contacttypes.contacttypename AS contact_type,
             base.username AS canvassed_by_username,
             base.canvassedby AS canvassed_by_user_id,
+            base.campaignid AS campaign_id,
             base.contentid AS content_id,
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
             base.contactscontactid AS contacts_contact_id,
