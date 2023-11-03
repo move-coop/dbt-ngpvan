@@ -14,6 +14,6 @@
     {%- else -%}
         {{ prefix }}segment_by
     {%- endif -%}
-    {{ ngpvan__staging__additional_fields() }}
+    {{ ngpvan__stg__additional_fields() }}
 
 {%- endmacro %}

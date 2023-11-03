@@ -1,6 +1,8 @@
-{%- macro ngpvan__union_source_tables(schema_pattern=none, schema_list=[], schema_exclude_list=[], table_pattern=none, table_list=[], table_exclude_list=[], column_override=none, where=none, database=target.database) -%}
+{%- macro ngpvan__union_source_tables(schema_pattern=none, schema_list=[], schema_exclude_list=[], table_pattern=none, table_list=[], table_exclude_list=[], column_override=none, where=none) -%}
 
 {%- if execute -%}
+
+{%- set database = config.source_database or target.database -%}
 
 {# {{ log("table_pattern: " ~ table_pattern, info=True) }} #}
 
