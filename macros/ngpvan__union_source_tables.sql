@@ -2,11 +2,11 @@
 
 {%- if execute -%}
 
-{%- set database = config.source_database or target.database -%}
-
 {# {{ log("table_pattern: " ~ table_pattern, info=True) }} #}
 
 {%- set config = var('dbt_ngpvan_config') -%}
+
+{%- set database = config.source_database or target.database -%}
 
 {%- set schema_list = config['schema_list'] -%}
 
@@ -53,7 +53,7 @@
         {%- set tbl_relations = [] -%}
         {%- for row in table_list['table'] -%}
             {# {{ log("row: " ~ row, info=True) }} #}
-            {%- set relation = api.Relation.create(
+            {%- set relation = adapter.get_relation(
                 database=database,
                 schema=row.table_schema,
                 identifier=row.table_name

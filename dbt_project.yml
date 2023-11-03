@@ -34,6 +34,7 @@ tests:
 vars:
   dbt_ngpvan_config:
     vendor_name: ngpvan
+    source_database: target.database
     schema_list: []
     table_logic: pattern
     packages:
