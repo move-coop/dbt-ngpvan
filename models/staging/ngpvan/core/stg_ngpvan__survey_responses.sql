@@ -6,7 +6,7 @@ WITH
     surveyquestions AS (
         SELECT
             surveyquestionid,
-            createdcommitteeid,
+            createdcommitteeid AS committeeid,
             createdcommitteeid AS segment_by
         FROM {{ ref('base_ngpvan__surveyquestions') }}
     ),
@@ -20,7 +20,7 @@ WITH
             base.reppoints AS republican_points,
             base.indpoints AS independent_points,
             base.mastersurveyresponseid AS master_survey_response_id,
-            surveyquestions.createdcommitteeid AS committee_id,
+            surveyquestions.committeeid AS committee_id,
 
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base', segment_by='surveyquestions.segment_by') }},
