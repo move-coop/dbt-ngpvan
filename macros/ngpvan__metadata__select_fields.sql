@@ -18,6 +18,5 @@
     {%- else -%}
         {{ prefix }}segment_by
     {%- endif -%}
-    {{ ngpvan__stg__additional_fields() }}
 
 {%- endmacro %}

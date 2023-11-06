@@ -23,6 +23,7 @@ WITH
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', activistcodeid) AS segmented_activist_code_id
+            {{ ngpvan__stg__additional_fields() }}
 
         FROM base
     )

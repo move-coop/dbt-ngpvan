@@ -19,6 +19,7 @@ WITH
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', campaignid) AS segmented_campaign_id
+            {{ ngpvan__stg__additional_fields() }}
 
         FROM base
     )

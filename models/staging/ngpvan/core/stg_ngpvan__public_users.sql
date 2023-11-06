@@ -15,6 +15,7 @@ WITH
 
             -- additional columns
             {{ ngpvan__metadata__select_fields() }}
+            {{ ngpvan__stg__additional_fields() }}
 
         FROM base
     )

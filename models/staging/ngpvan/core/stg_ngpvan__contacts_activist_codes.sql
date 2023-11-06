@@ -36,6 +36,7 @@ WITH
             CONCAT(base.segment_by, '-', base.contactsactivistcodeid) AS segmented_contacts_activist_code_id,
             CONCAT(base.segment_by, '-', base.activistcodeid) AS segmented_activist_code_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
+            {{ ngpvan__stg__additional_fields() }}
 
         FROM base
         LEFT JOIN inputtypes USING (inputtypeid)

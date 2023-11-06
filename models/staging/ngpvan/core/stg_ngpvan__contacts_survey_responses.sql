@@ -39,6 +39,7 @@ WITH
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(base.segment_by, '-', base.contactssurveyresponseid) AS segmented_contacts_survey_response_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
+            {{ ngpvan__stg__additional_fields() }}
 
         FROM base
         LEFT JOIN inputtypes USING (inputtypeid)
