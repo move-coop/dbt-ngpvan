@@ -1,4 +1,9 @@
-{%- macro ngpvan__union_source_tables(schema_pattern=none, schema_list=[], schema_exclude_list=[], table_pattern=none, table_list=[], table_exclude_list=[], column_override=none, where=none) -%}
+{%- macro ngpvan__union_source_tables(schema_list=var('dbt_ngpvan_config')['schema_list'], table_pattern=none) -%}
+    {{ return(adapter.dispatch('ngpvan__union_source_tables', 'dbt_ngpvan')(schema_list, table_pattern)) }}
+{%- endmacro %}
+
+
+{%- macro default__ngpvan__union_source_tables(schema_list, table_pattern) -%}
 
 {%- if execute -%}
 
@@ -21,16 +26,17 @@
 
             FROM {{ adapter.quote(database) }}.{{ schema }}.INFORMATION_SCHEMA.TABLES
             WHERE (
-                {% if table_pattern %}
+                {% if config['table_logic'] == 'pattern' %}
                     REGEXP_SUBSTR(LOWER(table_name), r'(?:^|^[\w]+_)({{ table_pattern }}){1}(?:$|_[\w]+$)', 1) != ''
-                    {% if table_list -%} OR {%- endif %}
-                {% endif %}
-                {% if table_list %}
+
+                {% elif config['table_logic'] == 'list' %}
+
                     {% for include_table in table_list %}
                         LOWER(table_name) = LOWER('{{ include_table }}')
                             {% if not loop.last -%} OR {%- endif %}
                     {% endfor %}
                     {% if table_exclude_list -%} AND {%- endif %}
+
                 {% endif %}
             )
                 {% if table_exclude_list %}
@@ -83,6 +89,9 @@
         {{ return('SELECT NULL AS no_sources') }}
     {%- endif -%}
 
+{# if schema_list is missing #}
+{%- else -%}
+{{ log("No schema list defined. Please add schema(s) to dbt_ngpvan_config variable in your project file.", info=True) }}
 {%- endif -%}
 
 {%- endif -%}
