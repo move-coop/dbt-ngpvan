@@ -32,7 +32,8 @@ WITH
         SELECT
             committee_id,
             committee_name,
-            committee_short_name
+            committee_short_name,
+            committee_type
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
 

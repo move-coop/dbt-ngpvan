@@ -40,7 +40,8 @@ WITH
         SELECT
             committee_id,
             committee_name,
-            committee_short_name
+            committee_short_name,
+            committee_type
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
 
@@ -78,6 +79,7 @@ WITH
             contacts.committee_id,
             committees.committee_name,
             committees.committee_short_name,
+            committees.committee_type,
             contacts.canvassed_by_user_id,
             contacts.canvassed_by_username,
             contacts.campaign_id,
