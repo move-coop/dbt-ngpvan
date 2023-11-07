@@ -1,7 +1,7 @@
 version: 2
 
 models:
-  - name: int_ngpvan__01__activistcodes
+  - name: int_ngpvan__01__activist_codes
     config:
       alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__activist_codes' }}"
       tags: ['ngpvan_core']
