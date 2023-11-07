@@ -52,10 +52,10 @@ models:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_survey_responses' }}"
       tags: ['ngpvan_core']
 
-  - name: stg_ngpvan__contact_method_types
+  - name: stg_ngpvan__contact_types
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_method_types' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_types' }}"
       tags: ['ngpvan_core', 'ngpvan_lookup']
 
   - name: stg_ngpvan__input_types
