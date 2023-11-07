@@ -28,6 +28,7 @@ WITH
             contacts.contacts_phone_id,
             contacts.committee_id,
             committees.committee_name,
+            committees.committee_short_name,
             contacts.utc_created_at,
             contacts.utc_canvassed_at,
             contacts.utc_modified_at,

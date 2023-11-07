@@ -55,6 +55,7 @@ WITH
             codes.is_archived AS is_archived_activist_code,
             contacts.committee_id,
             committees.committee_name,
+            committees.committee_short_name,
             committees.committee_type,
             contacts.input_type_id,
             contacts.input_type,

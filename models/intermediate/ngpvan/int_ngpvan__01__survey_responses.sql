@@ -70,6 +70,7 @@ WITH
             contacts.contact_method_type,
             contacts.committee_id,
             committees.committee_name,
+            committees.committee_short_name,
             contacts.canvassed_by_user_id,
             contacts.canvassed_by_username,
             contacts.campaign_id,
