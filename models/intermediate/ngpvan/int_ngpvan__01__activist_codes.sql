@@ -29,11 +29,18 @@ WITH
     ),
 
     committees AS (
-        SELECT * FROM {{ ref("stg_ngpvan__committees") }}
+        SELECT
+            committee_id,
+            committee_name,
+            committee_short_name
+        FROM {{ ref("stg_ngpvan__committees") }}
     ),
 
     campaigns AS (
-        SELECT * FROM {{ ref("stg_ngpvan__campaigns") }}
+        SELECT
+            campaign_id,
+            campaign_name
+        FROM {{ ref("stg_ngpvan__campaigns") }}
     ),
 
     activist_codes AS (
