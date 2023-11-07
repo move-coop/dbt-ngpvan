@@ -14,11 +14,11 @@ WITH
             campaigntypename AS campaign_type,
             {{ normalize_timestamp_to_utc('datecreated')}} AS created_at,
             createdby AS created_by_user_id,
-            CASE WHEN active = 1
+            CASE WHEN isactive = 1
                     THEN TRUE
                     ELSE FALSE
                 END AS is_active,
-            CASE WHEN active = 5
+            CASE WHEN isactive = 5
                     THEN TRUE
                     ELSE FALSE
                 END AS is_archived,

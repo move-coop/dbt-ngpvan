@@ -25,7 +25,7 @@ WITH
             CASE WHEN active = 5
                     THEN TRUE
                     ELSE FALSE
-                END AS is_archived,,
+                END AS is_archived,
 
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base') }},

@@ -26,7 +26,7 @@ WITH
             CASE WHEN base.isactive = 5
                     THEN TRUE
                     ELSE FALSE
-                END AS is_archived,,
+                END AS is_archived,
             base.parentcodeid AS parent_code_id,
             base.createdby AS created_by_user_id,
             {{ normalize_timestamp_to_utc('base.datecreated') }} AS utc_created_at,
