@@ -18,7 +18,14 @@ WITH
             committeeid AS committee_id,
             actiontypeid AS action_type_id,
             campaignid AS campaign_id,
-            active AS active_status_id,
+            CASE WHEN active = 1
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_active,
+            CASE WHEN active = 5
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_archived,,
 
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base') }},

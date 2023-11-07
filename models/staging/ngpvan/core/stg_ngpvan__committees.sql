@@ -11,7 +11,14 @@ WITH
             committeename AS committee_name,
             committeeshortname AS committee_short_name,
             committeetypename AS committee_type,
-            active AS active_status_id,
+            CASE WHEN active = 1
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_active,
+            CASE WHEN active = 5
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_archived,
             parentcommitteeid AS parent_committee_id,
             mastercommitteeid AS master_committee_id,
 

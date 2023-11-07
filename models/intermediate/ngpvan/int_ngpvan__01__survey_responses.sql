@@ -31,7 +31,8 @@ WITH
             survey_question_text,
             master_survey_question_id,
             committee_id AS survey_question_committee_id,
-            active_status_id
+            is_active,
+            is_archived
         FROM {{ ref("stg_ngpvan__survey_questions") }}
     ),
 
@@ -76,6 +77,8 @@ WITH
             contacts.content_id,
             contacts.team_id,
             contacts.division_id,
+            questions.is_active AS is_active_survey_question,
+            questions.is_archived AS is_archived_survey_question,
 
             -- additional columns
             contacts.database_mode,

@@ -14,7 +14,14 @@ WITH
             campaigntypename AS campaign_type,
             {{ normalize_timestamp_to_utc('datecreated')}} AS created_at,
             createdby AS created_by_user_id,
-            isactive AS active_status_id, --[0, 1, 5] unclear what these status ids translate to
+            CASE WHEN active = 1
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_active,
+            CASE WHEN active = 5
+                    THEN TRUE
+                    ELSE FALSE
+                END AS is_archived,
 
             -- additional columns
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
