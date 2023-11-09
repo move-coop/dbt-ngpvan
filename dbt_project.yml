@@ -37,6 +37,7 @@ vars:
     source_database: target.database
     schema_list: []
     table_logic: pattern
+    table_exclude_list: []
     packages:
       core:
         enabled: true
