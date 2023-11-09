@@ -14,6 +14,8 @@
 {%- set database = config.source_database or target.database -%}
 
 {%- set schema_list = config['schema_list'] -%}
+{%- set table_list = config['table_list'] -%}
+{%- set table_exclude_list = config['table_exclude_list'] -%}
 
 {%- if schema_list -%}
 
@@ -26,31 +28,33 @@
 
             FROM {{ adapter.quote(database) }}.{{ schema }}.INFORMATION_SCHEMA.TABLES
             WHERE (
-                {% if config['table_logic'] == 'pattern' %}
+                {%- if config['table_logic'] == 'pattern' -%}
                     REGEXP_SUBSTR(LOWER(table_name), r'(?:^|^[\w]+_)({{ table_pattern }}){1}(?:$|_[\w]+$)', 1) != ''
 
-                {% elif config['table_logic'] == 'list' %}
+                {%- elif config['table_logic'] == 'list' -%}
 
-                    {% for include_table in table_list %}
+                    {% for include_table in table_list -%}
                         LOWER(table_name) = LOWER('{{ include_table }}')
                             {% if not loop.last -%} OR {%- endif %}
-                    {% endfor %}
-                    {% if table_exclude_list -%} AND {%- endif %}
+                    {%- endfor %}
 
-                {% endif %}
+                {%- endif -%}
             )
-                {% if table_exclude_list %}
-                    {% for exclude_table in table_exclude_list %}
+                {% if table_exclude_list -%}
+                    AND
+                    {% for exclude_table in table_exclude_list -%}
                         LOWER(table_name) != LOWER('{{ exclude_table }}')
                         {% if not loop.last -%} AND {%- endif %}
-                    {% endfor %}
-                {% endif %}
+                    {%- endfor %}
+                {%- endif %}
 
-            {% if not loop.last %} UNION ALL {% endif %}
+            {%- if not loop.last %}
+                UNION ALL
+            {% endif -%}
 
-        {% endfor %}
+        {%- endfor -%}
 
-    {% endcall %}
+    {%- endcall -%}
 
     {%- set table_list = load_result('get_tables') -%}
     {# {{ log("table_list: " ~ table_list, info=True) }} #}
