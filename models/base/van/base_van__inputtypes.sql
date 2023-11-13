@@ -1,24 +1,22 @@
 
-WITH base AS (
+WITH
+    base AS (
 
-    {{
-        union_all_by_var(
-            source_variable='van',
-            default_source_table='inputtypes',
-            source_tables_variable='inputtypes'
-        )
-    }}
+        {{
+            union_source_tables(
+                table_pattern='inputtypes'
+            )
+        }}
 
-)
+    ),
 
-, segment_by AS (
+    segment_by AS (
 
-    SELECT
-        *,
-        NULL::int as committeeid
+        SELECT
+            *
 
-    FROM base
-)
+        FROM base
+    )
 
 
 SELECT
@@ -26,8 +24,7 @@ SELECT
     {{
     generate_metadata_fields(
         vendor='van',
-        segment_by_column='committeeid',
-        segment_primary_keys=['inputtypeid']
+        segment_by_column=none
     )
     }}
 FROM segment_by

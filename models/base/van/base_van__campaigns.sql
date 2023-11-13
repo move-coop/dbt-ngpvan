@@ -4,7 +4,7 @@ WITH
 
         {{
             union_source_tables(
-                table_pattern='codetypes'
+                table_pattern='campaigns'
             )
         }}
 
@@ -20,11 +20,11 @@ WITH
 
 
 SELECT
-    *,
+    * {# ,
     {{
     generate_metadata_fields(
         vendor='van',
-        segment_by_column=none
+        segment_by_column='committeeid'
     )
-    }}
+    }} #}
 FROM segment_by

@@ -1,11 +1,13 @@
-{%- macro normalize_timestamp_to_utc(time_stamp, time_zone='UTC') -%}
+{%- macro normalize_timestamp_to_utc(time_stamp, convert_from_timezone='UTC', convert_to_timezone='UTC') %}
 
-{#- This looks a little wacky because we want to accommodate just about any input we might come across - e.g. if a timestamp has a timezone but is of VARCHAR type, and we cast it straight to a TIMESTAMP we lose the timezone (Actblue for example: 2023-05-09T11:49:03-04:00) -#}
+    CASE WHEN {{ time_stamp }} IS NOT NULL AND TRIM(CAST({{ time_stamp }} AS STRING)) != ''
 
-    CASE
-        WHEN {{ time_stamp }} IS NOT NULL AND TRIM( {{ time_stamp }} ) != ''
-        THEN CONVERT_TIMEZONE('{{ time_zone }}', 'UTC', DATE_TRUNC('second', CAST(CAST( {{ time_stamp }} AS TIMESTAMP WITH TIME ZONE) AS TIMESTAMP)))
-        ELSE NULL
-    END
+    {% if convert_from_timezone != 'UTC' %}
+            THEN FORMAT_TIMESTAMP('%G-%m-%d %H:%M:%S', TIMESTAMP(CAST({{ time_stamp }} AS STRING), '{{ convert_from_timezone }}'), '{{ convert_to_timezone }}' )
+    {% else %}
+            THEN CAST(FORMAT_TIMESTAMP('%G-%m-%d %H:%M:%S', TIMESTAMP( {{ time_stamp }}), '{{ convert_to_timezone }}' )  AS TIMESTAMP)
+    {% endif %}
+            ELSE NULL
+        END
 
 {%- endmacro -%}
