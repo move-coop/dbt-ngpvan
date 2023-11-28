@@ -35,7 +35,7 @@ WITH
             -- additional fields
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
-            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactsactivistcodeid'], grain='contacts_activist_code') }}
+            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactsactivistcodeid'], grain='contacts_activist_code') }},
 
             CONCAT(base.segment_by, '-', base.contactsactivistcodeid) AS segmented_contacts_activist_code_id,
             CONCAT(base.segment_by, '-', base.activistcodeid) AS segmented_activist_code_id,
