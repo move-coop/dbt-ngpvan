@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: int_ngpvan__01__activist_codes
+    config:
+      alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__activist_codes' }}"
+      tags: ['ngpvan_core']
+
+  - name: int_ngpvan__01__admins
+    config:
+      alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__admins' }}"
+
+  - name: int_ngpvan__01__contact_attempts
+    config:
+      alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__contact_attempts' }}"
+      tags: ['ngpvan_core']
+
+  - name: int_ngpvan__01__survey_responses
+    config:
+      alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__survey_responses' }}"
+      tags: ['ngpvan_core']

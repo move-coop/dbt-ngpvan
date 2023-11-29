@@ -1,0 +1,89 @@
+version: 2
+
+models:
+  - name: stg_ngpvan__activist_codes
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__activist_codes' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__campaigns
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__campaigns' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__codes
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__codes' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__code_types
+    config:
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__code_types' }}"
+      tags: ['ngpvan_core', 'ngpvan_lookup']
+
+  - name: stg_ngpvan__committees
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__committees' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contacts_activist_codes
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_activist_codes' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contacts_codes
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_codes' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contacts_contacts
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_contacts' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contacts_notes
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_notes' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contacts_survey_responses
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_survey_responses' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__contact_types
+    config:
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_types' }}"
+      tags: ['ngpvan_core', 'ngpvan_lookup']
+
+  - name: stg_ngpvan__input_types
+    config:
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__input_types' }}"
+      tags: ['ngpvan_core', 'ngpvan_lookup']
+
+  - name: stg_ngpvan__results
+    config:
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__results' }}"
+      tags: ['ngpvan_core', 'ngpvan_lookup']
+
+  - name: stg_ngpvan__survey_questions
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_questions' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__survey_responses
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_responses' }}"
+      tags: ['ngpvan_core']
+
+  - name: stg_ngpvan__users
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users' }}"
+
+  - name: stg_ngpvan__users_user_groups
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_user_groups' }}"

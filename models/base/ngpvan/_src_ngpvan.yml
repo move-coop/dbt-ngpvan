@@ -1,0 +1,31 @@
+version: 2
+
+definitions:
+
+  - ngpvan_source_template: &ngpvan_source_template
+      name: schema_name
+      tables:
+        - name: activistcodes
+        - name: campaigns
+        - name: codes
+        - name: codetypes
+        - name: committees
+        - name: contactsactivistcodes
+        - name: contactscodes
+        - name: contactscontacts
+        - name: contactsnotes
+        - name: contactssurveyresponses
+        - name: contacttypes
+        - name: inputtypes
+        - name: publicusers
+        - name: results
+        - name: surveyquestions
+        - name: surveyresponses
+        - name: users
+        - name: usersusergroups
+
+
+sources:
+  - <<: *ngpvan_source_template
+    name: source_schema
+    database: source_database

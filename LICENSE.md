@@ -1,4 +1,4 @@
-dbt-van
+dbt-ngpvan
 
 Copyright 2023 The Movement Cooperative & withDataLove
 
@@ -9,8 +9,8 @@ the following author attribution statement:
 
 NOTICE
 
-dbv-van was originally authored by The Movement Cooperative in partnership 
-with withDataLove, and is developed and maintained by people who support the 
+dbt-ngpvan was originally authored by The Movement Cooperative in partnership
+with withDataLove, and is developed and maintained by people who support the
 following values:
 - Ending discrimination and violence based on race, ethnicity,  gender,
 sexual identification, age, religion, disabilities and immigration status.
