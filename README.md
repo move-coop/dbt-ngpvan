@@ -3,28 +3,30 @@
 An open source repository for applying dbt to NGPVAN pipeline data
 
 ***
-***
 
 ### TABLE OF CONTENTS:
 
 - [**About the package**](#about-the-package)
-- [How do I use this package?](#how-do-i-use-this-package)
+- [**How do I use this package?**](#how-do-i-use-this-package)
   - [Step 1: Install the package](#step-1-install-the-package)
   - [Step 2: Define schema variable](#step-2-define-schema-variable)
   - [(Optional) Step 3: Additional configurations](#optional-step-3-additional-configurations)
-- [Layers](#layers)
+- [**Layers**](#layers)
   - [Base](#base)
   - [Staging](#staging)
   - [Intermediate](#intermediate)
-- [Macros](#macros)
+- [**Macros**](#macros)
   - DOCUMENTATION COMING SOON
-- [Coming in a future release...](#coming-in-a-future-release)
-- [Code of Conduct](#code-of-conduct)
+- [**Coming in a future release...**](#coming-in-a-future-release)
+- [**How is this package maintained and can I contribute?**](#how-is-this-package-maintained-and-can-i-contribute)
+  - [Package Maintenance](#package-maintenance)
+  - [Contributions](#contributions)
+- [**Code of Conduct**](#code-of-conduct)
 
 ***
-***
 
-## About the package
+
+##  About the package
 
 Current version: **v1.1.0**
 
@@ -39,7 +41,6 @@ NGPVAN is a complicated system with a lot of variety in functionality and config
 
 **NOTE:** The package is currently optimized for BigQuery, but we are working to add Redshift compatability.
 
-
 ### Step 1: Install the package
 
 Include the following dbt-ngpvan package version in your `packages.yml` file:
@@ -50,7 +51,6 @@ packages:
     revision: [">=1.1.0", "<1.2.0"]
 ```
 Run `dbt deps`
-
 
 ### Step 2: Define schema variable
 
@@ -64,7 +64,6 @@ vars:
 ```
 
 If you have raw NGPVAN data in more than one schema, you can list all of them here and the package will union the same raw tables across all schemas. All models include a `source_schema` column so you can differentiate between data coming from different schemas.
-
 
 ### _(Optional)_ Step 3: Additional configurations
 
@@ -134,7 +133,6 @@ Below are the default settings for these configs and more detail on using them.
 - **segmentation** IN DEVELOPMENT
 
 
-
 ## Layers
 
 ### Base
@@ -153,7 +151,6 @@ Below are the default settings for these configs and more detail on using them.
     - `segment_by` (set to committeeid)
 - Additional notes:
 
-
 ### Staging
 
 - Function:
@@ -169,7 +166,6 @@ Below are the default settings for these configs and more detail on using them.
     -  `vendor` column
 - Additional notes:
     - Users may add their own columns by customizing the `ngpvan__stg__additional_fields` macro
-
 
 ### Intermediate
 
@@ -190,9 +186,11 @@ Below are the default settings for these configs and more detail on using them.
 - Additional notes:
     - Users may add their own columns by customizing the `ngpvan__int__additional_fields` macro
 
+
 ## Macros
 
 *** **DOCUMENTATION COMING SOON** ***
+
 
 ## Coming in a future release...
 
@@ -204,6 +202,20 @@ Below are the default settings for these configs and more detail on using them.
 - Changelog
 - Improved Redshift compatability
 - Additional adapter compatability
+
+
+## How is this package maintained and can I contribute?
+
+### Package Maintenance
+
+The team maintaining this package _only_ maintains the latest version of the package. We highly recommend that you stay consistent with the [latest version](https://github.com/move-coop/dbt-ngpvan/tree/v1.1.0) of the package. <!-- and refer to the [CHANGELOG](https://github.com/fivetran/dbt_quickbooks_source/blob/main/CHANGELOG.md) and release notes for more information on changes across versions. -->
+
+### Contributions
+
+A small team of analytics engineers at withDataLove and The Movement Cooperative develops and maintains these dbt packages. However, the packages are made better by community contributions!
+
+We highly encourage and welcome contributions to this package. Check out [this dbt Discourse article](https://discourse.getdbt.com/t/contributing-to-a-dbt-package/657) to learn how to contribute to a dbt package!
+
 
 ## Code of Conduct
 
