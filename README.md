@@ -1,18 +1,47 @@
 # dbt-ngpvan
+
 An open source repository for applying dbt to NGPVAN pipeline data
 
+***
+***
+
+### TABLE OF CONTENTS:
+
+- [**About the package**](#about-the-package)
+- [How do I use this package?](#how-do-i-use-this-package)
+  - [Step 1: Install the package](#step-1-install-the-package)
+  - [Step 2: Define schema variable](#step-2-define-schema-variable)
+  - [(Optional) Step 3: Additional configurations](#optional-step-3-additional-configurations)
+- [Layers](#layers)
+  - [Base](#base)
+  - [Staging](#staging)
+  - [Intermediate](#intermediate)
+- [Macros](#macros)
+  - DOCUMENTATION COMING SOON
+- [Coming in a future release...](#coming-in-a-future-release)
+- [Code of Conduct](#code-of-conduct)
+
+***
+***
+
 ## About the package
+
+Current version: **v1.1.0**
+
 This package is currently limited to a selection of transactional NGPVAN tables which can contain voterfile data, and several reference/lookup tables used to enhance that data.
 
 Our goal is to add more tables over time and eventually have a complete package covering the 100+ NGPVAN tables provided in their Pipeline sync.
 
 NGPVAN is a complicated system with a lot of variety in functionality and configuration, and every organization uses it differently. We are hoping to develop this package to be extremely flexible and allow for a wide variety of use-cases and levels of complexity.
 
-## How do I use the dbt package?
+
+## How do I use this package?
+
 **NOTE:** The package is currently optimized for BigQuery, but we are working to add Redshift compatability.
 
 
 ### Step 1: Install the package
+
 Include the following dbt-ngpvan package version in your `packages.yml` file:
 
 ```
@@ -24,6 +53,7 @@ Run `dbt deps`
 
 
 ### Step 2: Define schema variable
+
 In order to run this package in your dbt project you must first add your source schema to the config settings.
 
 Add the following configuration to your root `dbt_project.yml` file:
@@ -33,10 +63,11 @@ vars:
     schema_list: ['your_schema']
 ```
 
-If you have raw NGPVAN data in more than one schema, you can list all of them here and the package will union the same raw tables across all schemas.
+If you have raw NGPVAN data in more than one schema, you can list all of them here and the package will union the same raw tables across all schemas. All models include a `source_schema` column so you can differentiate between data coming from different schemas.
 
 
 ### _(Optional)_ Step 3: Additional configurations
+
 There are a number of additional config settings you can use to customize the package to your needs.
 
 Below are the default settings for these configs and more detail on using them.
@@ -106,11 +137,12 @@ Below are the default settings for these configs and more detail on using them.
 
 ## Layers
 
-#### Base
+### Base
+
 - Function:
     - Prep layer for staging: unions data across schemas into a common table and adds metadata fields
 - Default schema: `dbt_base`
-- Default table names: `base_ngpvan__{tablename}`
+- Default table names: `base_{vendor_name | ngpvan}__{tablename}`
 - Default materialization: view
 - Metadata columns added:
     - `_dbt_source_relation`
@@ -122,7 +154,8 @@ Below are the default settings for these configs and more detail on using them.
 - Additional notes:
 
 
-#### Staging
+### Staging
+
 - Function:
     - This layer creates the basic building blocks utilized for all downstream data transformations
     - Standardizes and cleans incoming raw data
@@ -138,7 +171,8 @@ Below are the default settings for these configs and more detail on using them.
     - Users may add their own columns by customizing the `ngpvan__stg__additional_fields` macro
 
 
-#### Intermediate
+### Intermediate
+
 - Function:
     - Create denormalized tables for downstream querying/dashboard/reporting use, and for eventual joins/unions with data from other vendors/platforms.
 - Default schema: `dbt_intermediate`
@@ -158,3 +192,19 @@ Below are the default settings for these configs and more detail on using them.
 
 ## Macros
 
+*** **DOCUMENTATION COMING SOON** ***
+
+## Coming in a future release...
+
+- Macro documentation
+- Add column lists and descriptions to YAML model files
+- Complete set of models for "core" NGPVAN package
+- Models for additional NPGVAN packages (digital, ngp, development, etc)
+- Individual model versioning
+- Changelog
+- Improved Redshift compatability
+- Additional adapter compatability
+
+## Code of Conduct
+
+Please read the [code of conduct](CODE_OF_CONDUCT.md) before using or contributing to this package!
