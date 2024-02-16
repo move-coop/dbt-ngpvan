@@ -34,8 +34,7 @@
                 {%- elif config['table_logic'] == 'list' -%}
 
                     {% for include_table in table_list -%}
-                        LOWER(table_name) = LOWER('{{ include_table }}')
-                            {% if not loop.last -%} OR {%- endif %}
+                        LOWER(table_name) = LOWER('{{ include_table }}'){% if not loop.last %} OR {% endif %}
                     {%- endfor %}
 
                 {%- endif -%}
@@ -43,8 +42,7 @@
                 {% if table_exclude_list -%}
                     AND
                     {% for exclude_table in table_exclude_list -%}
-                        LOWER(table_name) != LOWER('{{ exclude_table }}')
-                        {% if not loop.last -%} AND {%- endif %}
+                        LOWER(table_name) != LOWER('{{ exclude_table }}'){% if not loop.last %} AND {% endif %}
                     {%- endfor %}
                 {%- endif %}
 
