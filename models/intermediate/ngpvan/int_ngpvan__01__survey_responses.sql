@@ -97,7 +97,7 @@ WITH
             contacts.source_schema,
             contacts.source_table,
             contacts.segment_by
-            {{ ngpvan__int__additional_fields() }}
+            {{ ngpvan__int__additional_fields() }} 
 
 
         FROM contacts
