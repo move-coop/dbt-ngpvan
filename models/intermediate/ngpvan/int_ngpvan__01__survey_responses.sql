@@ -103,7 +103,7 @@ WITH
         FROM contacts
         LEFT JOIN responses USING (survey_question_id, survey_response_id)
         LEFT JOIN questions USING (survey_question_id)
-        LEFT JOIN committees ON (committees.committee_id = COALESCE(contacts.committee_id, questions.survey_question_committee_id, responses.survey_response_committee_id,))
+        LEFT JOIN committees ON (committees.committee_id = COALESCE(contacts.committee_id, questions.survey_question_committee_id, responses.survey_response_committee_id))
         LEFT JOIN campaigns USING (campaign_id)
     )
 
