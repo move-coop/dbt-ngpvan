@@ -66,6 +66,7 @@ WITH
             questions.survey_question_text,
             contacts.survey_response_id,
             responses.survey_response,
+            responses.survey_response_committee_id,
             contacts.utc_created_at,
             contacts.utc_canvassed_at,
             contacts.utc_modified_at,
