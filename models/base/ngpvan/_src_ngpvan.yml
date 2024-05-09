@@ -27,5 +27,5 @@ definitions:
 
 sources:
   - <<: *ngpvan_source_template
-    name: source_schema
-    database: source_database
+    name: '{{ var("dbt_ngpvan_config")["source_schema"] }}'
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
