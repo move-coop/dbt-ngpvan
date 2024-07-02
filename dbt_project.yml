@@ -58,3 +58,4 @@ vars:
     add_ons: []
     segmentation: true
     lookup_tables: true
+    additional_fields: []
