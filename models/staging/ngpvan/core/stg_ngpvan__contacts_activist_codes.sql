@@ -33,6 +33,7 @@ WITH
             {{ normalize_timestamp_to_utc('base.datecanvassed') }} AS utc_canvassed_at,
 
             -- additional fields
+            {{ ngpvan__user__additional_fields("base_ngpvan__contactsactivistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
             {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactsactivistcodeid'], grain='contacts_activist_code') }},

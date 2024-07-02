@@ -24,6 +24,7 @@ WITH
                 END AS is_archived,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__campaigns") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', campaignid) AS segmented_campaign_id
             {{ ngpvan__stg__additional_fields() }}

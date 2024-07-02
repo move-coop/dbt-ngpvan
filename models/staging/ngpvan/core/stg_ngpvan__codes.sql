@@ -35,6 +35,7 @@ WITH
             codetypes.codetypename AS code_type,
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
 
+            {{ ngpvan__user__additional_fields("base_ngpvan__codes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
             CONCAT(base.segment_by, '-', base.codeid) AS segmented_code_id
             {{ ngpvan__stg__additional_fields() }}

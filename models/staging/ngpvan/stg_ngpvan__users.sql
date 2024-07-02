@@ -21,6 +21,7 @@ WITH
             {{ normalize_phone_number('cellphone') }} AS cell_phone,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__users") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }}
             {{ ngpvan__stg__additional_fields() }}
 

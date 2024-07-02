@@ -23,6 +23,7 @@ WITH
             surveyquestions.committeeid AS committee_id,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__surveyresponses") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', segment_by='surveyquestions.segment_by') }},
             CONCAT(surveyquestions.segment_by, '-', base.surveyresponseid) AS segmented_survey_response_id,
             CONCAT(surveyquestions.segment_by, '-', base.surveyquestionid) AS segmented_survey_question_id

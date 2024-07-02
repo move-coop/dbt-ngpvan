@@ -11,6 +11,7 @@ WITH
             resultdescription AS result_description,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__results") }}
             {{ ngpvan__metadata__select_fields() }}
             {{ ngpvan__stg__additional_fields() }}
 

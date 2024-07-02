@@ -43,6 +43,7 @@ WITH
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__contactscontacts") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
             {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactscontactid'], grain='contacts_contact') }},

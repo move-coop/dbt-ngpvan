@@ -10,6 +10,7 @@ WITH
             inputtypename AS input_type,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__inputtypes") }}
             {{ ngpvan__metadata__select_fields() }}
             {{ ngpvan__stg__additional_fields() }}
 

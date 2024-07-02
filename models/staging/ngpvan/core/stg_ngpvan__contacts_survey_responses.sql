@@ -36,6 +36,7 @@ WITH
             base.divisionid AS division_id,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__contactssurveyresponses") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
             {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactssurveyresponseid'], grain='contacts_survey_response') }},

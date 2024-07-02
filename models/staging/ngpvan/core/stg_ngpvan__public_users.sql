@@ -14,6 +14,7 @@ WITH
             {{ normalize_timestamp_to_utc('datecreated') }} AS created_at,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__publicusers") }}
             {{ ngpvan__metadata__select_fields() }}
             {{ ngpvan__stg__additional_fields() }}
 

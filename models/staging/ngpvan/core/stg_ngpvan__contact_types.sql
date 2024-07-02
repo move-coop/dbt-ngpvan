@@ -10,6 +10,7 @@ WITH
             contacttypename AS contact_method_type,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__contacttypes") }}
             {{ ngpvan__metadata__select_fields() }}
             {{ ngpvan__stg__additional_fields() }}
 

@@ -10,6 +10,7 @@ WITH
             codetypename AS code_type,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__codetypes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }}
             {{ ngpvan__stg__additional_fields() }}
 
