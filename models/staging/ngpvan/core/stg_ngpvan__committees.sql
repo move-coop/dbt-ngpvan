@@ -20,7 +20,7 @@ WITH
                     ELSE FALSE
                 END AS is_archived,
             parentcommitteeid AS parent_committee_id,
-            mastercommitteeid AS master_committee_id,
+            mastercommitteeid AS master_committee_id
 
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__committees") }}
