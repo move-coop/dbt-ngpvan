@@ -12,10 +12,9 @@
         {%- for field in config("additional_fields") -%}
             
             {%- if field in columns -%}
-                ,
-                {{ field }}
+                , {{ field }}
             {%- else -%}
-                NULL AS {{ field }}
+                , NULL AS {{ field }}
             {%- endif -%}
 
         {%- endfor -%}

@@ -23,6 +23,7 @@ WITH
             mastercommitteeid AS master_committee_id,
 
             -- additional columns
+            {{ ngpvan__user__additional_fields("base_ngpvan__committees") }}
             {{ ngpvan__metadata__select_fields() }}
             {{ ngpvan__stg__additional_fields() }}
 
