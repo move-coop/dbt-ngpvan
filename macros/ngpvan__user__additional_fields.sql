@@ -7,9 +7,9 @@
 {%- endmacro %}
 
 {%- macro default__ngpvan__user__additional_fields(base_ref) -%}
-    {%- if config("additional_fields") -%}
+    {%- if var("dbt_ngpvan_config")["additional_fields"] -%}
         {%- set columns = dbt_utils.get_filtered_columns_in_relation(from=ref(base_ref)) -%}
-        {%- for field in config("additional_fields") -%}
+        {%- for field in var("dbt_ngpvan_config")["additional_fields"] -%}
             
             {%- if field in columns -%}
                 , {{ field }}
