@@ -23,7 +23,7 @@ WITH
             SurveyQuestionID
 
         FROM {{ ref("base_ngpvan__contactssurveyresponses") }}
-    )
+    ),
 
     segment_by AS (
 
