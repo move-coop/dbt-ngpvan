@@ -23,6 +23,13 @@ WITH
             SurveyQuestionID
 
         FROM {{ ref("base_ngpvan__contactssurveyresponses") }}
+        UNION DISTINCT
+        SELECT DISTINCT
+
+            CommitteeID,
+            SurveyQuestionID
+
+        FROM {{ ref("base_ngpvan__surveyresponses")}}
     ),
 
     segment_by AS (
@@ -39,7 +46,7 @@ WITH
     )
 
 
-SELECT
+SELECT DISTINCT
     *,
     {{
     ngpvan__metadata__generate_fields(
