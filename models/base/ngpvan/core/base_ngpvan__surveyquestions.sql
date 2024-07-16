@@ -16,13 +16,26 @@ WITH
 
     ),
 
+    committee_mapping AS (
+        SELECT DISTINCT
+
+            CommitteeID,
+            SurveyQuestionID
+
+        FROM {{ ref("base_ngpvan__contactssurveyresponses") }}
+    )
+
     segment_by AS (
 
         SELECT
-            *,
-            createdcommitteeid as committeeid
+            
+            base.*,
+            committee_mapping.CommitteeID AS committeeid
 
         FROM base
+        LEFT JOIN committee_mapping
+            USING(SurveyQuestionID)
+       
     )
 
 
