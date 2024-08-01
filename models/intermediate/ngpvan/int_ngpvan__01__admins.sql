@@ -3,6 +3,7 @@ WITH
     users AS (
         SELECT 
             user_id,
+            NULL AS public_user_id,
             username,
             first_name,
             last_name,
@@ -14,9 +15,9 @@ WITH
             email_address,
             home_phone,
             cell_phone,
-            CAST(NULL AS STRING) AS public_user_van_id,
-            CAST(NULL AS STRING) AS public_user_committee_id,
-            CAST(NULL AS STRING) AS created_at,
+            NULL AS public_user_van_id,
+            NULL AS public_user_committee_id,
+            CAST(NULL AS TIMESTAMP) AS created_at,
             _dbt_source_relation,
             source_schema,
             source_table,
@@ -34,7 +35,8 @@ WITH
 
     public_users AS (
         SELECT
-            public_user_id, AS user_id
+            public_user_id AS user_id,
+            public_user_id,
             CAST(NULL AS STRING) AS username,
             CAST(NULL AS STRING) AS first_name,
             CAST(NULL AS STRING) AS last_name,
@@ -92,7 +94,7 @@ WITH
             {{- ngpvan__int__additional_fields() }}
 
         FROM users
-        LEFT JOIN all_users USING (user_id) users
+        LEFT JOIN user_groups USING (user_id) 
     )
 
 SELECT * FROM joined
