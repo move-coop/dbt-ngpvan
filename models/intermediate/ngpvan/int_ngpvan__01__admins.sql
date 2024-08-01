@@ -97,4 +97,4 @@ WITH
         LEFT JOIN user_groups USING (user_id) 
     )
 
-SELECT * FROM joined
+SELECT DISTINCT * FROM joined
