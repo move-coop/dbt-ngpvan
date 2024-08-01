@@ -1,7 +1,28 @@
 
 WITH
     users AS (
-        SELECT * FROM {{ ref("stg_ngpvan__users") }}
+        SELECT 
+            user_id,
+            NULL AS public_user_id,
+            username,
+            first_name,
+            last_name,
+            public_username,
+            address_line_1,
+            city,
+            state,
+            zip_code,
+            email_address,
+            home_phone,
+            cell_phone,
+            NULL AS public_user_van_id,
+            NULL AS public_user_committee_id,
+            CAST(NULL AS TIMESTAMP) AS created_at,
+            _dbt_source_relation,
+            source_schema,
+            source_table,
+            segment_by
+        FROM {{ ref("stg_ngpvan__users") }}
     ),
 
     user_groups AS (
@@ -14,10 +35,22 @@ WITH
 
     public_users AS (
         SELECT
+            public_user_id AS user_id,
             public_user_id,
+            CAST(NULL AS STRING) AS username,
+            CAST(NULL AS STRING) AS first_name,
+            CAST(NULL AS STRING) AS last_name,
             public_username,
+            CAST(NULL AS STRING) AS address_line_1,
+            CAST(NULL AS STRING) AS city,
+            CAST(NULL AS STRING) AS state,
+            CAST(NULL AS STRING) AS zip_code,
+            CAST(NULL AS STRING) AS email_address,
+            CAST(NULL AS STRING) AS home_phone,
+            CAST(NULL AS STRING) AS cell_phone,
             van_id AS public_user_van_id,
             committee_id AS public_user_committee_id,
+            created_at,
             _dbt_source_relation,
             source_schema,
             source_table,
@@ -25,15 +58,20 @@ WITH
         FROM {{ ref("stg_ngpvan__public_users") }}
     ),
 
+    all_users AS (
+        SELECT * FROM users
+        UNION DISTINCT
+        SELECT * FROM public_users
+    ),
+
     joined AS (
         SELECT
             users.user_id,
             users.username,
-            CASE WHEN public_users.public_user_id IS NOT NULL
+            CASE WHEN users.public_user_id IS NOT NULL
                     THEN TRUE
                     ELSE FALSE
                 END AS is_public_user,
-            public_users.public_user_id,
             public_username,
             users.first_name,
             users.last_name,
@@ -46,17 +84,18 @@ WITH
             users.cell_phone,
             user_groups.user_group_id,
             user_groups.user_group_name,
-            public_users.public_user_van_id,
-            public_users.public_user_committee_id,
-            COALESCE(users._dbt_source_relation, public_users._dbt_source_relation) AS _dbt_source_relation,
-            COALESCE(users.source_schema, public_users.source_schema) AS source_schema,
-            COALESCE(users.source_table, public_users.source_table) AS source_table,
-            COALESCE(users.segment_by, public_users.segment_by) AS segment_by
+            users.public_user_van_id,
+            users.public_user_committee_id,
+            users.created_at AS public_user_created_at,
+            users.segment_by,
+            MAX(users._dbt_source_relation) AS _dbt_source_relation,
+            MAX(users.source_schema) AS source_schema,
+            MAX(users.source_table) AS source_table
             {{- ngpvan__int__additional_fields() }}
 
         FROM users
-        LEFT JOIN user_groups USING (user_id)
-        FULL OUTER JOIN public_users USING (public_username)
+        LEFT JOIN user_groups USING (user_id) 
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
     )
 
 SELECT * FROM joined
