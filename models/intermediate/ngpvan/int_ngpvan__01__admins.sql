@@ -87,14 +87,15 @@ WITH
             users.public_user_van_id,
             users.public_user_committee_id,
             users.created_at AS public_user_created_at,
-            users._dbt_source_relation,
-            users.source_schema,
-            users.source_table,
             users.segment_by
+            FIRST_VALUE(users._dbt_source_relation) AS _dbt_source_relation,
+            FIRST_VALUE(users.source_schema) AS source_schema,
+            FIRST_VALUE(users.source_table) AS source_table,
             {{- ngpvan__int__additional_fields() }}
 
         FROM users
         LEFT JOIN user_groups USING (user_id) 
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
     )
 
-SELECT DISTINCT * FROM joined
+SELECT * FROM joined
