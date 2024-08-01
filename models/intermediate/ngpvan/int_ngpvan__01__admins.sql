@@ -88,9 +88,9 @@ WITH
             users.public_user_committee_id,
             users.created_at AS public_user_created_at,
             users.segment_by,
-            FIRST_VALUE(users._dbt_source_relation) AS _dbt_source_relation,
-            FIRST_VALUE(users.source_schema) AS source_schema,
-            FIRST_VALUE(users.source_table) AS source_table
+            MAX(users._dbt_source_relation) AS _dbt_source_relation,
+            MAX(users.source_schema) AS source_schema,
+            MAX(users.source_table) AS source_table
             {{- ngpvan__int__additional_fields() }}
 
         FROM users
