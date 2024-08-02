@@ -87,8 +87,8 @@ WITH
             users.public_user_committee_id,
             users.public_user_created_at,
             users.segment_by,
-            ARRAY_AGG(user_groups.user_group_id) as user_group_ids,
-            ARRAY_AGG(user_groups.user_group_name) as user_group_names,
+            ARRAY_AGG(DISTINCT user_groups.user_group_id IGNORE NULLS) as user_group_ids,
+            ARRAY_AGG(DISTINCT user_groups.user_group_name IGNORE NULLS) as user_group_names,
             MAX(users._dbt_source_relation) AS _dbt_source_relation,
             MAX(users.source_schema) AS source_schema,
             MAX(users.source_table) AS source_table
