@@ -17,7 +17,7 @@ WITH
             cell_phone,
             NULL AS public_user_van_id,
             NULL AS public_user_committee_id,
-            CAST(NULL AS TIMESTAMP) AS created_at,
+            CAST(NULL AS TIMESTAMP) AS public_user_created_at,
             _dbt_source_relation,
             source_schema,
             source_table,
@@ -50,7 +50,7 @@ WITH
             CAST(NULL AS STRING) AS cell_phone,
             van_id AS public_user_van_id,
             committee_id AS public_user_committee_id,
-            created_at,
+            created_at AS public_user_created_at,
             _dbt_source_relation,
             source_schema,
             source_table,
@@ -85,7 +85,7 @@ WITH
             users.cell_phone,
             users.public_user_van_id,
             users.public_user_committee_id,
-            users.created_at AS public_user_created_at,
+            users.public_user_created_at,
             users.segment_by,
             ARRAY_AGG(user_groups.user_group_id) as user_group_ids,
             ARRAY_AGG(user_groups.user_group_name) as user_group_names,
@@ -96,7 +96,24 @@ WITH
 
         FROM users
         LEFT JOIN user_groups USING (user_id) 
-        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
+        GROUP BY           
+            users.user_id,
+            users.username,
+            users.public_user_id,
+            users.public_username,
+            users.first_name,
+            users.last_name,
+            users.address_line_1,
+            users.city,
+            users.state,
+            users.zip_code,
+            users.email_address,
+            users.home_phone,
+            users.cell_phone,
+            users.public_user_van_id,
+            users.public_user_committee_id,
+            users.public_user_created_at,
+            users.segment_by
     )
 
 SELECT * FROM joined
