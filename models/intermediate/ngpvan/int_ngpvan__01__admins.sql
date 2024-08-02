@@ -72,7 +72,8 @@ WITH
                     THEN TRUE
                     ELSE FALSE
                 END AS is_public_user,
-            public_username,
+            users.public_user_id,
+            users.public_username,
             users.first_name,
             users.last_name,
             users.address_line_1,
@@ -82,12 +83,12 @@ WITH
             users.email_address,
             users.home_phone,
             users.cell_phone,
-            user_groups.user_group_id,
-            user_groups.user_group_name,
             users.public_user_van_id,
             users.public_user_committee_id,
             users.created_at AS public_user_created_at,
             users.segment_by,
+            ARRAY_AGG(user_groups.user_group_id) as user_group_ids,
+            ARRAY_AGG(user_groups.user_group_name) as user_group_names,
             MAX(users._dbt_source_relation) AS _dbt_source_relation,
             MAX(users.source_schema) AS source_schema,
             MAX(users.source_table) AS source_table
@@ -95,7 +96,7 @@ WITH
 
         FROM users
         LEFT JOIN user_groups USING (user_id) 
-        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19
+        GROUP BY 1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17
     )
 
 SELECT * FROM joined
