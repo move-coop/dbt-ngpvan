@@ -94,7 +94,7 @@ WITH
             MAX(users.source_table) AS source_table
             {{- ngpvan__int__additional_fields() }}
 
-        FROM users
+        FROM all_users users
         LEFT JOIN user_groups USING (user_id) 
         GROUP BY           
             users.user_id,
