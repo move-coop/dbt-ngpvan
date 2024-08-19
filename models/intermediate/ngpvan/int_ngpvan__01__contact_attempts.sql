@@ -5,7 +5,7 @@ WITH
     ),
 
     committees AS (
-        SELECT
+        SELECT DISTINCT
             committee_id,
             committee_name,
             committee_short_name,
