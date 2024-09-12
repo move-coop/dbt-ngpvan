@@ -5,85 +5,536 @@ models:
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__activist_codes' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: activist_code_id
+      - name: van_state_id
+      - name: activist_code_type
+      - name: activist_code_name
+      - name: activist_code_description
+      - name: report_question
+      - name: democrat_points
+      - name: republican_points
+      - name: independent_points
+      - name: committee_id
+      - name: action_type_id
+      - name: campaign_id
+      - name: is_active
+      - name: is_archived
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: segmented_activist_code_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__activist_code_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__campaigns
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__campaigns' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: campaign_id
+      - name: campaign_name
+      - name: campaign_description
+      - name: committee_id
+      - name: campaign_type_id
+      - name: campaign_type
+      - name: created_at
+      - name: created_by_user_id
+      - name: is_active
+      - name: is_archived
+      - name: _avvan_source_relation
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: segmented_campaign_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__campaign_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__codes
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__codes' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: code_id
+      - name: code_name
+      - name: committee_id
+      - name: committee_name
+      - name: is_active
+      - name: is_archived
+      - name: parent_code_id
+      - name: created_by_user_id
+      - name: utc_created_at
+      - name: static_full_name
+      - name: code_type_id
+      - name: code_type
+      - name: utc_modified_at
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: segmented_code_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__code_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__code_types
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__code_types' }}"
       tags: ['ngpvan_core', 'ngpvan_lookup']
+    columns:
+      - name: code_type_id
+      - name: code_type
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__code_type_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__committees
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__committees' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: committee_id
+      - name: van_state_id
+      - name: committee_name
+      - name: committee_short_name
+      - name: committee_type
+      - name: is_active
+      - name: is_archived
+      - name: parent_committee_id
+      - name: master_committee_id
+      - name: _avvan_source_relation
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__committee_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contacts_activist_codes
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_activist_codes' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: contacts_activist_code_id
+      - name: van_id
+      - name: activist_code_id
+      - name: committee_id
+      - name: utc_created_at
+      - name: input_type_id
+      - name: input_type
+      - name: contact_method_type_id
+      - name: contact_method_type
+      - name: canvassed_by_username
+      - name: canvassed_by_user_id
+      - name: campaign_id
+      - name: content_id
+      - name: utc_modified_at
+      - name: contacts_contact_id
+      - name: utc_canvassed_at
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: unique_contacts_activist_code_id
+      - name: segmented_contacts_activist_code_id
+      - name: segmented_activist_code_id
+      - name: segmented_van_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__contacts_activist_code_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contacts_codes
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_codes' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: contacts_code_id
+      - name: van_id
+      - name: code_id
+      - name: committee_id
+      - name: utc_created_at
+      - name: input_type_id
+      - name: input_type
+      - name: utc_modified_at
+      - name: created_by_user_id
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: unique_contacts_code_id
+      - name: segmented_contacts_code_id
+      - name: segmented_van_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__contacts_code_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contacts_contacts
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_contacts' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: contacts_contact_id
+      - name: van_id
+      - name: result_id
+      - name: result_name
+      - name: committee_id
+      - name: utc_created_at
+      - name: utc_canvassed_at
+      - name: input_type_id
+      - name: input_type
+      - name: contact_method_type_id
+      - name: contact_method_type
+      - name: canvassed_by_username
+      - name: canvassed_by_user_id
+      - name: campaign_id
+      - name: content_id
+      - name: created_by_user_id
+      - name: contacts_phone_id
+      - name: team_id
+      - name: division_id
+      - name: utc_modified_at
+      - name: _avvan_source_relation
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: unique_contacts_contact_id
+      - name: segmented_contacts_contact_id
+      - name: segmented_van_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__contacts_contact_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contacts_notes
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_notes' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: contacts_note_id
+      - name: van_id
+      - name: created_by_user_id
+      - name: utc_created_at
+      - name: committee_id
+      - name: suppressed_by_user_id
+      - name: utc_suppressed_at
+      - name: note_text
+      - name: datefollowup
+      - name: followup_completed_by_user_id
+      - name: datefollowupcompleted
+      - name: contacts_contact_id
+      - name: utc_modified_at
+      - name: note_category
+      - name: contacts_online_form_id
+      - name: contacts_story_id
+      - name: note_category_id
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: unique_contacts_note_id
+      - name: segmented_contacts_note_id
+      - name: segmented_van_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__contacts_note_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contacts_survey_responses
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_survey_responses' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: van_state_code
+      - name: contacts_survey_response_id
+      - name: van_id
+      - name: contacts_contact_id
+      - name: survey_question_id
+      - name: survey_response_id
+      - name: utc_created_at
+      - name: utc_canvassed_at
+      - name: input_type_id
+      - name: input_type
+      - name: contact_method_type_id
+      - name: contact_method_type
+      - name: committee_id
+      - name: canvassed_by_username
+      - name: canvassed_by_user_id
+      - name: campaign_id
+      - name: content_id
+      - name: utc_modified_at
+      - name: team_id
+      - name: division_id
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: database_mode
+      - name: is_myvoters
+      - name: segment_by
+      - name: unique_contacts_survey_response_id
+      - name: segmented_contacts_survey_response_id
+      - name: segmented_van_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__contacts_survey_response_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__contact_types
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_types' }}"
       tags: ['ngpvan_core', 'ngpvan_lookup']
+    columns:
+      - name: contact_method_type_id
+      - name: contact_method_type
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__contact_type_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__input_types
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__input_types' }}"
       tags: ['ngpvan_core', 'ngpvan_lookup']
+    columns:
+      - name: input_type_id
+      - name: input_type
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__input_type_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
+
+  - name: stg_ngpvan__public_users
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__public_users' }}"
 
   - name: stg_ngpvan__results
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__results' }}"
       tags: ['ngpvan_core', 'ngpvan_lookup']
+    columns:
+      - name: result_id
+      - name: result_name
+      - name: result_description
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__result_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__survey_questions
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_questions' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: survey_question_id
+      - name: van_state_id
+      - name: election_cycle
+      - name: survey_question_type
+      - name: survey_question_name
+      - name: survey_question_text
+      - name: master_survey_question_id
+      - name: committee_id
+      - name: is_active
+      - name: is_archived
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: segmented_survey_question_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__survey_question_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__survey_responses
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_responses' }}"
       tags: ['ngpvan_core']
+    columns:
+      - name: survey_question_id
+      - name: survey_response_id
+      - name: survey_response
+      - name: democrat_points
+      - name: republican_points
+      - name: independent_points
+      - name: master_survey_response_id
+      - name: committee_id
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: segmented_survey_response_id
+      - name: segmented_survey_question_id
+      - name: vendor
+      - name: segment_by_key
+        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        tests:
+          - not_null
+      - name: vendor_unique_stg_ngpvan__survey_response_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__users
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users' }}"
+    columns:
+      - name: user_id
+      - name: username
+      - name: first_name
+      - name: last_name
+      - name: public_username
+      - name: address_line_1
+      - name: city
+      - name: state
+      - name: zip_code
+      - name: email_address
+      - name: home_phone
+      - name: cell_phone
+      - name: _avvan_source_relation
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__user_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
 
   - name: stg_ngpvan__users_user_groups
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_user_groups' }}"
+    columns:
+      - name: user_id
+      - name: user_group_id
+      - name: user_group_name
+      - name: created_at
+      - name: created_by_user_id
+      - name: _avvan_source_relation
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__users_user_group_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
