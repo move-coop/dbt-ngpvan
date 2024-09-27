@@ -518,6 +518,27 @@ models:
           - not_null
           - unique
 
+  - name: stg_ngpvan__users_committees
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_committees' }}"
+    columns:
+      - name: user_id,
+      - name: committee_id,
+      - name: state_id,
+      - name: created_by_user_id,
+      - name: utc_created_at,
+      - name: utc_modified_at,
+      - name: _dbt_source_relation
+      - name: source_schema
+      - name: source_table
+      - name: segment_by
+      - name: vendor
+      - name: vendor_unique_stg_ngpvan__user_committee_id
+        description: "Surrogate primary key uniquely identifying this record across all members data."
+        tests:
+          - not_null
+          - unique
+
   - name: stg_ngpvan__users_user_groups
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_user_groups' }}"

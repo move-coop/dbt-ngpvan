@@ -80,6 +80,10 @@ models:
     config:
       alias: "{{ 'base_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users' }}"
 
+  - name: base_ngpvan__userscommittees
+    config:
+      alias: "{{ 'base_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__userscommittees' }}"
+
   - name: base_ngpvan__usersusergroups
     config:
       alias: "{{ 'base_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__usersusergroups' }}"
