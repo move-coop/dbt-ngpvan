@@ -533,7 +533,7 @@ models:
       - name: source_table
       - name: segment_by
       - name: vendor
-      - name: vendor_unique_stg_ngpvan__user_committee_id
+      - name: vendor_unique_stg_ngpvan__users_committee_id?
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
