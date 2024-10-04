@@ -5,17 +5,41 @@ models:
     config:
       alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__activist_codes' }}"
       tags: ['ngpvan_core']
+    tests:
+      - unique:
+          column_name: "(van_state_code || '-' || segmented_contacts_activist_code_id)"
+      - not_null:
+          column_name: "(van_state_code || '-' || segmented_contacts_activist_code_id)"
 
   - name: int_ngpvan__01__admins
     config:
       alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__admins' }}"
+    tests:
+      - unique:
+          column_name: "(user_id || '-' || public_user_id)"
+      - not_null:
+          column_name: "(user_id || '-' || public_user_id)"
 
   - name: int_ngpvan__01__contact_attempts
     config:
       alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__contact_attempts' }}"
       tags: ['ngpvan_core']
+    tests:
+      - unique:
+          column_name:
+            - contacts_contact_id
+      - not_null:
+          column_name: 
+            - contacts_contact_id
 
   - name: int_ngpvan__01__survey_responses
     config:
       alias: "{{ 'int_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__01__survey_responses' }}"
       tags: ['ngpvan_core']
+    tests:
+      - unique:
+          column_name:
+            - segmented_contacts_survey_response_id
+      - not_null:
+          column_name:
+            - segmented_contacts_survey_response_id
