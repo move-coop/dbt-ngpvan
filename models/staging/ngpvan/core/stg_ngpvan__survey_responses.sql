@@ -32,4 +32,4 @@ WITH
         LEFT JOIN surveyquestions USING (surveyquestionid)
     )
 
-SELECT * FROM responses
+SELECT DISTINCT * FROM responses
