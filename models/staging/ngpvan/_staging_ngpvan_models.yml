@@ -36,7 +36,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__campaigns
     config:
@@ -70,7 +70,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__codes
     config:
@@ -109,7 +109,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__code_types
     config:
@@ -130,7 +130,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__committees
     config:
@@ -162,7 +162,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contacts_activist_codes
     config:
@@ -207,7 +207,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contacts_codes
     config:
@@ -244,7 +244,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contacts_contacts
     config:
@@ -293,7 +293,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contacts_notes
     config:
@@ -338,7 +338,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contacts_survey_responses
     config:
@@ -385,7 +385,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__contact_types
     config:
@@ -406,7 +406,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__input_types
     config:
@@ -427,7 +427,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__public_users
     config:
@@ -453,7 +453,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__survey_questions
     config:
@@ -486,7 +486,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__survey_responses
     config:
@@ -518,7 +518,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__users
     config:
@@ -548,7 +548,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__users_committees
     config:
@@ -571,7 +571,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
 
   - name: stg_ngpvan__users_user_groups
     config:
@@ -594,4 +594,4 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
