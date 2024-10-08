@@ -128,9 +128,7 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
 
   - name: stg_ngpvan__committees
     config:
@@ -404,9 +402,7 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
 
   - name: stg_ngpvan__input_types
     config:
@@ -425,9 +421,7 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
 
   - name: stg_ngpvan__public_users
     config:
@@ -451,9 +445,7 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
 
   - name: stg_ngpvan__survey_questions
     config:
@@ -546,9 +538,7 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
 
   - name: stg_ngpvan__users_committees
     config:
@@ -592,6 +582,4 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique:
-              config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149
+          - unique
