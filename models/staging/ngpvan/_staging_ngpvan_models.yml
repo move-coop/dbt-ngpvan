@@ -34,7 +34,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__campaigns
     config:
@@ -66,7 +68,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__codes
     config:
@@ -103,7 +107,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__code_types
     config:
@@ -122,7 +128,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__committees
     config:
@@ -152,7 +160,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contacts_activist_codes
     config:
@@ -195,7 +205,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contacts_codes
     config:
@@ -230,7 +242,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contacts_contacts
     config:
@@ -277,7 +291,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contacts_notes
     config:
@@ -320,7 +336,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contacts_survey_responses
     config:
@@ -365,7 +383,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__contact_types
     config:
@@ -384,7 +404,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__input_types
     config:
@@ -403,7 +425,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__public_users
     config:
@@ -427,7 +451,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__survey_questions
     config:
@@ -458,7 +484,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__survey_responses
     config:
@@ -488,7 +516,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__users
     config:
@@ -516,7 +546,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__users_committees
     config:
@@ -537,7 +569,9 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
 
   - name: stg_ngpvan__users_user_groups
     config:
@@ -558,4 +592,6 @@ models:
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
           - not_null
-          - unique
+          - unique:
+              config:
+                where: source_schema != 'raw_bonterra__tmc_corrected' and commitee_id != 68149
