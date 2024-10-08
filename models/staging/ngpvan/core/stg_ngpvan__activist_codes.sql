@@ -37,6 +37,6 @@ WITH
     )
 
 SELECT
-    *
+    DISTINCT *
 FROM renamed
 
