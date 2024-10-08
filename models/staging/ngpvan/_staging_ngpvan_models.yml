@@ -383,7 +383,7 @@ models:
           - not_null
           - unique:
               config:
-                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149 and contact_survey_response_id is not null
+                where: source_schema != 'raw_bonterra__tmc_corrected' and committee_id != 68149 and contacts_survey_response_id is not null
 
   - name: stg_ngpvan__contact_types
     config:
