@@ -34,7 +34,6 @@ WITH
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
             base.teamid AS team_id,
             base.divisionid AS division_id,
-            _avvan_source_relation,
 
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__contactssurveyresponses") }}

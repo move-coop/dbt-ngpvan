@@ -40,7 +40,6 @@ WITH
             base.contactsphoneid AS contacts_phone_id,
             base.teamid AS team_id,
             base.divisionid AS division_id,
-            base._avvan_source_relation AS _avvan_source_relation,
             {{ normalize_timestamp_to_utc('base.datemodified') }} AS utc_modified_at,
 
             -- additional columns
