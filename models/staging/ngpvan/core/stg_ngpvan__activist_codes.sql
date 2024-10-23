@@ -26,6 +26,7 @@ WITH
                     THEN TRUE
                     ELSE FALSE
                 END AS is_archived,
+            _avvan_source_relation,
 
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__activistcodes") }}

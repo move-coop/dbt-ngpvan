@@ -95,6 +95,7 @@ WITH
             contacts.database_mode,
             contacts.is_myvoters,
             contacts._dbt_source_relation,
+            contacts._avvan_source_relation,
             contacts.source_schema,
             contacts.source_table,
             contacts.segment_by
