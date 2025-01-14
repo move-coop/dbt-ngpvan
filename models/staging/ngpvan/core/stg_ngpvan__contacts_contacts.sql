@@ -1,27 +1,3 @@
-{%- if var("dbt_ngpvan_config")["enable_incremental_models"] -%}
-
-{%- set partitions_to_replace = generate_partitions_to_replace(
-        incremental_window=var('dbt_ngpvan_config')["default_incremental_window__days"],
-        date_part="day"
-    ) 
--%}
-
-{{
-    config(
-        materialized="incremental",
-        partition_by={
-            "field": "utc_canvassed_at",
-            "data_type": "timestamp",
-            "granularity": "day"
-        },
-        incremental_strategy="insert_overwrite",
-        require_partition_filter=false,
-        partitions=partitions_to_replace
-    )
-}}
-{%- endif -%}
-
-
 WITH
     base AS (
         SELECT 
