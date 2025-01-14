@@ -14,23 +14,14 @@ WITH
                 )
         }}
 
-    ),
-
-    segment_by AS (
-
-        SELECT
-            *
-
-        FROM base
     )
-
 
 SELECT
     *,
     {{
-    ngpvan__metadata__generate_fields(
-        segment_by_column='committeeid',
-        myvoters=var('dbt_ngpvan_config')['packages']['myvoters']['enabled']
-    )
+        ngpvan__metadata__generate_fields(
+            segment_by_column='committeeid',
+            myvoters=var('dbt_ngpvan_config')['packages']['myvoters']['enabled']
+        )
     }}
-FROM segment_by
+FROM base
