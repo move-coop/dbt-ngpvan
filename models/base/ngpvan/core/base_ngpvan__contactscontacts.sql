@@ -1,13 +1,7 @@
 
 {{
     config(
-        alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactscontacts',
-        materialized="table",
-        partition_by={
-            "field": "datecanvassed",
-            "data_type": "timestamp",
-            "granularity": "day"
-        }
+        alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactscontacts'
     )
 }}
 
