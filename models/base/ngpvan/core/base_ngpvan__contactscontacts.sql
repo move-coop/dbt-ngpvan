@@ -4,7 +4,8 @@
     )
 }}
 
-{%- if var("dbt_ngpvan_config")["enable_incremental_models"] and not full_refresh -%}
+{%- if var("dbt_ngpvan_config")["enable_incremental_models"] and not is_incremental() -%}
+    {{ print("Building contacts_contacts incrementally...") }}
     {%- set table_pattern="incremental_contacts_contacts" -%}
 {%- else -%}
     {%- set table_pattern="contactscontacts" -%}
