@@ -7,7 +7,7 @@
 {%- if var("dbt_ngpvan_config")["enable_incremental_models"] and not full_refresh -%}
     {%- set table_pattern="incremental_contacts_contacts" -%}
 {%- else -%}
-    {%- table_pattern="contactscontacts" -%}
+    {%- set table_pattern="contactscontacts" -%}
 {%- endif -%}
 
 WITH
