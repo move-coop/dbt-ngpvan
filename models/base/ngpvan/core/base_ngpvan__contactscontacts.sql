@@ -1,33 +1,13 @@
-{%- if var("dbt_ngpvan_config")["enable_incremental_models"] -%}
-
-{%- set partitions_to_replace = generate_partitions_to_replace(
-        incremental_window=var('dbt_ngpvan_config')["default_incremental_window__days"],
-        date_part="day"
-    ) 
--%}
-
-{{
-    config(
-        alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactscontacts',
-        materialized="incremental",
-        partition_by={
-            "field": "datecanvassed",
-            "data_type": "timestamp",
-            "granularity": "day"
-        },
-        incremental_strategy="insert_overwrite",
-        require_partition_filter=false,
-        partitions=partitions_to_replace
-    )
-}}
-
-{%- else -%}
 {{
     config(
         alias='base_' ~ var("dbt_ngpvan_config")["vendor_name"] ~ '__contactscontacts'
     )
 }}
 
+{%- if var("dbt_ngpvan_config")["enable_incremental_models"] and not full_refresh -%}
+    {%- set table_pattern="incremental_contacts_contacts" -%}
+{%- else -%}
+    {%- table_pattern="contactscontacts" -%}
 {%- endif -%}
 
 WITH
@@ -35,7 +15,7 @@ WITH
 
         {{
             ngpvan__union_source_tables(
-                table_pattern='contactscontacts'
+                table_pattern=table_pattern
                 )
         }}
 
