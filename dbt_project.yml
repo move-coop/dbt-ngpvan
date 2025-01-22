@@ -60,4 +60,4 @@ vars:
     lookup_tables: true
     additional_fields: []
     enable_incremental_models: true
-    default_incremental_window__days: 3
+    ngpvan_default_incremental_window_days: 3

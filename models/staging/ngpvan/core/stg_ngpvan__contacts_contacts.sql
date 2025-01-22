@@ -1,7 +1,7 @@
 {%- if var("dbt_ngpvan_config")["enable_incremental_models"] -%}
 
 {%- set partitions_to_replace = generate_partitions_to_replace(
-        incremental_window=var('dbt_ngpvan_config')["default_incremental_window__days"],
+        incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
         date_part="day"
     ) 
 -%}
