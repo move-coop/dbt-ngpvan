@@ -1,3 +1,4 @@
+-- NOTE - This is a TMC macro, see `dbt-tmc`
 {%- set partitions_to_replace = generate_partitions_to_replace(
         incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
         date_part="day"
