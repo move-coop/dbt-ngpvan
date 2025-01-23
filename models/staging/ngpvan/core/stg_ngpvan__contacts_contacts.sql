@@ -1,3 +1,9 @@
+{%- set partitions_to_replace = generate_partitions_to_replace(
+        incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
+        date_part="day"
+    ) 
+-%}
+
 {{
     config(
         materialized="incremental",
@@ -21,7 +27,7 @@ WITH
         
         FROM {{ ref('base_ngpvan__contactscontacts') }}
         {% if is_incremental() %}
-        WHERE DATE_DIFF(CURRENT_DATE, datecanvassed, DAY) <= {{ var("ngpvan_default_incremental_window_days") }}
+        WHERE TIMESTAMP_TRUNC(datecanvassed, DAY) IN ({{ partitions_to_replace | join(",") }})
         {% endif %}
     ),
 
