@@ -1,8 +1,14 @@
 -- NOTE - This is a TMC macro, see `dbt-tmc`
-{%- set partitions_to_replace = generate_partitions_to_replace(
+{%- set partitions_to_select_from = generate_partitions_to_replace(
             incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
             date_part="day",
             grain="date"
+        ) 
+-%}
+
+{%- set partitions_to_replace = generate_partitions_to_replace(
+            incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
+            date_part="day"
         ) 
 -%}
 
@@ -29,7 +35,7 @@ WITH
         
         FROM {{ ref('base_ngpvan__contactscontacts') }}
         {% if is_incremental() %}
-        WHERE TIMESTAMP_TRUNC(datecanvassed, DAY) IN ({{ partitions_to_replace | join(",") }})
+        WHERE TIMESTAMP_TRUNC(datecanvassed, DAY) IN ({{ partitions_to_select_from | join(",") }})
         {% endif %}
     ),
 
