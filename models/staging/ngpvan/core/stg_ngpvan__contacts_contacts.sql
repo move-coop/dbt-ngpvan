@@ -10,7 +10,7 @@
         partition_by={
             "field": "utc_canvassed_at",
             "data_type": "timestamp",
-            "granularity": "day"
+            "granularity": "month"
         },
         incremental_strategy="insert_overwrite",
         require_partition_filter=false,
