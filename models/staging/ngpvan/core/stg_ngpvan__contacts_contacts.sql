@@ -1,7 +1,34 @@
+{%- set partitions_to_replace = generate_partitions_to_replace(
+        incremental_window=var('dbt_ngpvan_config')["ngpvan_default_incremental_window_days"],
+        date_part="day"
+    ) 
+-%}
+
+{{
+    config(
+        materialized="incremental",
+        partition_by={
+            "field": "utc_canvassed_at",
+            "data_type": "timestamp",
+            "granularity": "day"
+        },
+        incremental_strategy="insert_overwrite",
+        require_partition_filter=false,
+        partitions=partitions_to_replace
+    )
+}}
+
 
 WITH
     base AS (
-        SELECT * FROM {{ ref('base_ngpvan__contactscontacts') }}
+        SELECT 
+        
+            * 
+        
+        FROM {{ ref('base_ngpvan__contactscontacts') }}
+        {% if is_incremental() %}
+        WHERE TIMESTAMP_TRUNC(datecanvassed, DAY) IN ({{ partitions_to_replace | join(",") }})
+        {% endif %}
     ),
 
     results AS (
