@@ -248,6 +248,12 @@ models:
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_contacts' }}"
       tags: ['ngpvan_core']
+    tests:
+      - test_source_row_counts:
+        - source_references:
+          - "{{ source('raw_avvan__ngpvan_corrected', 'contactscontacts_vf') }}"
+          - "{{ source('raw_bonterra__tmc_corrected, 'contactscontacts_vf') }}"
+          - "{{ source('raw_svvan__corrected', 'contactscontacts_vf') }}"
     columns:
       - name: van_state_code
       - name: contacts_contact_id
