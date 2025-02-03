@@ -1,7 +1,7 @@
 {% test test_source_row_counts(model, source_references=[]) %}
     {% set source_row_count = 0 %}
-    {% for source in source_references %}
-        {% set source_row_count = source_row_count + run_query("SELECT COUNT(*) FROM {{ source }}").columns[0][0] %}
+    {% for source_table in source_references %}
+        {% set source_row_count = source_row_count + run_query("SELECT COUNT(*) FROM {{ source['source'] }}").columns[0][0] %}
     {% endfor %}
     
     WITH
