@@ -250,10 +250,11 @@ models:
       tags: ['ngpvan_core']
     tests:
       - test_source_row_counts:
-          source_references:
-            - name: "{{ source('raw_avvan__ngpvan_corrected', 'contactscontacts_vf') }}"
-            - name: "{{ source('raw_bonterra__tmc_corrected, 'contactscontacts_vf') }}"
-            - name: "{{ source('raw_svvan__corrected', 'contactscontacts_vf') }}"
+          source_references: [
+            "{{ source('raw_avvan__ngpvan_corrected', 'contactscontacts_vf') }}",
+            "{{ source('raw_bonterra__tmc_corrected, 'contactscontacts_vf') }}",
+            "{{ source('raw_svvan__corrected', 'contactscontacts_vf') }}"
+          ]
           config:
             severity: fail
     columns:
