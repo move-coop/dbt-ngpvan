@@ -255,8 +255,6 @@ models:
             "{{ source('raw_bonterra__tmc_corrected, 'contactscontacts_vf') }}",
             "{{ source('raw_svvan__corrected', 'contactscontacts_vf') }}"
           ]
-          config:
-            severity: fail
     columns:
       - name: van_state_code
       - name: contacts_contact_id
