@@ -1,0 +1,7 @@
+version: 2
+data_tests:
+  - name: assert_myvoters_sources_match_production_table
+    description: >
+      As we are building the `stg_ngpvan__contacts_contacts` table incrementally,
+      we want to test whether or not the sum of the source table row counts
+      approximately match the row count in the production table
