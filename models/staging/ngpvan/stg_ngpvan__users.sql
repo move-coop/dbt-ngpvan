@@ -11,7 +11,7 @@ WITH
             username AS username,
             INITCAP(firstname) AS first_name,
             INITCAP(lastname) AS last_name,
-            INITCAP(TRIM(canvassername)) AS public_username,
+            TRIM(INITCAP(canvassername)) AS public_username,
             address1 AS address_line_1,
             city AS city,
             state,
