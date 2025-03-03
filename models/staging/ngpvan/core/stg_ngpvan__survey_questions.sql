@@ -39,7 +39,7 @@ QUALIFY ROW_NUMBER() OVER (PARTITION BY
     van_state_id, 
     election_cycle, 
     survey_question_type, 
-    urvey_question_name, 
+    survey_question_name, 
     survey_question_text, 
     master_survey_question_id, 
     committee_id, 
