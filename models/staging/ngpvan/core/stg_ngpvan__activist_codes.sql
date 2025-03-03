@@ -16,8 +16,8 @@ WITH
             reppoints AS republican_points,
             indpoints AS independent_points,
             committeeid AS committee_id,
-            actiontypeid AS action_type_id,
-            campaignid AS campaign_id,
+            CASE WHEN actiontypeid = 0 THEN NULL ELSE actiontypeid END AS action_type_id,
+            CASE WHEN campaignid = 0 THEN NULL ELSE campaignid END AS campaign_id,
             CASE WHEN active = 1
                     THEN TRUE
                     ELSE FALSE
@@ -39,4 +39,25 @@ WITH
 SELECT
     DISTINCT *
 FROM renamed
--- likely we just want to dedupe by source schema, it looks like we're getting dupes from Bonterra and AV
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY
+        vendor_unique_stg_ngpvan__activist_code_id,
+        activist_code_id,
+        van_state_id,
+        activist_code_type,
+        activist_code_name,
+        activist_code_description,
+        report_question,
+        democrat_points,
+        republican_points,
+        independent_points,
+        committee_id,
+        action_type_id,
+        campaign_id,
+        is_active,
+        is_archived,
+        segment_by,
+        segmented_activist_code_id,
+        vendor,
+        segment_by_key
+) = 1
