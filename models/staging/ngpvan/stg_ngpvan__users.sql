@@ -31,4 +31,25 @@ WITH
 SELECT
     *
 FROM renamed
+-- We get some data from both Bonterra and AV, so this dedupes by partitioning on 
+-- everything except variables defining the source (i.e. _dbt_source_relation, _avvan_source_relation,
+-- source_schema, source_table)
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION by
+        user_id,
+        username,
+        first_name,
+        last_name,
+        public_username,
+        address_line_1,
+        city,
+        state,
+        zip_code,
+        email_address,
+        home_phone,
+        cell_phone,
+        segment_by,
+        vendor,
+        vendor_unique_stg_ngpvan__user_id
+) = 1
 
