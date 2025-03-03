@@ -39,4 +39,4 @@ WITH
 SELECT
     DISTINCT *
 FROM renamed
-
+-- likely we just want to dedupe by source schema, it looks like we're getting dupes from Bonterra and AV
