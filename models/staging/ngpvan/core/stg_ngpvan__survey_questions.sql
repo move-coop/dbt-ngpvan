@@ -31,22 +31,3 @@ WITH
     )
 
 SELECT * FROM renamed
--- We get some data from both Bonterra and AV, so this dedupes by partitioning on 
--- everything except variables defining the source (i.e. _dbt_source_relation, _avvan_source_relation,
--- source_schema, source_table)
-QUALIFY ROW_NUMBER() OVER (PARTITION BY 
-    survey_question_id, 
-    van_state_id, 
-    election_cycle, 
-    survey_question_type, 
-    survey_question_name, 
-    survey_question_text, 
-    master_survey_question_id, 
-    committee_id, 
-    is_active, 
-    is_archived,
-    segment_by,
-    segmented_survey_question_id,
-    vendor,
-    segment_by_key,
-    vendor_unique_stg_ngpvan__survey_question_id) = 1

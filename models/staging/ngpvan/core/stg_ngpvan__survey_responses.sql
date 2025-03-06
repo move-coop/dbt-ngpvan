@@ -36,20 +36,20 @@ SELECT DISTINCT * FROM responses
 -- We get some data from both Bonterra and AV, so this dedupes by partitioning on 
 -- everything except variables defining the source (i.e. _dbt_source_relation, _avvan_source_relation,
 -- source_schema, source_table)
--- QUALIFY ROW_NUMBER() OVER (
---     PARTITION BY 
---         survey_question_id,
---         survey_response_id,
---         survey_response,
---         democrat_points,
---         republican_points,
---         independent_points,
---         master_survey_response_id,
---         committee_id,
---         segment_by,
---         segmented_survey_response_id,
---         segmented_survey_question_id,
---         vendor,
---         segment_by_key,
---         vendor_unique_stg_ngpvan__survey_response_id
--- ) = 1
+QUALIFY ROW_NUMBER() OVER (
+    PARTITION BY 
+        survey_question_id,
+        survey_response_id,
+        survey_response,
+        democrat_points,
+        republican_points,
+        independent_points,
+        master_survey_response_id,
+        committee_id,
+        segment_by,
+        segmented_survey_response_id,
+        segmented_survey_question_id,
+        vendor,
+        segment_by_key,
+        vendor_unique_stg_ngpvan__survey_response_id
+) = 1
