@@ -89,4 +89,4 @@ WITH
     )
 
 SELECT DISTINCT * FROM renamed
-QUALIFY ROW_NUMBER() OVER (PARTITION BY vendor_unique_stg_ngpvan__contacts_contacts_id ORDER BY utc_modified_at DESC NULLS LAST) = 1
+-- QUALIFY ROW_NUMBER() OVER (PARTITION BY vendor_unique_stg_ngpvan__contacts_contacts_id ORDER BY utc_modified_at DESC NULLS LAST) = 1
