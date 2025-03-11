@@ -67,3 +67,4 @@ WITH
     )
 
 SELECT * FROM dedupe
+QUALIFY ROW_NUMBER() OVER (PARTITION BY vendor_unique_stg_ngpvan__activist_code_id ORDER BY action_type_id, is_active, is_archived) = 1
