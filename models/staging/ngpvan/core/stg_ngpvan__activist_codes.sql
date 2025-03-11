@@ -50,10 +50,10 @@ WITH
             republican_points,
             independent_points,
             committee_id,
-            action_type_id,
+            MAX(action_type_id) AS action_type_id,
             campaign_id,
-            is_active,
-            is_archived,
+            LOGICAL_AND(is_active) AS is_active,
+            LOGICAL_AND(is_archived) AS is_archived,
             segment_by,
             segmented_activist_code_id,
             vendor,
@@ -67,4 +67,3 @@ WITH
     )
 
 SELECT * FROM dedupe
-QUALIFY ROW_NUMBER() OVER (PARTITION BY vendor_unique_stg_ngpvan__activist_code_id ORDER BY action_type_id, is_active, is_archived) = 1
