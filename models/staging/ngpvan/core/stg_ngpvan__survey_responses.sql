@@ -19,7 +19,7 @@ WITH
             base.dempoints AS democrat_points,
             base.reppoints AS republican_points,
             base.indpoints AS independent_points,
-            base.mastersurveyresponseid AS master_survey_response_id,
+            CASE WHEN base.mastersurveyresponseid = 0 THEN NULL ELSE base.mastersurveyresponseid END AS master_survey_response_id,
             surveyquestions.committeeid AS committee_id,
 
             -- additional columns
