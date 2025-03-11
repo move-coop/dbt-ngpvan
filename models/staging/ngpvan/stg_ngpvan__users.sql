@@ -9,8 +9,8 @@ WITH
 
             userid AS user_id,
             username AS username,
-            INITCAP(firstname) AS first_name,
-            INITCAP(lastname) AS last_name,
+            TRIM(INITCAP(firstname)) AS first_name,
+            TRIM(INITCAP(lastname)) AS last_name,
             TRIM(INITCAP(canvassername)) AS public_username,
             address1 AS address_line_1,
             city AS city,
