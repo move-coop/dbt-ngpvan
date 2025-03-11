@@ -39,6 +39,7 @@ WITH
     dedupe AS (
         SELECT
             DISTINCT 
+            vendor_unique_stg_ngpvan__activist_code_id,
             activist_code_id,
             van_state_id,
             activist_code_type,
