@@ -30,26 +30,31 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
         FROM base
         LEFT JOIN surveyquestions USING (surveyquestionid)
+    ),
+
+    dedupe AS (
+        SELECT 
+            DISTINCT
+            survey_question_id,
+            survey_response_id,
+            survey_response,
+            democrat_points,
+            republican_points,
+            independent_points,
+            master_survey_response_id,
+            committee_id,
+            STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
+            STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
+            STRING_AGG(source_schema) AS source_schema,
+            STRING_AGG(source_table) AS source_table,
+            segment_by,
+            segmented_survey_response_id,
+            segmented_survey_question_id,
+            vendor,
+            segment_by_key,
+            vendor_unique_stg_ngpvan__survey_response_id
+        FROM responses
+        GROUP BY ALL
     )
 
-SELECT DISTINCT * FROM responses
--- We get some data from both Bonterra and AV, so this dedupes by partitioning on 
--- everything except variables defining the source (i.e. _dbt_source_relation, _avvan_source_relation,
--- source_schema, source_table)
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY 
-        survey_question_id,
-        survey_response_id,
-        survey_response,
-        democrat_points,
-        republican_points,
-        independent_points,
-        master_survey_response_id,
-        committee_id,
-        segment_by,
-        segmented_survey_response_id,
-        segmented_survey_question_id,
-        vendor,
-        segment_by_key,
-        vendor_unique_stg_ngpvan__survey_response_id
-) = 1
+SELECT DISTINCT * FROM dedupe
