@@ -29,7 +29,7 @@ WITH
             STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
             STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
             STRING_AGG(source_schema) AS source_schema,
-            STRING_AGG(source_table) AS source_table
+            STRING_AGG(source_table) AS source_table, 
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__activistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
