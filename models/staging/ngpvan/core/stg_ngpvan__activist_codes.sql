@@ -43,7 +43,7 @@ WITH
             activist_code_id,
             van_state_id,
             activist_code_type,
-            activist_code_name,
+            TRIM(activist_code_name) AS activist_code_name,
             activist_code_description,
             report_question,
             democrat_points,
