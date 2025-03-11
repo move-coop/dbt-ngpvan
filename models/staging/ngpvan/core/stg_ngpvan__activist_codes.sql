@@ -26,7 +26,10 @@ WITH
                     THEN TRUE
                     ELSE FALSE
                 END AS is_archived,
-
+            STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
+            STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
+            STRING_AGG(source_schema) AS source_schema,
+            STRING_AGG(source_table) AS source_table
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__activistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
@@ -34,30 +37,9 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
+        GROUP BY ALL
     )
 
 SELECT
     DISTINCT *
 FROM renamed
-QUALIFY ROW_NUMBER() OVER (
-    PARTITION BY
-        vendor_unique_stg_ngpvan__activist_code_id,
-        activist_code_id,
-        van_state_id,
-        activist_code_type,
-        activist_code_name,
-        activist_code_description,
-        report_question,
-        democrat_points,
-        republican_points,
-        independent_points,
-        committee_id,
-        action_type_id,
-        campaign_id,
-        is_active,
-        is_archived,
-        segment_by,
-        segmented_activist_code_id,
-        vendor,
-        segment_by_key
-) = 1
