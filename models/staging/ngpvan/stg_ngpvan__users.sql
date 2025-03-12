@@ -9,9 +9,9 @@ WITH
 
             userid AS user_id,
             username AS username,
-            INITCAP(firstname) AS first_name,
-            INITCAP(lastname) AS last_name,
-            INITCAP(canvassername) AS public_username,
+            TRIM(INITCAP(firstname)) AS first_name,
+            TRIM(INITCAP(lastname)) AS last_name,
+            TRIM(INITCAP(canvassername)) AS public_username,
             address1 AS address_line_1,
             city AS city,
             state,
@@ -26,9 +26,35 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
+    ),
+
+    dedupe AS (
+        SELECT
+            DISTINCT
+            user_id,
+            username,
+            first_name,
+            last_name,
+            public_username,
+            address_line_1,
+            city,
+            state,
+            zip_code,
+            email_address,
+            home_phone,
+            cell_phone,
+            STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
+            STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
+            STRING_AGG(source_schema) AS source_schema,
+            STRING_AGG(source_table) AS source_table,
+            segment_by,
+            vendor,
+            vendor_unique_stg_ngpvan__user_id
+        FROM renamed
+        GROUP BY ALL
     )
 
 SELECT
     *
-FROM renamed
+FROM dedupe
 

@@ -16,8 +16,8 @@ WITH
             reppoints AS republican_points,
             indpoints AS independent_points,
             committeeid AS committee_id,
-            actiontypeid AS action_type_id,
-            campaignid AS campaign_id,
+            CASE WHEN actiontypeid = 0 THEN NULL ELSE actiontypeid END AS action_type_id,
+            CASE WHEN campaignid = 0 THEN NULL ELSE campaignid END AS campaign_id,
             CASE WHEN active = 1
                     THEN TRUE
                     ELSE FALSE
@@ -26,7 +26,6 @@ WITH
                     THEN TRUE
                     ELSE FALSE
                 END AS is_archived,
-
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__activistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
@@ -34,9 +33,37 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
+        GROUP BY ALL
+    ),
+
+    dedupe AS (
+        SELECT
+            DISTINCT 
+            vendor_unique_stg_ngpvan__activist_code_id,
+            activist_code_id,
+            van_state_id,
+            activist_code_type,
+            TRIM(activist_code_name) AS activist_code_name,
+            activist_code_description,
+            report_question,
+            democrat_points,
+            republican_points,
+            independent_points,
+            committee_id,
+            MAX(action_type_id) AS action_type_id,
+            campaign_id,
+            LOGICAL_AND(is_active) AS is_active,
+            LOGICAL_AND(is_archived) AS is_archived,
+            segment_by,
+            segmented_activist_code_id,
+            vendor,
+            segment_by_key,
+            STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
+            STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
+            STRING_AGG(source_schema) AS source_schema,
+            STRING_AGG(source_table) AS source_table
+        FROM renamed
+        GROUP BY ALL
     )
 
-SELECT
-    DISTINCT *
-FROM renamed
-
+SELECT * FROM dedupe

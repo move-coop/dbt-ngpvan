@@ -52,4 +52,3 @@ WITH
     )
 
 SELECT * FROM renamed
-

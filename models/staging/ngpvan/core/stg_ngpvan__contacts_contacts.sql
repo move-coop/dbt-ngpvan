@@ -88,4 +88,4 @@ WITH
 
     )
 
-SELECT * FROM renamed
+SELECT DISTINCT * FROM renamed
