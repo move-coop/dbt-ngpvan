@@ -6,7 +6,7 @@ base AS (
 renamed AS (
     SELECT
         codetypeid AS code_type_id,
-        codetypename AS code_type
+        codetypename AS code_type,
 
         -- additional columns
         {{ ngpvan__user__additional_fields("base_ngpvan__codetypes") }}
