@@ -57,7 +57,3 @@ WITH
 SELECT
     *
 FROM dedupe
-WHERE NOT (
-    source_schema LIKE 'raw_avvan%'
-    AND committee_id = 68149
-)
