@@ -1,18 +1,17 @@
-
 WITH
-    base AS (
-        SELECT * FROM {{ ref('base_ngpvan__campaigns') }}
-    ),
+base AS (
+    SELECT * FROM {{ ref('base_ngpvan__campaigns') }}
+),
 
-    renamed AS (
-        SELECT
-            campaignid AS campaign_id,
-            campaignname AS campaign_name,
-            campaigndescription AS campaign_description,
-            committeeid AS committee_id,
-            campaigntypeid AS campaign_type_id,
-            campaigntypename AS campaign_type,
-            {{ normalize_timestamp_to_utc('datecreated')}} AS created_at,
+renamed AS (
+    SELECT
+        campaignid AS campaign_id,
+        campaignname AS campaign_name,
+        campaigndescription AS campaign_description,
+        committeeid AS committee_id,
+        campaigntypeid AS campaign_type_id,
+        campaigntypename AS campaign_type,
+        {{ normalize_timestamp_to_utc('datecreated') }} AS created_at,
             createdby AS created_by_user_id,
             CASE WHEN isactive = 1
                     THEN TRUE
@@ -27,12 +26,14 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__campaigns") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', campaignid) AS segmented_campaign_id
-            {{ ngpvan__stg__additional_fields() }}
+        {{ ngpvan__stg__additional_fields() }}
 
-        FROM base
-    )
+    FROM base
+)
 
-SELECT
-    *
+SELECT *
 FROM renamed
-
+WHERE NOT (
+    source_schema LIKE 'raw_avvan%'
+    AND committee_id = 68149
+)
