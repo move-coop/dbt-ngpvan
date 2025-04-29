@@ -57,4 +57,3 @@ WITH
 SELECT
     *
 FROM dedupe
-

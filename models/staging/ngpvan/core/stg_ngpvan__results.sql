@@ -21,4 +21,3 @@ WITH
 SELECT
     *
 FROM renamed
-
