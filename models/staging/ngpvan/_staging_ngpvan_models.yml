@@ -16,18 +16,23 @@ models:
       - name: republican_points
       - name: independent_points
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: action_type_id
       - name: campaign_id
       - name: is_active
       - name: is_archived
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: segmented_activist_code_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__activist_code_id
@@ -45,6 +50,7 @@ models:
       - name: campaign_name
       - name: campaign_description
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: campaign_type_id
       - name: campaign_type
       - name: created_at
@@ -53,13 +59,17 @@ models:
       - name: is_archived
       - name: _avvan_source_relation
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: segmented_campaign_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__campaign_id
@@ -74,9 +84,11 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: code_id
       - name: code_name
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: committee_name
       - name: is_active
       - name: is_archived
@@ -88,15 +100,19 @@ models:
       - name: code_type
       - name: utc_modified_at
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
       - name: segmented_code_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__code_id
@@ -114,10 +130,14 @@ models:
       - name: code_type_id
       - name: code_type
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__code_type_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -130,6 +150,7 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: van_state_id
       - name: committee_name
       - name: committee_short_name
@@ -140,16 +161,20 @@ models:
       - name: master_committee_id
       - name: _avvan_source_relation
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__committee_id
-        description: "Surrogate primary key uniquely identifying this record across all members data."
+        description: '{{ doc("vendor_unique_id") }}'
         tests:
           - not_null
           - unique
@@ -160,10 +185,12 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: contacts_activist_code_id
       - name: van_id
       - name: activist_code_id
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: utc_created_at
       - name: input_type_id
       - name: input_type
@@ -177,8 +204,11 @@ models:
       - name: contacts_contact_id
       - name: utc_canvassed_at
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
@@ -187,12 +217,13 @@ models:
       - name: segmented_activist_code_id
       - name: segmented_van_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__contacts_activist_code_id
-        description: "Surrogate primary key uniquely identifying this record across all members data."
+        description: '{{ doc("vendor_unique_id") }}'
         tests:
           - not_null
           - unique
@@ -203,18 +234,23 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: contacts_code_id
       - name: van_id
       - name: code_id
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: utc_created_at
       - name: input_type_id
       - name: input_type
       - name: utc_modified_at
       - name: created_by_user_id
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
@@ -222,8 +258,9 @@ models:
       - name: segmented_contacts_code_id
       - name: segmented_van_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__contacts_code_id
@@ -238,11 +275,13 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: contacts_contact_id
       - name: van_id
       - name: result_id
       - name: result_name
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: utc_created_at
       - name: utc_canvassed_at
       - name: input_type_id
@@ -260,8 +299,11 @@ models:
       - name: utc_modified_at
       - name: _avvan_source_relation
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
@@ -269,8 +311,9 @@ models:
       - name: segmented_contacts_contact_id
       - name: segmented_van_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__contacts_contact_id
@@ -285,11 +328,13 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: contacts_note_id
       - name: van_id
       - name: created_by_user_id
       - name: utc_created_at
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: suppressed_by_user_id
       - name: utc_suppressed_at
       - name: note_text
@@ -303,8 +348,11 @@ models:
       - name: contacts_story_id
       - name: note_category_id
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
@@ -312,8 +360,9 @@ models:
       - name: segmented_contacts_note_id
       - name: segmented_van_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__contacts_note_id
@@ -328,6 +377,7 @@ models:
       tags: ['ngpvan_core']
     columns:
       - name: van_state_code
+        description: '{{ doc("bonterra_state_code") }}'
       - name: contacts_survey_response_id
       - name: van_id
       - name: contacts_contact_id
@@ -340,6 +390,7 @@ models:
       - name: contact_method_type_id
       - name: contact_method_type
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: canvassed_by_username
       - name: canvassed_by_user_id
       - name: campaign_id
@@ -348,8 +399,11 @@ models:
       - name: team_id
       - name: division_id
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: database_mode
       - name: is_myvoters
       - name: segment_by
@@ -357,8 +411,9 @@ models:
       - name: segmented_contacts_survey_response_id
       - name: segmented_van_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__contacts_survey_response_id
@@ -378,10 +433,14 @@ models:
       - name: contact_method_type_id
       - name: contact_method_type
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__contact_type_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -397,10 +456,14 @@ models:
       - name: input_type_id
       - name: input_type
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__input_type_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -421,10 +484,14 @@ models:
       - name: result_name
       - name: result_description
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__result_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -444,16 +511,21 @@ models:
       - name: survey_question_text
       - name: master_survey_question_id
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: is_active
       - name: is_archived
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: segmented_survey_question_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__survey_question_id
@@ -475,15 +547,20 @@ models:
       - name: independent_points
       - name: master_survey_response_id
       - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}'
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: segmented_survey_response_id
       - name: segmented_survey_question_id
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: "Surrogate key identifying the segment of which this record is a part. Segments are then exposed to members according to data owernship and sharing arrangements."
+        description: '{{ doc("segment_by_key") }}'
         tests:
           - not_null
       - name: vendor_unique_stg_ngpvan__survey_response_id
@@ -510,10 +587,14 @@ models:
       - name: cell_phone
       - name: _avvan_source_relation
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__user_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -525,16 +606,21 @@ models:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_committees' }}"
     columns:
       - name: user_id,
-      - name: committee_id,
+      - name: committee_id
+        description: '{{ doc("bonterra_committee_foreign_key") }}',
       - name: state_id,
       - name: created_by_user_id,
       - name: utc_created_at,
       - name: utc_modified_at,
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__users_committee_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
@@ -552,10 +638,14 @@ models:
       - name: created_by_user_id
       - name: _avvan_source_relation
       - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
+        description: '{{ doc("source_schema") }}'
       - name: source_table
+        description: '{{ doc("source_table") }}'
       - name: segment_by
       - name: vendor
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__users_user_group_id
         description: "Surrogate primary key uniquely identifying this record across all members data."
         tests:
