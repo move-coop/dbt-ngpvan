@@ -20,7 +20,7 @@ WITH
             base.reppoints AS republican_points,
             base.indpoints AS independent_points,
             CASE WHEN base.mastersurveyresponseid = 0 THEN NULL ELSE base.mastersurveyresponseid END AS master_survey_response_id,
-            base.committeeid AS committee_id,
+            COALESCE(surveyquestions.committeeid, base.committeeid) AS committee_id,
 
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__surveyresponses") }}
