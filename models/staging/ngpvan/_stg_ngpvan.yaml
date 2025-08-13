@@ -1,0 +1,697 @@
+version: 2
+
+models:
+  - name: stg_ngpvan__activist_codes
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____activist_codes' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: vendor_unique_stg_ngpvan__activist_code_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: activist_code_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: van_state_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: activist_code_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: activist_code_description
+        description: '{{ doc("bonterra_missing") }}'
+      - name: report_question
+        description: '{{ doc("bonterra_missing") }}'
+      - name: democrat_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: republican_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: independent_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: campaign_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segmented_activist_code_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: activist_code_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: action_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_active
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_archived
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__campaigns
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____campaigns' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: campaign_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: campaign_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: campaign_description
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: campaign_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: campaign_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: created_at
+        description: '{{ doc("bonterra_missing") }}'
+      - name: created_by_user_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_active
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_archived
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segmented_campaign_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__campaign_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__code_types
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____code_types' }}"
+      tags:
+        - ngpvan_core
+        - ngpvan_lookup
+    columns:
+      - name: code_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: code_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__code_type_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__codes
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____codes' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: codeid
+        description: Unique ID for Code
+      - name: codename
+        description: Code Name in VAN
+      - name: committeeid
+        description: Committee in which record lives
+      - name: isactive
+        description: A Flag for if the activity is active
+      - name: parentcodeid
+        description:
+          If the Code is in a nested structure, this will be the direct parent
+          of the Code
+      - name: createdby
+        description: User ID of who/what created record (person or automated process)
+      - name: datecreated
+        description: Date record in table was created
+      - name: staticfullname
+        description:
+          Name of the code. Codes can apply to many items in Votebuilder, like
+          Organizations, Events and Locations. Not to be confused with Activist Codes,
+          which only apply to individuals. They give users a lot more flexibility to create
+          custom groupings of information, and are similar to hashtags in that respect.
+      - name: codetypeid
+        description: Source Code vs Tag
+      - name: codedescription
+        description: System stores description of code for reference purposes
+      - name: contacttypeid
+        description: Unique ID of Type of Contact
+      - name: campaignid
+        description: Unique ID of Campain (if applied)
+  - name: stg_ngpvan__committees
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____committees' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: van_state_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_short_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_active
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_archived
+        description: '{{ doc("bonterra_missing") }}'
+      - name: parent_committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: master_committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__committee_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__contact_types
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____contact_types' }}"
+      tags:
+        - ngpvan_core
+        - ngpvan_lookup
+    columns:
+      - name: contact_method_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contact_method_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__contact_type_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__contacts_activist_codes
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_activist_codes' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactsactivistcodeid
+        description: Unique ID for Activist Code applied to Specific Contact
+      - name: vanid
+        description:
+          Distinct VAN ID belonging to contact record. My C IDs begin with
+          100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: activistcodeid
+        description: Distinct ID belonging to Activist Code
+      - name: committeeid
+        description: Committee in which record lives
+      - name: datecreated
+        description: Date record in table was created
+      - name: inputtypeid
+        description: The ID of how the record was entered
+      - name: contacttypeid
+        description: Unique ID of Type of Contact
+      - name: username
+        description: Name of User who created record
+      - name: canvassedby
+        description: User ID of canvasser
+      - name: campaignid
+        description: Unique ID of Campain (if applied)
+      - name: contentid
+        description: Unique ID of Content (if applied)
+      - name: personcommitteeid
+        description: Committee that owns the person record
+      - name: contactscontactid
+        description: Unique ID for Contact History
+      - name: datecanvassed
+        description: Date contact was solicited or canvassed
+  - name: stg_ngpvan__contacts_codes
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_codes' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactscodeid
+        description: nan
+      - name: vanid
+        description:
+          Distinct VAN ID belonging to contact record. My C IDs begin with
+          100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: codeid
+        description: Unique ID for Code
+      - name: committeeid
+        description: Committee in which record lives
+      - name: datecreated
+        description: Date record in table was created
+      - name: inputtypeid
+        description: The ID of how the record was entered
+      - name: contacttypeid
+        description: Unique ID of Type of Contact
+      - name: username
+        description: Name of User who created record
+      - name: canvassedby
+        description: User ID of canvasser
+      - name: campaignid
+        description: Unique ID of Campain (if applied)
+      - name: contentid
+        description: Unique ID of Content (if applied)
+      - name: personcommitteeid
+        description: Committee that owns the person record
+      - name: contactscontactid
+        description: Unique ID for Contact History
+      - name: datecanvassed
+        description: Date contact was solicited or canvassed
+  - name: stg_ngpvan__contacts_contacts
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_contacts' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactscontactid
+        description: Unique ID for Contact History
+      - name: vanid
+        description:
+          Distinct VAN ID belonging to contact record. My C IDs begin with
+          100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: datecanvassed
+        description: Date contact was solicited or canvassed
+      - name: contacttypeid
+        description: Unique ID of Type of Contact
+      - name: inputtypeid
+        description: The ID of how the record was entered
+      - name: resultid
+        description: Result of contact interaction
+      - name: committeeid
+        description: Committee in which record lives
+      - name: canvassedby
+        description: User ID of canvasser
+      - name: username
+        description: Name of User who created record
+      - name: createdby
+        description: User ID of who/what created record (person or automated process)
+      - name: datecreated
+        description: Date record in table was created
+      - name: contactscontactnotestext
+        description: '{{ doc("bonterra_missing") }}'
+      - name: callduration
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactsphoneid
+        description: Unique identifier of Phone Number
+      - name: contactscontactsfull
+        description: '{{ doc("bonterra_missing") }}'
+      - name: liveid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: deleted
+        description: '{{ doc("bonterra_missing") }}'
+      - name: personcommitteeid
+        description: Committee that owns the person record
+      - name: campaignid
+        description: Unique ID of Campain (if applied)
+      - name: contentid
+        description: Unique ID of Content (if applied)
+      - name: eventid
+        description: Unique ID of Event
+      - name: eventshiftid
+        description: Unique ID of Event Shift assigned to Contact Record in the event
+      - name: locationid
+        description: Unique ID of Location of Event
+      - name: modeofcontactid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: taskassignmentid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: phoneoptinstatus
+        description: '{{ doc("bonterra_missing") }}'
+      - name: phoneoptintypeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: phoneoptinsourceid
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__contacts_notes
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_notes' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactsnoteid
+        description: Unique id for the note applied to the contact
+      - name: vanid
+        description:
+          Distinct VAN ID belonging to contact record. My C IDs begin with
+          100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: notetext
+        description: Text of Note entered on Organization
+      - name: notecategoryid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: isviewrestricted
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactscontactid
+        description: Unique ID for Contact History
+      - name: committeeid
+        description: Committee in which record lives
+      - name: createdby
+        description: User ID of who/what created record (person or automated process)
+      - name: datecreated
+        description: Date record in table was created
+      - name: personcommitteeid
+        description: Committee that owns the person record
+      - name: modifiedby
+        description: The user ID of the persion that modified the record
+      - name: datemodified
+        description:
+          DateModified refers to when the row was last replicated. This doesn't
+          necessarily mean any value in the row was changed.
+  - name: stg_ngpvan__contacts_survey_responses
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_survey_responses' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: sourcestateid
+        description:
+          SourceDatabase information to identify the source of the bridged
+          data
+      - name: sourcedatabasemodeid
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contactssurveyresponseid
+        description: Unique ID for Survey Response applied to Contact
+      - name: vanid
+        description:
+          Distinct VAN ID belonging to contact record. My C IDs begin with
+          100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: surveyquestionid
+        description: Unique ID of Survey Question - link to Survey Question
+      - name: surveyresponseid
+        description: Unique ID of Survey Response - link to Survey Response
+      - name: contacttypeid
+        description: Unique ID of Type of Contact
+      - name: inputtypeid
+        description: The ID of how the record was entered
+      - name: datecanvassed
+        description: Date contact was solicited or canvassed
+      - name: committeeid
+        description: Committee in which record lives
+      - name: canvassedby
+        description: User ID of canvasser
+      - name: username
+        description: Name of User who created record
+      - name: createdby
+        description: User ID of who/what created record (person or automated process)
+      - name: datecreated
+        description: Date record in table was created
+      - name: personcommitteeid
+        description: Committee that owns the person record
+      - name: contactscontactid
+        description: Unique ID for Contact History
+      - name: campaignid
+        description: Unique ID of Campain (if applied)
+      - name: contentid
+        description: Unique ID of Content (if applied)
+  - name: stg_ngpvan__input_types
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____input_types' }}"
+      tags:
+        - ngpvan_core
+        - ngpvan_lookup
+    columns:
+      - name: input_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: input_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__input_type_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__public_users
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____public_users' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: public_user_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: public_username
+        description: '{{ doc("bonterra_missing") }}'
+      - name: van_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: created_at
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__public_user_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__results
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____results' }}"
+      tags:
+        - ngpvan_core
+        - ngpvan_lookup
+    columns:
+      - name: result_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: result_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: result_description
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__result_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__survey_questions
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____survey_questions' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: van_state_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: election_cycle
+        description: '{{ doc("bonterra_missing") }}'
+      - name: survey_question_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: survey_question_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: survey_question_text
+        description: '{{ doc("bonterra_missing") }}'
+      - name: master_survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_active
+        description: '{{ doc("bonterra_missing") }}'
+      - name: is_archived
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segmented_survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+  - name: stg_ngpvan__survey_responses
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - test_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____survey_responses' }}"
+      tags:
+        - ngpvan_core
+    columns:
+      - name: survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: survey_response_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: survey_response
+        description: '{{ doc("bonterra_missing") }}'
+      - name: democrat_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: republican_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: independent_points
+        description: '{{ doc("bonterra_missing") }}'
+      - name: master_survey_response_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_schema
+        description: '{{ doc("bonterra_missing") }}'
+      - name: source_table
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segmented_survey_response_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segmented_survey_question_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor
+        description: '{{ doc("bonterra_missing") }}'
+      - name: segment_by_key
+        description: '{{ doc("bonterra_missing") }}'
+      - name: vendor_unique_stg_ngpvan__survey_response_id
+        description: '{{ doc("bonterra_missing") }}'
+
+  - name: stg_ngpvan__users
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users' }}"
+
+  - name: stg_ngpvan__users_user_groups
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users_user_groups' }}"
