@@ -5,7 +5,7 @@ WITH
     ),
 
     committees AS (
-        SELECT * FROM {{ ref('base_ngpvan__committees') }}
+        SELECT * EXCEPT(_avvan_source_relation) FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     codetypes AS (
