@@ -6,7 +6,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____activist_codes' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__activist_codes' }}"
       tags:
         - ngpvan_core
     columns:
@@ -61,7 +61,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____campaigns' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__campaigns' }}"
       tags:
         - ngpvan_core
     columns:
@@ -108,7 +108,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____code_types' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__code_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -136,7 +136,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____codes' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__codes' }}"
       tags:
         - ngpvan_core
     columns:
@@ -181,7 +181,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____committees' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__committees' }}"
       tags:
         - ngpvan_core
     columns:
@@ -224,7 +224,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____contact_types' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__contact_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -252,7 +252,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_activist_codes' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_activist_codes' }}"
       tags:
         - ngpvan_core
     columns:
@@ -297,7 +297,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_codes' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_codes' }}"
       tags:
         - ngpvan_core
     columns:
@@ -342,7 +342,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_contacts' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_contacts' }}"
       tags:
         - ngpvan_core
     columns:
@@ -415,7 +415,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_notes' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_notes' }}"
       tags:
         - ngpvan_core
     columns:
@@ -458,7 +458,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____contacts_survey_responses' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_survey_responses' }}"
       tags:
         - ngpvan_core
     columns:
@@ -507,7 +507,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____input_types' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__input_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -535,7 +535,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____public_users' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__public_users' }}"
       tags:
         - ngpvan_core
     columns:
@@ -570,7 +570,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '____results' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__results' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -600,7 +600,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____survey_questions' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_questions' }}"
       tags:
         - ngpvan_core
     columns:
@@ -647,7 +647,7 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '____survey_responses' }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_responses' }}"
       tags:
         - ngpvan_core
     columns:
