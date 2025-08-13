@@ -5,7 +5,7 @@ WITH
     ),
 
     committees AS (
-        SELECT * FROM {{ ref('base_ngpvan__committees') }}
+        SELECT * EXCEPT(_avvan_source_relation) FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     codetypes AS (
@@ -48,7 +48,3 @@ WITH
 SELECT
     *
 FROM renamed
-WHERE NOT (
-    source_schema LIKE 'raw_avvan%'
-    AND committee_id = 68149
-)
