@@ -108,7 +108,8 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__code_types' }}"
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__code_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -224,7 +225,8 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__contact_types' }}"
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -507,7 +509,8 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__input_types' }}"
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__input_types' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
@@ -570,7 +573,8 @@ models:
     tests:
       - test_fully_documented
     config:
-      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['lookup_tables'] ~ '__results' }}"
+      enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__results' }}"
       tags:
         - ngpvan_core
         - ngpvan_lookup
