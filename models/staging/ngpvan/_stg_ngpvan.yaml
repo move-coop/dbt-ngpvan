@@ -48,8 +48,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: is_archived
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -116,8 +114,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: code_type
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -202,8 +198,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: master_committee_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -233,8 +227,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -292,8 +284,6 @@ models:
         description: Unique ID for Contact History
       - name: utc_canvassed_at
         description: Date contact was solicited or canvassed, normalized to UTC
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -337,8 +327,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: created_by_user_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -414,8 +402,6 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: utc_modified_at
         description: '{{ doc("bonterra_missing") }}'
-      - name: _avvan_source_relation
-        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
