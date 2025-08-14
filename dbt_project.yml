@@ -1,8 +1,8 @@
-name: 'dbt_ngpvan'
-version: '1.0.0'
+name: "dbt_ngpvan"
+version: "1.0.0"
 config-version: 2
 
-profile: 'dbt_ngpvan'
+profile: "dbt_ngpvan"
 
 model-paths: ["models"]
 analysis-paths: ["analyses"]
@@ -10,6 +10,7 @@ test-paths: ["tests"]
 seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
+docs-paths: ["documentation_blocks"]
 
 target-path: "target"
 clean-targets:
@@ -29,7 +30,7 @@ models:
       +materialized: table
 
 tests:
-  +severity: warn  # all tests
+  +severity: warn # all tests
 
 vars:
   dbt_ngpvan_config:
