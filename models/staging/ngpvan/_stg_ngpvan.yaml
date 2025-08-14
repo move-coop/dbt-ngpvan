@@ -11,7 +11,7 @@ models:
         - ngpvan_core
     columns:
       - name: vendor_unique_stg_ngpvan__activist_code_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor_unique_id") }}'
       - name: activist_code_id
         description: '{{ doc("bonterra_missing") }}'
       - name: van_state_id
@@ -37,9 +37,9 @@ models:
       - name: segmented_activist_code_id
         description: '{{ doc("bonterra_missing") }}'
       - name: vendor
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by_key") }}'
       - name: activist_code_name
         description: '{{ doc("bonterra_missing") }}'
       - name: action_type_id
@@ -49,13 +49,13 @@ models:
       - name: is_archived
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_table") }}'
   - name: stg_ngpvan__campaigns
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -86,23 +86,23 @@ models:
       - name: is_archived
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_table") }}'
       - name: segment_by
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by") }}'
       - name: segmented_campaign_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Combination of segment by and campaign id
       - name: vendor
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by_key") }}'
       - name: vendor_unique_stg_ngpvan__campaign_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__code_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -119,19 +119,19 @@ models:
       - name: code_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_table") }}'
       - name: segment_by
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by") }}'
       - name: vendor
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__code_type_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -205,21 +205,21 @@ models:
       - name: master_committee_id
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_table") }}'
       - name: segment_by
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by") }}'
       - name: vendor
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor") }}'
       - name: segment_by_key
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by_key") }}'
       - name: vendor_unique_stg_ngpvan__committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__contact_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -236,19 +236,19 @@ models:
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("source_table") }}'
       - name: segment_by
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("segment_by") }}'
       - name: vendor
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__contact_type_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__contacts_activist_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -258,42 +258,56 @@ models:
       tags:
         - ngpvan_core
     columns:
-      - name: sourcestateid
-        description:
-          SourceDatabase information to identify the source of the bridged
-          data
-      - name: sourcedatabasemodeid
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contactsactivistcodeid
+      - name: contacts_activist_code_id
         description: Unique ID for Activist Code applied to Specific Contact
       - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: activistcodeid
+      - name: activist_code_id
         description: Distinct ID belonging to Activist Code
       - name: committee_id
         description: Committee in which record lives
-      - name: date_created
-        description: Date record in table was created
+      - name: utc_created_at
+        description: Date record in table was created, normalized to UTC
       - name: input_type_id
         description: The ID of how the record was entered
+      - name: input_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contact_method_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contact_method_type
+        description: '{{ doc("bonterra_missing") }}'
       - name: contact_type_id
         description: Unique ID of Type of Contact
-      - name: user_name
+      - name: canvased_by_username
         description: Name of User who created record
-      - name: canvassed_by
+      - name: canvassed_by_user_id
         description: User ID of canvasser
-      - name: campaignid
+      - name: campaign_id
         description: Unique ID of Campain (if applied)
-      - name: contentid
+      - name: content_id
         description: Unique ID of Content (if applied)
-      - name: personcommittee_id
-        description: Committee that owns the person record
+      - name: utc_modified_at
+        description: '{{ doc("bonterra_missing") }}'
       - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: date_canvassed
-        description: Date contact was solicited or canvassed
+      - name: utc_canvassed_at
+        description: Date contact was solicited or canvassed, normalized to UTC
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
+      - name: source_schema
+        description: '{{ doc("source_schema") }}'
+      - name: source_table
+        description: '{{ doc("source_table") }}'
+      - name: segment_by
+        description: '{{ doc("segment_by") }}'
+      - name: vendor
+        description: '{{ doc("vendor") }}'
+      - name: vendor_unique_stg_ngpvan__contacts_activist_code_id
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__contacts_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -303,8 +317,10 @@ models:
       tags:
         - ngpvan_core
     columns:
+      - name: van_state_code
+        description: '{{ doc("bonterra_missing") }}'
       - name: contacts_code_id
-        description: nan
+        description: '{{ doc("bonterra_missing") }}'
       - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
@@ -313,26 +329,40 @@ models:
         description: Unique ID for Code
       - name: committee_id
         description: Committee in which record lives
-      - name: date_created
-        description: Date record in table was created
+      - name: utc_created_at
+        description: Date record in table was created, normalized to UTC
       - name: input_type_id
         description: The ID of how the record was entered
-      - name: contact_type_id
-        description: Unique ID of Type of Contact
-      - name: user_name
-        description: Name of User who created record
-      - name: canvassed_by
-        description: User ID of canvasser
-      - name: campaign_id
-        description: Unique ID of Campain (if applied)
-      - name: content_id
-        description: Unique ID of Content (if applied)
-      - name: person_committee_id
-        description: Committee that owns the person record
-      - name: contacts_contact_id
-        description: Unique ID for Contact History
-      - name: date_canvassed
-        description: Date contact was solicited or canvassed
+      - name: input_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: utc_modified_at
+        description: '{{ doc("bonterra_missing") }}'
+      - name: created_by_user_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
+      - name: source_schema
+        description: '{{ doc("source_schema") }}'
+      - name: source_table
+        description: '{{ doc("source_table") }}'
+      - name: database_mode
+        description: '{{ doc("database_mode") }}'
+      - name: is_myvoters
+        description: '{{ doc("is_myvoters") }}'
+      - name: segment_by
+        description: '{{ doc("segment_by") }}'
+      - name: unique_contacts_code_id
+        description: Unique key constructed by combining segment by, state code, and contacts code id
+      - name: segmented_contacts_code_id
+        description: Combination of segment by and contacts code id
+      - name: segmented_van_id
+        description: Combination of segment by and van id
+      - name: vendor
+        description: '{{ doc("vendor") }}'
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
   - name: stg_ngpvan__contacts_contacts
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -342,64 +372,76 @@ models:
       tags:
         - ngpvan_core
     columns:
+      - name: van_state_code
+        description: '{{ doc("bonterra_missing") }}'
       - name: contacts_contacts_id
         description: Unique ID for Contact History
       - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: date_canvassed
-        description: Date contact was solicited or canvassed
-      - name: contact_type_id
-        description: Unique ID of Type of Contact
-      - name: input_type_id
-        description: The ID of how the record was entered
       - name: result_id
         description: Result of contact interaction
+      - name: result_name
+        description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
         description: Committee in which record lives
-      - name: canvassed_by
-        description: User ID of canvasser
-      - name: user_name
+      - name: utc_created_at
+        description: Date record in table was created, normalized to UTC
+      - name: utc_canvassed_at
+        description: Date contact was solicited or canvassed, normalized to UTC
+      - name: input_type_id
+        description: The ID of how the record was entered
+      - name: input_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contact_method_type_id
+        description: Unique ID of Type of Contact
+      - name: contact_method_type
+        description: '{{ doc("bonterra_missing") }}'
+      - name: canvassed_by_user_name
         description: Name of User who created record
-      - name: created_by
-        description: User ID of who/what created record (person or automated process)
-      - name: date_created
-        description: Date record in table was created
-      - name: contacts_contact_notes_text
-        description: '{{ doc("bonterra_missing") }}'
-      - name: call_duration
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contacts_phone_id
-        description: Unique identifier of Phone Number
-      - name: contacts_contacts_full
-        description: '{{ doc("bonterra_missing") }}'
-      - name: live_id
-        description: '{{ doc("bonterra_missing") }}'
-      - name: deleted
-        description: '{{ doc("bonterra_missing") }}'
-      - name: person_committee_id
-        description: Committee that owns the person record
+      - name: canvassed_by_user_id
+        description: User ID of canvasser
       - name: campaign_id
         description: Unique ID of Campain (if applied)
       - name: content_id
         description: Unique ID of Content (if applied)
-      - name: event_id
-        description: Unique ID of Event
-      - name: event_shift_id
-        description: Unique ID of Event Shift assigned to Contact Record in the event
-      - name: location_id
-        description: Unique ID of Location of Event
-      - name: mode_of_contact_id
+      - name: created_by_user_id
+        description: User ID of who/what created record (person or automated process)
+      - name: contacts_phone_id
+        description: Unique identifier of Phone Number
+      - name: team_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: task_assignment_id
+      - name: division_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: phone_opt_in_status
+      - name: utc_modified_at
         description: '{{ doc("bonterra_missing") }}'
-      - name: phone_opt_in_type_id
-        description: '{{ doc("bonterra_missing") }}'
-      - name: phone_opt_in_source_id
-        description: '{{ doc("bonterra_missing") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
+      - name: source_schema
+        description: '{{ doc("source_schema") }}'
+      - name: source_table
+        description: '{{ doc("source_table") }}'
+      - name: database_mode
+        description: '{{ doc("database_mode") }}'
+      - name: is_myvoters
+        description: '{{ doc("is_myvoters") }}'
+      - name: segment_by
+        description: '{{ doc("segment_by") }}'
+      - name: unique_contacts_contact_id
+        description: Unique key constructed by combining segment by, state code, and contacts contact id
+      - name: segmented_contacts_contact_id
+        description: Combination of segment by and contacts contact id
+      - name: segmented_van_id
+        description: Combination of segment by and van id
+      - name: vendor
+        description: '{{ doc("vendor") }}'
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
+      - name: vendor_unique_stg_ngpvan__contacts_contact_id
+        description: '{{ doc("vendor_unique_id") }}'
   - name: stg_ngpvan__contacts_notes
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -409,34 +451,44 @@ models:
       tags:
         - ngpvan_core
     columns:
+      - name: van_state_code
+        description: '{{ doc("bonterra_missing") }}'
       - name: contacts_note_id
         description: Unique id for the note applied to the contact
       - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
+      - name: created_by_user_id
+        description: User ID of who/what created record (person or automated process)
+      - name: utc_created_at
+        description: Date record in table was created, normalized to UTC
+      - name: committee_id
+        description: Committee in which record lives
+      - name: suppressed_by_user_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: utc_suppressed_at
+        description: '{{ doc("bonterra_missing") }}'
       - name: note_text
         description: Text of Note entered on Organization
-      - name: note_category_id
+      - name: datefollowup
         description: '{{ doc("bonterra_missing") }}'
-      - name: is_view_restricted
+      - name: followup_completed_by_user_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: datefollowupcompleted
         description: '{{ doc("bonterra_missing") }}'
       - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: committee_id
-        description: Committee in which record lives
-      - name: created_by
-        description: User ID of who/what created record (person or automated process)
-      - name: date_created
-        description: Date record in table was created
-      - name: person_committee_id
-        description: Committee that owns the person record
-      - name: modified_by
-        description: The user ID of the persion that modified the record
-      - name: date_modified
+      - name: utc_modified_at
         description:
           DateModified refers to when the row was last replicated. This doesn't
-          necessarily mean any value in the row was changed.
+          necessarily mean any value in the row was changed. Normalized to UTC
+      - name: note_category
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contacts_online_form_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: contacts_story_id
+
   - name: stg_ngpvan__contacts_survey_responses
     description: '{{ doc("bonterra_missing") }}'
     tests:
