@@ -667,7 +667,7 @@ models:
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
-        description: '{{ doc("source_schema`") }}'
+        description: '{{ doc("source_schema") }}'
       - name: source_table
         description: '{{ doc("source_table") }}'
       - name: segment_by
