@@ -90,7 +90,7 @@ models:
       - name: source_table
         description: '{{ doc("source_table") }}'
       - name: segment_by
-        description:
+        description: ""
       - name: segmented_campaign_id
         description: Combination of segment by and campaign id
       - name: vendor
@@ -121,7 +121,7 @@ models:
       - name: source_table
         description: '{{ doc("source_table") }}'
       - name: segment_by
-        description:
+        description: ""
       - name: vendor
         description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__code_type_id
@@ -205,7 +205,7 @@ models:
       - name: source_table
         description: '{{ doc("source_table") }}'
       - name: segment_by
-        description:
+        description: ""
       - name: vendor
         description: '{{ doc("vendor") }}'
       - name: segment_by_key
@@ -234,7 +234,7 @@ models:
       - name: source_table
         description: '{{ doc("source_table") }}'
       - name: segment_by
-        description:
+        description: ""
       - name: vendor
         description: '{{ doc("vendor") }}'
       - name: vendor_unique_stg_ngpvan__contact_type_id
