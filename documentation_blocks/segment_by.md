@@ -1,3 +1,3 @@
-{% docs source_schema %}
+{% docs segment_by %}
 The value used for segmentation
 {% enddocs %}
