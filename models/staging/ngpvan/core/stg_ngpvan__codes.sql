@@ -9,7 +9,7 @@ WITH
     ),
 
     codetypes AS (
-        SELECT * EXCEPT (_avvan_source_relation) FROM {{ ref('base_ngpvan__codetypes') }}
+        SELECT * FROM {{ ref('base_ngpvan__codetypes') }}
     ),
 
     renamed AS (
