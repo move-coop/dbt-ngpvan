@@ -4,7 +4,7 @@ models:
   - name: stg_ngpvan__activist_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__activist_codes' }}"
       tags:
@@ -59,7 +59,7 @@ models:
   - name: stg_ngpvan__campaigns
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__campaigns' }}"
       tags:
@@ -106,7 +106,7 @@ models:
   - name: stg_ngpvan__code_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__code_types' }}"
@@ -135,7 +135,7 @@ models:
   - name: stg_ngpvan__codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__codes' }}"
       tags:
@@ -180,7 +180,7 @@ models:
   - name: stg_ngpvan__committees
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__committees' }}"
       tags:
@@ -223,7 +223,7 @@ models:
   - name: stg_ngpvan__contact_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contact_types' }}"
@@ -252,7 +252,7 @@ models:
   - name: stg_ngpvan__contacts_activist_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_activist_codes' }}"
       tags:
@@ -297,7 +297,7 @@ models:
   - name: stg_ngpvan__contacts_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_codes' }}"
       tags:
@@ -342,7 +342,7 @@ models:
   - name: stg_ngpvan__contacts_contacts
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_contacts' }}"
       tags:
@@ -415,7 +415,7 @@ models:
   - name: stg_ngpvan__contacts_notes
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_notes' }}"
       tags:
@@ -458,7 +458,7 @@ models:
   - name: stg_ngpvan__contacts_survey_responses
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contacts_survey_responses' }}"
       tags:
@@ -507,7 +507,7 @@ models:
   - name: stg_ngpvan__input_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__input_types' }}"
@@ -536,7 +536,7 @@ models:
   - name: stg_ngpvan__public_users
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__public_users' }}"
       tags:
@@ -571,7 +571,7 @@ models:
   - name: stg_ngpvan__results
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       enabled: "{{ var('dbt_ngpvan_config')['lookup_tables'] }}"
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__results' }}"
@@ -602,7 +602,7 @@ models:
   - name: stg_ngpvan__survey_questions
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_questions' }}"
       tags:
@@ -649,7 +649,7 @@ models:
   - name: stg_ngpvan__survey_responses
     description: '{{ doc("bonterra_missing") }}'
     tests:
-      - test_fully_documented
+      - table_fully_documented
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__survey_responses' }}"
       tags:
