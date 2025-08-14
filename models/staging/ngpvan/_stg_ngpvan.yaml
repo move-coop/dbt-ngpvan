@@ -151,7 +151,7 @@ models:
         description: Unique ID for Code
       - name: codename
         description: Code Name in VAN
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
       - name: isactive
         description: A Flag for if the activity is active
@@ -159,9 +159,9 @@ models:
         description:
           If the Code is in a nested structure, this will be the direct parent
           of the Code
-      - name: createdby
+      - name: created_by
         description: User ID of who/what created record (person or automated process)
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
       - name: staticfullname
         description:
@@ -173,7 +173,7 @@ models:
         description: Source Code vs Tag
       - name: codedescription
         description: System stores description of code for reference purposes
-      - name: contacttypeid
+      - name: contact_type_id
         description: Unique ID of Type of Contact
       - name: campaignid
         description: Unique ID of Campain (if applied)
@@ -266,33 +266,33 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: contactsactivistcodeid
         description: Unique ID for Activist Code applied to Specific Contact
-      - name: vanid
+      - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
       - name: activistcodeid
         description: Distinct ID belonging to Activist Code
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
-      - name: inputtypeid
+      - name: input_type_id
         description: The ID of how the record was entered
-      - name: contacttypeid
+      - name: contact_type_id
         description: Unique ID of Type of Contact
-      - name: username
+      - name: user_name
         description: Name of User who created record
-      - name: canvassedby
+      - name: canvassed_by
         description: User ID of canvasser
       - name: campaignid
         description: Unique ID of Campain (if applied)
       - name: contentid
         description: Unique ID of Content (if applied)
-      - name: personcommitteeid
+      - name: personcommittee_id
         description: Committee that owns the person record
-      - name: contactscontactid
+      - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: datecanvassed
+      - name: date_canvassed
         description: Date contact was solicited or canvassed
   - name: stg_ngpvan__contacts_codes
     description: '{{ doc("bonterra_missing") }}'
@@ -303,41 +303,35 @@ models:
       tags:
         - ngpvan_core
     columns:
-      - name: sourcestateid
-        description:
-          SourceDatabase information to identify the source of the bridged
-          data
-      - name: sourcedatabasemodeid
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contactscodeid
+      - name: contacts_code_id
         description: nan
-      - name: vanid
+      - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: codeid
+      - name: code_id
         description: Unique ID for Code
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
-      - name: inputtypeid
+      - name: input_type_id
         description: The ID of how the record was entered
-      - name: contacttypeid
+      - name: contact_type_id
         description: Unique ID of Type of Contact
-      - name: username
+      - name: user_name
         description: Name of User who created record
-      - name: canvassedby
+      - name: canvassed_by
         description: User ID of canvasser
-      - name: campaignid
+      - name: campaign_id
         description: Unique ID of Campain (if applied)
-      - name: contentid
+      - name: content_id
         description: Unique ID of Content (if applied)
-      - name: personcommitteeid
+      - name: person_committee_id
         description: Committee that owns the person record
-      - name: contactscontactid
+      - name: contacts_contact_id
         description: Unique ID for Contact History
-      - name: datecanvassed
+      - name: date_canvassed
         description: Date contact was solicited or canvassed
   - name: stg_ngpvan__contacts_contacts
     description: '{{ doc("bonterra_missing") }}'
@@ -348,69 +342,63 @@ models:
       tags:
         - ngpvan_core
     columns:
-      - name: sourcestateid
-        description:
-          SourceDatabase information to identify the source of the bridged
-          data
-      - name: sourcedatabasemodeid
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contactscontactid
+      - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: vanid
+      - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: datecanvassed
+      - name: date_canvassed
         description: Date contact was solicited or canvassed
-      - name: contacttypeid
+      - name: contact_type_id
         description: Unique ID of Type of Contact
-      - name: inputtypeid
+      - name: input_type_id
         description: The ID of how the record was entered
-      - name: resultid
+      - name: result_id
         description: Result of contact interaction
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
-      - name: canvassedby
+      - name: canvassed_by
         description: User ID of canvasser
-      - name: username
+      - name: user_name
         description: Name of User who created record
-      - name: createdby
+      - name: created_by
         description: User ID of who/what created record (person or automated process)
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
-      - name: contactscontactnotestext
+      - name: contacts_contact_notes_text
         description: '{{ doc("bonterra_missing") }}'
-      - name: callduration
+      - name: call_duration
         description: '{{ doc("bonterra_missing") }}'
-      - name: contactsphoneid
+      - name: contacts_phone_id
         description: Unique identifier of Phone Number
-      - name: contactscontactsfull
+      - name: contacts_contacts_full
         description: '{{ doc("bonterra_missing") }}'
-      - name: liveid
+      - name: live_id
         description: '{{ doc("bonterra_missing") }}'
       - name: deleted
         description: '{{ doc("bonterra_missing") }}'
-      - name: personcommitteeid
+      - name: person_committee_id
         description: Committee that owns the person record
-      - name: campaignid
+      - name: campaign_id
         description: Unique ID of Campain (if applied)
-      - name: contentid
+      - name: content_id
         description: Unique ID of Content (if applied)
-      - name: eventid
+      - name: event_id
         description: Unique ID of Event
-      - name: eventshiftid
+      - name: event_shift_id
         description: Unique ID of Event Shift assigned to Contact Record in the event
-      - name: locationid
+      - name: location_id
         description: Unique ID of Location of Event
-      - name: modeofcontactid
+      - name: mode_of_contact_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: taskassignmentid
+      - name: task_assignment_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: phoneoptinstatus
+      - name: phone_opt_in_status
         description: '{{ doc("bonterra_missing") }}'
-      - name: phoneoptintypeid
+      - name: phone_opt_in_type_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: phoneoptinsourceid
+      - name: phone_opt_in_source_id
         description: '{{ doc("bonterra_missing") }}'
   - name: stg_ngpvan__contacts_notes
     description: '{{ doc("bonterra_missing") }}'
@@ -421,37 +409,31 @@ models:
       tags:
         - ngpvan_core
     columns:
-      - name: sourcestateid
-        description:
-          SourceDatabase information to identify the source of the bridged
-          data
-      - name: sourcedatabasemodeid
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contactsnoteid
+      - name: contacts_note_id
         description: Unique id for the note applied to the contact
-      - name: vanid
+      - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: notetext
+      - name: note_text
         description: Text of Note entered on Organization
-      - name: notecategoryid
+      - name: note_category_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: isviewrestricted
+      - name: is_view_restricted
         description: '{{ doc("bonterra_missing") }}'
-      - name: contactscontactid
+      - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
-      - name: createdby
+      - name: created_by
         description: User ID of who/what created record (person or automated process)
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
-      - name: personcommitteeid
+      - name: person_committee_id
         description: Committee that owns the person record
-      - name: modifiedby
+      - name: modified_by
         description: The user ID of the persion that modified the record
-      - name: datemodified
+      - name: date_modified
         description:
           DateModified refers to when the row was last replicated. This doesn't
           necessarily mean any value in the row was changed.
@@ -464,45 +446,39 @@ models:
       tags:
         - ngpvan_core
     columns:
-      - name: sourcestateid
-        description:
-          SourceDatabase information to identify the source of the bridged
-          data
-      - name: sourcedatabasemodeid
-        description: '{{ doc("bonterra_missing") }}'
-      - name: contactssurveyresponseid
+      - name: contacts_survey_response_id
         description: Unique ID for Survey Response applied to Contact
-      - name: vanid
+      - name: van_id
         description:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
-      - name: surveyquestionid
+      - name: survey_question_id
         description: Unique ID of Survey Question - link to Survey Question
-      - name: surveyresponseid
+      - name: survey_response_id
         description: Unique ID of Survey Response - link to Survey Response
-      - name: contacttypeid
+      - name: contact_type_id
         description: Unique ID of Type of Contact
-      - name: inputtypeid
+      - name: input_type_id
         description: The ID of how the record was entered
-      - name: datecanvassed
+      - name: date_canvassed
         description: Date contact was solicited or canvassed
-      - name: committeeid
+      - name: committee_id
         description: Committee in which record lives
-      - name: canvassedby
+      - name: canvassed_by
         description: User ID of canvasser
-      - name: username
+      - name: user_name
         description: Name of User who created record
-      - name: createdby
+      - name: created_by
         description: User ID of who/what created record (person or automated process)
-      - name: datecreated
+      - name: date_created
         description: Date record in table was created
-      - name: personcommitteeid
+      - name: person_committee_id
         description: Committee that owns the person record
-      - name: contactscontactid
+      - name: contacts_contacts_id
         description: Unique ID for Contact History
-      - name: campaignid
+      - name: campaign_id
         description: Unique ID of Campain (if applied)
-      - name: contentid
+      - name: content_id
         description: Unique ID of Content (if applied)
   - name: stg_ngpvan__input_types
     description: '{{ doc("bonterra_missing") }}'
@@ -544,7 +520,7 @@ models:
     columns:
       - name: public_user_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: public_username
+      - name: public_user_name
         description: '{{ doc("bonterra_missing") }}'
       - name: van_id
         description: '{{ doc("bonterra_missing") }}'
