@@ -5,11 +5,11 @@ WITH
     ),
 
     committees AS (
-        SELECT * (EXCEPT _avvan_source_relation) FROM {{ ref('base_ngpvan__committees') }}
+        SELECT * EXCEPT (_avvan_source_relation) FROM {{ ref('base_ngpvan__committees') }}
     ),
 
     codetypes AS (
-        SELECT * (EXCEPT _avvan_source_relation) FROM {{ ref('base_ngpvan__codetypes') }}
+        SELECT * EXCEPT (_avvan_source_relation) FROM {{ ref('base_ngpvan__codetypes') }}
     ),
 
     renamed AS (
