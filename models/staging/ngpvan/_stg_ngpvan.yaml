@@ -149,6 +149,8 @@ models:
         description: Code Name in VAN
       - name: committee_id
         description: Committee in which record lives
+      - name: committee_name
+        description: '{{ doc("bonterra_missing") }}'
       - name: is_active
         description: A Flag for if the activity is active, converted to boolean
       - name: is_archived
@@ -193,6 +195,8 @@ models:
         description: '{{ doc("is_myvoters") }}'
       - name: segmented_code_id
         description: Combination of segment by and code id
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
   - name: stg_ngpvan__committees
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -326,6 +330,18 @@ models:
         description: '{{ doc("database_mode") }}'
       - name: is_myvoters
         description: '{{ doc("is_myvoters") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
+      - name: unique_contacts_activist_code_id
+        description: Combination of segment by, state code, and contacts activist code id
+      - name: segmented_contacts_activist_code_id
+        description: Combination of segment by and contacts activist code id
+      - name: segmented_activist_code_id
+        description: Combination of segment by and activist code id
+      - name: segmented_van_id
+        description: Combination of segment by and van id
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
   - name: stg_ngpvan__contacts_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
@@ -523,10 +539,10 @@ models:
         description: '{{ doc("is_myvoters") }}'
       - name: segment_by
         description: '{{ doc("segment_by") }}'
-      - name: unique_contacts_contact_id
-        description: Unique key constructed by combining segment by, state code, and contacts contact id
-      - name: segmented_contacts_contact_id
-        description: Combination of segment by and contacts contact id
+      - name: unique_contacts_note_id
+        description: Unique key constructed by combining segment by, state code, and contacts note id
+      - name: segmented_contacts_note_id
+        description: Combination of segment by and contacts note id
       - name: segmented_van_id
         description: Combination of segment by and van id
       - name: vendor
@@ -600,10 +616,10 @@ models:
         description: '{{ doc("is_myvoters") }}'
       - name: segment_by
         description: '{{ doc("segment_by") }}'
-      - name: unique_contacts_contact_id
-        description: Unique key constructed by combining segment by, state code, and contacts contact id
-      - name: segmented_contacts_contact_id
-        description: Combination of segment by and contacts contact id
+      - name: unique_contacts_survey_response_id
+        description: Unique key constructed by combining segment by, state code, and contacts survey response id
+      - name: segmented_contacts_survey_response_id
+        description: Combination of segment by and contacts survey response id
       - name: segmented_van_id
         description: Combination of segment by and van id
       - name: vendor
@@ -654,7 +670,7 @@ models:
     columns:
       - name: public_user_id
         description: '{{ doc("bonterra_missing") }}'
-      - name: public_user_name
+      - name: public_username
         description: '{{ doc("bonterra_missing") }}'
       - name: van_id
         description: '{{ doc("bonterra_missing") }}'
