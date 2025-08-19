@@ -13,7 +13,7 @@ models:
       - name: vendor_unique_stg_ngpvan__activist_code_id
         description: '{{ doc("vendor_unique_id") }}'
       - name: activist_code_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Distinct ID belonging to Activist Code
       - name: van_state_id
         description: '{{ doc("bonterra_missing") }}'
       - name: activist_code_type
@@ -29,13 +29,13 @@ models:
       - name: independent_points
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: campaign_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Campaign (if applied)
       - name: segment_by
         description: '{{ doc("bonterra_missing") }}'
       - name: segmented_activist_code_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Combination of segment by and activist code id
       - name: vendor
         description: '{{ doc("vendor") }}'
       - name: segment_by_key
@@ -45,9 +45,9 @@ models:
       - name: action_type_id
         description: '{{ doc("bonterra_missing") }}'
       - name: is_active
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is active, converted to boolean
       - name: is_archived
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is archived, derived from the raw isactive value
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -66,25 +66,25 @@ models:
         - ngpvan_core
     columns:
       - name: campaign_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Campaign (if applied)
       - name: campaign_name
         description: '{{ doc("bonterra_missing") }}'
       - name: campaign_description
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: campaign_type_id
         description: '{{ doc("bonterra_missing") }}'
       - name: campaign_type
         description: '{{ doc("bonterra_missing") }}'
       - name: created_at
-        description: '{{ doc("bonterra_missing") }}'
+        description: Date record in table was created, normalized to UTC
       - name: created_by_user_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: User ID of who/what created record (person or automated process)
       - name: is_active
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is active, converted to boolean
       - name: is_archived
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is archived, derived from the raw isactive value
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -115,7 +115,7 @@ models:
         - ngpvan_lookup
     columns:
       - name: code_type_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Source Code vs Tag
       - name: code_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _dbt_source_relation
@@ -144,11 +144,11 @@ models:
       - name: van_state_code
         description: '{{ doc("bonterra_missing") }}'
       - name: code_id
-        description: Unique ID for Code
+        description: '{{ doc("code_id") }}'
       - name: code_name
         description: Code Name in VAN
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: committee_name
         description: '{{ doc("bonterra_missing") }}'
       - name: is_active
@@ -207,7 +207,7 @@ models:
         - ngpvan_core
     columns:
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: van_state_id
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_name
@@ -217,9 +217,9 @@ models:
       - name: committee_type
         description: '{{ doc("bonterra_missing") }}'
       - name: is_active
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is active, converted to boolean
       - name: is_archived
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is archived, derived from the raw isactive value
       - name: parent_committee_id
         description: '{{ doc("bonterra_missing") }}'
       - name: master_committee_id
@@ -252,7 +252,7 @@ models:
         - ngpvan_lookup
     columns:
       - name: contact_method_type_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Type of Contact
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _dbt_source_relation
@@ -289,7 +289,7 @@ models:
       - name: activist_code_id
         description: Distinct ID belonging to Activist Code
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: utc_created_at
         description: Date record in table was created, normalized to UTC
       - name: input_type_id
@@ -305,7 +305,7 @@ models:
       - name: canvassed_by_user_id
         description: User ID of canvasser
       - name: campaign_id
-        description: Unique ID of Campain (if applied)
+        description: Unique ID of Campaign (if applied)
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: utc_modified_at
@@ -360,9 +360,9 @@ models:
           Distinct VAN ID belonging to contact record. My C IDs begin with
           100 and are Distinct to committee and My V IDs are unique to voter file state.
       - name: code_id
-        description: Unique ID for Code
+        description: '{{ doc("code_id") }}'
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: utc_created_at
         description: Date record in table was created, normalized to UTC
       - name: input_type_id
@@ -372,7 +372,7 @@ models:
       - name: utc_modified_at
         description: '{{ doc("bonterra_missing") }}'
       - name: created_by_user_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: User ID of who/what created record (person or automated process)
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
       - name: source_schema
@@ -421,7 +421,7 @@ models:
       - name: result_name
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: utc_created_at
         description: Date record in table was created, normalized to UTC
       - name: utc_canvassed_at
@@ -439,7 +439,7 @@ models:
       - name: canvassed_by_user_id
         description: User ID of canvasser
       - name: campaign_id
-        description: Unique ID of Campain (if applied)
+        description: Unique ID of Campaign (if applied)
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: created_by_user_id
@@ -500,7 +500,7 @@ models:
       - name: utc_created_at
         description: Date record in table was created, normalized to UTC
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: suppressed_by_user_id
         description: '{{ doc("bonterra_missing") }}'
       - name: utc_suppressed_at
@@ -585,7 +585,7 @@ models:
       - name: utc_canvassed_at
         description: Date contact was solicited or canvassed, normalized to UTC
       - name: committee_id
-        description: Committee in which record lives
+        description: '{{ doc("committee_id") }}'
       - name: canvassed_by_user_id
         description: User ID of canvasser
       - name: canvassed_by_username
@@ -595,7 +595,7 @@ models:
       - name: contacts_contact_id
         description: Unique ID for Contact History
       - name: campaign_id
-        description: Unique ID of Campain (if applied)
+        description: Unique ID of Campaign (if applied)
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: utc_modified_at
@@ -642,7 +642,7 @@ models:
         - ngpvan_lookup
     columns:
       - name: input_type_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: The ID of how the record was entered
       - name: input_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _avvan_source_relation
@@ -673,11 +673,11 @@ models:
       - name: public_username
         description: '{{ doc("bonterra_missing") }}'
       - name: van_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Distinct VAN ID belonging to contact record. My C IDs begin with 100 and are Distinct to committee and My V IDs are unique to voter file state.
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: created_at
-        description: '{{ doc("bonterra_missing") }}'
+        description: Date record in table was created, normalized to UTC
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
@@ -706,7 +706,7 @@ models:
         - ngpvan_lookup
     columns:
       - name: result_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Result of contact interaction
       - name: result_name
         description: '{{ doc("bonterra_missing") }}'
       - name: result_description
@@ -735,7 +735,7 @@ models:
         - ngpvan_core
     columns:
       - name: survey_question_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Survey Question - link to Survey Question
       - name: van_state_id
         description: '{{ doc("bonterra_missing") }}'
       - name: election_cycle
@@ -749,11 +749,11 @@ models:
       - name: master_survey_question_id
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: is_active
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is active, converted to boolean
       - name: is_archived
-        description: '{{ doc("bonterra_missing") }}'
+        description: A Flag for if the activity is archived, derived from the raw isactive value
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
@@ -782,9 +782,9 @@ models:
         - ngpvan_core
     columns:
       - name: survey_question_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Survey Question - link to Survey Question
       - name: survey_response_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: Unique ID of Survey Response - link to Survey Response
       - name: survey_response
         description: '{{ doc("bonterra_missing") }}'
       - name: democrat_points
@@ -796,7 +796,7 @@ models:
       - name: master_survey_response_id
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
-        description: '{{ doc("bonterra_missing") }}'
+        description: '{{ doc("committee_id") }}'
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
       - name: _dbt_source_relation
