@@ -31,7 +31,10 @@ models:
       - name: committee_id
         description: '{{ doc("committee_id") }}'
       - name: campaign_id
-        description: Unique ID of Campaign (if applied)
+        description: |
+          Unique ID of Campaign (if applied). Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: segment_by
         description: '{{ doc("bonterra_missing") }}'
       - name: segmented_activist_code_id
@@ -66,7 +69,10 @@ models:
         - ngpvan_core
     columns:
       - name: campaign_id
-        description: Unique ID of Campaign (if applied)
+        description: |
+          Unique ID of Campaign (if applied). Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: campaign_name
         description: '{{ doc("bonterra_missing") }}'
       - name: campaign_description
@@ -252,7 +258,10 @@ models:
         - ngpvan_lookup
     columns:
       - name: contact_method_type_id
-        description: Unique ID of Type of Contact
+        description: |
+          Unique ID of Type of Contact. Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: _dbt_source_relation
@@ -299,13 +308,19 @@ models:
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: contact_method_type_id
-        description: Unique ID of Type of Contact
+        description: |
+          Unique ID of Type of Contact. Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: canvassed_by_username
         description: Name of User who created record
       - name: canvassed_by_user_id
         description: User ID of canvasser
       - name: campaign_id
-        description: Unique ID of Campaign (if applied)
+        description: |
+          Unique ID of Campaign (if applied). Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: utc_modified_at
@@ -431,7 +446,10 @@ models:
       - name: input_type
         description: '{{ doc("bonterra_missing") }}'
       - name: contact_method_type_id
-        description: Unique ID of Type of Contact
+        description: |
+          Unique ID of Type of Contact. Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: canvassed_by_username
@@ -439,7 +457,10 @@ models:
       - name: canvassed_by_user_id
         description: User ID of canvasser
       - name: campaign_id
-        description: Unique ID of Campaign (if applied)
+        description: |
+          Unique ID of Campaign (if applied). Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: created_by_user_id
@@ -575,7 +596,10 @@ models:
       - name: survey_response_id
         description: Unique ID of Survey Response - link to Survey Response
       - name: contact_method_type_id
-        description: Unique ID of Type of Contact
+        description: |
+          Unique ID of Type of Contact. Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: contact_method_type
         description: '{{ doc("bonterra_missing") }}'
       - name: input_type_id
@@ -595,7 +619,10 @@ models:
       - name: contacts_contact_id
         description: Unique ID for Contact History
       - name: campaign_id
-        description: Unique ID of Campaign (if applied)
+        description: |
+          Unique ID of Campaign (if applied). Note - this ID may not be unique across committees. 
+          If you receive data from multiple committees, it's safer to the use the
+          "vendor_unique" column in the table.
       - name: content_id
         description: Unique ID of Content (if applied)
       - name: utc_modified_at
