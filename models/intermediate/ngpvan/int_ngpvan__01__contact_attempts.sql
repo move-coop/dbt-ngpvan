@@ -7,9 +7,9 @@ WITH
     committees AS (
         SELECT
             committee_id,
-            MAX(committee_name),
-            MAX(committee_short_name),
-            MAX(committee_type)
+            MAX(committee_name) AS committee_name,
+            MAX(committee_short_name) AS committee_short_name,
+            MAX(committee_type) AS committee_type
         FROM {{ ref("stg_ngpvan__committees") }}
         GROUP BY 1
     ),
