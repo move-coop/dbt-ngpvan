@@ -33,4 +33,6 @@ WITH
 SELECT
     DISTINCT *
 FROM renamed
+-- hard-coding out one bad committee from AV while we work with them to remove from raw
+WHERE NOT (committee_id = 15701 AND committee_short_name IS NULL)
 

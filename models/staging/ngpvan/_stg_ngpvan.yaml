@@ -246,6 +246,11 @@ models:
         description: '{{ doc("segment_by_key") }}'
       - name: vendor_unique_stg_ngpvan__committee_id
         description: '{{ doc("vendor_unique_id") }}'
+        tests:
+          - not_null
+          - unique:
+              config:
+                severity: error
   - name: stg_ngpvan__contact_types
     description: '{{ doc("bonterra_missing") }}'
     tests:
