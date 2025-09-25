@@ -5,12 +5,13 @@ WITH
     ),
 
     committees AS (
-        SELECT DISTINCT
+        SELECT
             committee_id,
-            committee_name,
-            committee_short_name,
-            committee_type
+            MAX(committee_name),
+            MAX(committee_short_name),
+            MAX(committee_type)
         FROM {{ ref("stg_ngpvan__committees") }}
+        GROUP BY 1
     ),
 
     campaigns AS (
