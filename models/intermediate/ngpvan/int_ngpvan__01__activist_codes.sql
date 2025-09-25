@@ -29,12 +29,13 @@ WITH
     ),
 
     committees AS (
-        SELECT DISTINCT
+        SELECT
             committee_id,
-            committee_name,
-            committee_short_name,
-            committee_type
+            STRING_AGG(committee_name) AS committee_name,
+            STRING_AGG(committee_short_name) AS committee_short_name,
+            STRING_AGG(committee_type) AS committee_type
         FROM {{ ref("stg_ngpvan__committees") }}
+        GROUP BY 1
     ),
 
     campaigns AS (
