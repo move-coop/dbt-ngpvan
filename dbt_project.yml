@@ -11,8 +11,6 @@ seed-paths: ["seeds"]
 macro-paths: ["macros"]
 snapshot-paths: ["snapshots"]
 docs-paths: ["documentation_blocks"]
-
-target-path: "target"
 clean-targets:
   - "target"
   - "dbt_packages"
@@ -35,10 +33,24 @@ tests:
 vars:
   dbt_ngpvan_config:
     vendor_name: ngpvan
-    source_database: target.database
-    schema_list: []
+    source_database: tmc-data-warehouse
+    schema_list:
+      - raw_avvan__ngpvan_corrected
+      - raw_bonterra__tmc_corrected
+      - raw_svvan__corrected
     table_logic: pattern
-    table_exclude_list: []
+    table_exclude_list:
+      # these tables are EveryAction
+      # raw_bonterra include _vf versions of these tables which will be pulled in
+      - codes
+      - contactsactivistcodes
+      - contactscodes
+      - contactscontacts
+      - contactsnotes_myc
+      - contactsnotes_mym
+      - contactssurveyresponses
+      # This is a voter registration table that we'll model separately
+      - contactscontacts_vr
     packages:
       core:
         enabled: true
@@ -59,6 +71,8 @@ vars:
     add_ons: []
     segmentation: true
     lookup_tables: true
-    additional_fields: []
-    enable_incremental_models: true
+    additional_fields:
+      - _avvan_source_relation
     ngpvan_default_incremental_window_days: 3
+flags:
+  require_generic_test_arguments_property: true

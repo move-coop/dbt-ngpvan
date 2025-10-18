@@ -13,3 +13,4 @@ development.env
 *.ipynb
 profiles.yml
 dbt_project_tmc_rs.yml
+dbt_internal_packages/
