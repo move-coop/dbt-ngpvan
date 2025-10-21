@@ -31,6 +31,7 @@ tests:
   +severity: warn # all tests
 
 vars:
+  raw_database_name: tmc-data-warehouse
   dbt_ngpvan_config:
     vendor_name: ngpvan
     source_database: tmc-data-warehouse

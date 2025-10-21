@@ -23,7 +23,8 @@ WITH
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__users") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }}
-            {{ ngpvan__stg__additional_fields() }}
+            {{ ngpvan__stg__additional_fields() }},
+            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.userid'], grain='user') }}
 
         FROM base
     ),

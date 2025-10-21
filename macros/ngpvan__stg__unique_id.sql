@@ -10,6 +10,6 @@
         {%- if not loop.last %},
         '-', {% endif -%}
     {%- endfor -%}
-    ) AS unique_{{ grain }}_id
+    ) AS vendor_unique_stg_ngpvan__{{ grain }}_id
 
 {%- endmacro %}

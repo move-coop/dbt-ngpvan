@@ -30,7 +30,8 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__activistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base') }},
             CONCAT(segment_by, '-', activistcodeid) AS segmented_activist_code_id
-            {{ ngpvan__stg__additional_fields() }}
+            {{ ngpvan__stg__additional_fields() }},
+            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.activistcodeid'], grain='activist_code') }}
 
         FROM base
         GROUP BY ALL
@@ -57,7 +58,6 @@ WITH
             segment_by,
             segmented_activist_code_id,
             vendor,
-            segment_by_key,
             STRING_AGG(_avvan_source_relation) AS _avvan_source_relation,
             STRING_AGG(_dbt_source_relation) AS _dbt_source_relation,
             STRING_AGG(source_schema) AS source_schema,
