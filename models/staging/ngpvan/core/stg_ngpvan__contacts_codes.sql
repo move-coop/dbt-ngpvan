@@ -25,8 +25,6 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__contactscodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
-            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactscodeid'], grain='contacts_code') }},
-
             CONCAT(base.segment_by, '-', base.contactscodeid) AS segmented_contacts_code_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
 
