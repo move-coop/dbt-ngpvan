@@ -36,11 +36,14 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__contactsactivistcodes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
+            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactsactivistcodeid'], grain='contacts_activist_code') }},
+
             CONCAT(base.segment_by, '-', base.contactsactivistcodeid) AS segmented_contacts_activist_code_id,
             CONCAT(base.segment_by, '-', base.activistcodeid) AS segmented_activist_code_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
 
-            {{ ngpvan__stg__additional_fields(columns=['base.segment_by', 'base.statecode', 'base.contactsactivistcodeid'], grain='contacts_activist_code') }}
+            {{ ngpvan__stg__additional_fields() }}
+
         FROM base
         LEFT JOIN inputtypes USING (inputtypeid)
         LEFT JOIN contacttypes USING (contacttypeid)
