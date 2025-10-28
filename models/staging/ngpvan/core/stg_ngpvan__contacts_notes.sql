@@ -29,12 +29,10 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__contactsnotes") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
-            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactsnoteid'], grain='contacts_note') }},
-
             CONCAT(segment_by, '-', contactsnoteid) AS segmented_contacts_note_id,
             CONCAT(segment_by, '-', vanid) AS segmented_van_id
 
-            {{ ngpvan__stg__additional_fields() }}
+            {{ ngpvan__stg__additional_fields(columns=['base.segment_by', 'base.statecode', 'base.contactsnoteid'], grain='contacts_note') }}
 
         FROM base
     )

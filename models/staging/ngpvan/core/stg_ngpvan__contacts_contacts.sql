@@ -74,12 +74,10 @@ WITH
             {{ ngpvan__user__additional_fields("base_ngpvan__contactscontacts") }}
             {{ ngpvan__metadata__select_fields(from_cte='base', myvoters=true) }},
 
-            {{ ngpvan__stg__unique_id(columns=['base.segment_by', 'base.statecode', 'base.contactscontactid'], grain='contacts_contact') }},
-
             CONCAT(base.segment_by, '-', base.contactscontactid) AS segmented_contacts_contact_id,
             CONCAT(base.segment_by, '-', base.vanid) AS segmented_van_id
 
-            {{ ngpvan__stg__additional_fields() }}
+            {{ ngpvan__stg__additional_fields(columns=['base.segment_by', 'base.statecode', 'base.contactscontactid'], grain='contacts_contact') }}
 
         FROM base
         LEFT JOIN results USING (resultid)
