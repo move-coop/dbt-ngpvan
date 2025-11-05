@@ -29,7 +29,8 @@ WITH
         SELECT
             user_id,
             user_group_id,
-            user_group_name
+            user_group_name,
+            segment_by
         FROM {{ ref("stg_ngpvan__users_user_groups") }}
     ),
 
