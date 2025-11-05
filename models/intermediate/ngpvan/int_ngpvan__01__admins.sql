@@ -29,7 +29,8 @@ WITH
         SELECT
             user_id,
             user_group_id,
-            user_group_name
+            user_group_name,
+            segment_by
         FROM {{ ref("stg_ngpvan__users_user_groups") }}
     ),
 
@@ -95,7 +96,9 @@ WITH
             {{- ngpvan__int__additional_fields() }}
 
         FROM all_users users
-        LEFT JOIN user_groups USING (user_id) 
+        LEFT JOIN user_groups 
+            ON users.user_id = user_groups.user_id 
+                AND users.segment_by = user_groups.segment_by
         GROUP BY           
             users.user_id,
             users.username,

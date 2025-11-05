@@ -33,14 +33,17 @@ WITH
             committee_id,
             committee_name,
             committee_short_name,
-            committee_type
+            committee_type,
+            segment_by
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
 
     campaigns AS (
         SELECT
             campaign_id,
-            campaign_name
+            campaign_name,
+            committee_id,
+            segment_by
         FROM {{ ref("stg_ngpvan__campaigns") }}
     ),
 
@@ -88,9 +91,17 @@ WITH
             {{ ngpvan__int__additional_fields() }}
 
         FROM contacts
-        LEFT JOIN codes USING (activist_code_id)
-        LEFT JOIN committees USING (committee_id)
-        LEFT JOIN campaigns USING (campaign_id)
+        LEFT JOIN codes 
+            ON contacts.activist_code_id = codes.activist_code_id 
+                AND contacts.committee_id = codes.activist_code_committee_id
+                AND contacts.segment_by = codes.segment_by
+        LEFT JOIN committees 
+            ON contacts.committee_id = committees.committee_id 
+                AND contacts.segment_by = committees.segment_by
+        LEFT JOIN campaigns 
+            ON contacts.campaign_id = campaigns.campaign_id 
+            AND contacts.committee_id = campaigns.committee_id 
+            AND contacts.segment_by = campaigns.segment_by
     )
 
 SELECT * FROM activist_codes
