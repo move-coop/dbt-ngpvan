@@ -43,6 +43,7 @@ WITH
             committee_name,
             committee_short_name,
             committee_type,
+            parent_committee_id,
             segment_by
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
@@ -105,22 +106,27 @@ WITH
             contacts.segment_by
             {{ ngpvan__int__additional_fields() }}
         FROM contacts
+        LEFT JOIN committees 
+            ON committees.committee_id = contacts.committee_id
         LEFT JOIN responses 
             ON contacts.survey_question_id = responses.survey_question_id 
                 AND contacts.survey_response_id = responses.survey_response_id 
-                AND contacts.committee_id = responses.survey_response_committee_id
-                AND contacts.segment_by = responses.segment_by
+                AND (
+                    contacts.committee_id = responses.survey_response_committee_id
+                    OR committees.parent_committee_id = responses.survey_response_committee_id
+                )
         LEFT JOIN questions 
             ON contacts.survey_question_id = questions.survey_question_id 
-                AND contacts.committee_id = questions.survey_question_committee_id
-                AND contacts.segment_by = questions.segment_by
-        LEFT JOIN committees 
-            ON (committees.committee_id = COALESCE(contacts.committee_id, questions.survey_question_committee_id, responses.survey_response_committee_id))
-                AND committees.segment_by = contacts.segment_by
+                AND (
+                    contacts.committee_id = questions.survey_question_committee_id
+                    OR committees.parent_committee_id = questions.survey_question_committee_id
+                )
         LEFT JOIN campaigns 
             ON contacts.campaign_id = campaigns.campaign_id
-                AND contacts.committee_id = campaigns.committee_id
-                AND contacts.segment_by = campaigns.segment_by
+                AND (
+                    contacts.committee_id = campaigns.committee_id
+                    OR committees.parent_committee_id = campaigns.committee_id
+                )
     )
 
 SELECT * FROM survey_responses
