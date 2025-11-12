@@ -113,19 +113,19 @@ WITH
                 AND contacts.survey_response_id = responses.survey_response_id 
                 AND (
                     contacts.committee_id = responses.survey_response_committee_id
-                    OR commitees.parent_committee_id = responses.survey_response_committee_id
+                    OR committees.parent_committee_id = responses.survey_response_committee_id
                 )
         LEFT JOIN questions 
             ON contacts.survey_question_id = questions.survey_question_id 
                 AND (
                     contacts.committee_id = questions.survey_question_committee_id
-                    OR commitees.parent_committee_id = questions.survey_question_committee_id
+                    OR committees.parent_committee_id = questions.survey_question_committee_id
                 )
         LEFT JOIN campaigns 
             ON contacts.campaign_id = campaigns.campaign_id
                 AND (
                     contacts.committee_id = campaigns.committee_id
-                    OR commitees.parent_committee_id = campaigns.committee_id
+                    OR committtees.parent_committee_id = campaigns.committee_id
                 )
     )
 
