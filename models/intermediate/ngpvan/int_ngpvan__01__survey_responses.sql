@@ -125,7 +125,7 @@ WITH
             ON contacts.campaign_id = campaigns.campaign_id
                 AND (
                     contacts.committee_id = campaigns.committee_id
-                    OR committtees.parent_committee_id = campaigns.committee_id
+                    OR committees.parent_committee_id = campaigns.committee_id
                 )
     )
 
