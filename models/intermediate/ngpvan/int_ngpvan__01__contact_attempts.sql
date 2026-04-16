@@ -9,14 +9,17 @@ WITH
             committee_id,
             committee_name,
             committee_short_name,
-            committee_type
+            committee_type,
+            segment_by
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
 
     campaigns AS (
         SELECT
             campaign_id,
-            campaign_name
+            campaign_name,
+            committee_id,
+            segment_by
         FROM {{ ref("stg_ngpvan__campaigns") }}
     ),
 
@@ -61,8 +64,11 @@ WITH
             {{ ngpvan__int__additional_fields() }}
 
         FROM contacts
-        LEFT JOIN committees USING (committee_id)
-        LEFT JOIN campaigns USING (campaign_id)
+        LEFT JOIN committees 
+            ON contacts.committee_id = committees.committee_id 
+        LEFT JOIN campaigns 
+            ON contacts.campaign_id = campaigns.campaign_id 
+                AND contacts.committee_id = campaigns.committee_id
     )
 
 SELECT * FROM contact_attempts

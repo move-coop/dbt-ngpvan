@@ -32,7 +32,8 @@ WITH
             master_survey_question_id,
             committee_id AS survey_question_committee_id,
             is_active,
-            is_archived
+            is_archived,
+            segment_by
         FROM {{ ref("stg_ngpvan__survey_questions") }}
     ),
 
@@ -41,14 +42,18 @@ WITH
             committee_id,
             committee_name,
             committee_short_name,
-            committee_type
+            committee_type,
+            parent_committee_id,
+            segment_by
         FROM {{ ref("stg_ngpvan__committees") }}
     ),
 
     campaigns AS (
         SELECT
             campaign_id,
-            campaign_name
+            campaign_name,
+            committee_id,
+            segment_by
         FROM {{ ref("stg_ngpvan__campaigns") }}
     ),
 
@@ -100,13 +105,28 @@ WITH
             contacts.source_table,
             contacts.segment_by
             {{ ngpvan__int__additional_fields() }}
-
-
         FROM contacts
-        LEFT JOIN responses USING (survey_question_id, survey_response_id)
-        LEFT JOIN questions USING (survey_question_id)
-        LEFT JOIN committees ON (committees.committee_id = COALESCE(contacts.committee_id, questions.survey_question_committee_id, responses.survey_response_committee_id))
-        LEFT JOIN campaigns USING (campaign_id)
+        LEFT JOIN committees 
+            ON committees.committee_id = contacts.committee_id
+        LEFT JOIN responses 
+            ON contacts.survey_question_id = responses.survey_question_id 
+                AND contacts.survey_response_id = responses.survey_response_id 
+                AND (
+                    contacts.committee_id = responses.survey_response_committee_id
+                    OR committees.parent_committee_id = responses.survey_response_committee_id
+                )
+        LEFT JOIN questions 
+            ON contacts.survey_question_id = questions.survey_question_id 
+                AND (
+                    contacts.committee_id = questions.survey_question_committee_id
+                    OR committees.parent_committee_id = questions.survey_question_committee_id
+                )
+        LEFT JOIN campaigns 
+            ON contacts.campaign_id = campaigns.campaign_id
+                AND (
+                    contacts.committee_id = campaigns.committee_id
+                    OR committees.parent_committee_id = campaigns.committee_id
+                )
     )
 
 SELECT * FROM survey_responses
