@@ -37,8 +37,8 @@ vars:
     source_database: tmc-data-warehouse
     schema_list:
       - raw_avvan__ngpvan_corrected
-      - raw_bonterra__tmc_corrected
       - raw_svvan__corrected
+      - raw_smartvan
     table_logic: pattern
     table_exclude_list:
       # these tables are EveryAction
@@ -75,5 +75,3 @@ vars:
     additional_fields:
       - _avvan_source_relation
     ngpvan_default_incremental_window_days: 3
-flags:
-  require_generic_test_arguments_property: true

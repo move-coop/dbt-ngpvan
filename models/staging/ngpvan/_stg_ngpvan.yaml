@@ -853,7 +853,6 @@ models:
   - name: stg_ngpvan__users
     config:
       alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__users' }}"
-      static_analysis: 'unsafe'
 
   - name: stg_ngpvan__users_user_groups
     config:
