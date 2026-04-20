@@ -8,17 +8,17 @@ data_tests:
 
 sources:
   - name: raw_avvan__ngpvan_corrected
-    database: target.database
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
     schema: raw_avvan__ngpvan_corrected
     tables:
       - name: contactscontacts_vf
   - name: raw_bonterra__tmc_corrected
-    database: target.database
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
     schema: raw_bonterra__tmc_corrected
     tables:
       - name: contactscontacts_vf
   - name: raw_svvan__corrected
-    database: target.database
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
     schema: raw_svvan__corrected
     tables:
       - name: contactscontacts_vf
