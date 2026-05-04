@@ -22,7 +22,7 @@ WITH
             (SELECT * FROM av_source) +
             (SELECT * FROM bonterra_source) +
             (SELECT * FROM sv_source)
-    )
+    ),
     
     dbt_staging AS (
         SELECT

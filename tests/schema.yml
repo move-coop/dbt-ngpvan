@@ -5,3 +5,20 @@ data_tests:
       As we are building the `stg_ngpvan__contacts_contacts` table incrementally,
       we want to test whether or not the sum of the source table row counts
       approximately match the row count in the production table
+
+sources:
+  - name: raw_avvan__ngpvan_corrected
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
+    schema: raw_avvan__ngpvan_corrected
+    tables:
+      - name: contactscontacts_vf
+  - name: raw_bonterra__tmc_corrected
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
+    schema: raw_bonterra__tmc_corrected
+    tables:
+      - name: contactscontacts_vf
+  - name: raw_svvan__corrected
+    database: '{{ var("dbt_ngpvan_config")["source_database"] }}'
+    schema: raw_svvan__corrected
+    tables:
+      - name: contactscontacts_vf
