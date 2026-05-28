@@ -68,9 +68,7 @@ WITH
             ON contacts.committee_id = committees.committee_id 
                 AND contacts.segment_by = committees.segment_by
         LEFT JOIN campaigns 
-            ON contacts.campaign_id = campaigns.campaign_id 
-                AND contacts.committee_id = campaigns.committee_id
-                AND contacts.segment_by = campaigns.segment_by
+            USING (campaign_id)
     )
 
 SELECT * FROM contact_attempts
