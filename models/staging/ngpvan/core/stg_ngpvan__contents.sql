@@ -16,7 +16,7 @@ WITH
             
             -- additional columns
             {{ ngpvan__user__additional_fields("base_ngpvan__contents") }}
-            {{ ngpvan__metadata__select_fields() }}
+            {{ ngpvan__metadata__select_fields(from_cte='base') }}
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
