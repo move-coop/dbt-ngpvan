@@ -298,9 +298,9 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
         description: '{{ doc("committee_id") }}'
-      - name: surppressed_by
+      - name: suppressed_by
         description: '{{ doc("bonterra_missing") }}'
-      - name: utc_date_surppressed
+      - name: utc_date_suppressed
         description: '{{ doc("bonterra_missing") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
