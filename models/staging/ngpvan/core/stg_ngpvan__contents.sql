@@ -20,7 +20,7 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
-        LEFT JOIN content_types USING (contentypeid)
+        LEFT JOIN content_types USING (contenttypeid)
     )
 
 SELECT
