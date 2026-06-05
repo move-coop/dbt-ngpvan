@@ -298,9 +298,9 @@ models:
         description: '{{ doc("bonterra_missing") }}'
       - name: committee_id
         description: '{{ doc("committee_id") }}'
-      - name: surpressed_by
+      - name: surppressed_by
         description: '{{ doc("bonterra_missing") }}'
-      - name: utc_date_surpressed
+      - name: utc_date_surppressed
         description: '{{ doc("bonterra_missing") }}'
       - name: _dbt_source_relation
         description: '{{ doc("dbt_source_relation") }}'
@@ -314,6 +314,8 @@ models:
         description: '{{ doc("vendor_unique_id") }}'
       - name: segment_by
         description: '{{ doc("segment_by") }}'
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
   - name: stg_ngpvan__contents
@@ -341,10 +343,12 @@ models:
         description: '{{ doc("source_table") }}'
       - name: vendor
         description: '{{ doc("vendor") }}'
-      - name: vendor_unique_stg_ngpvan__content_type_id
+      - name: vendor_unique_stg_ngpvan__content_id
         description: '{{ doc("vendor_unique_id") }}'
       - name: segment_by
         description: '{{ doc("segment_by") }}'
+      - name: segment_by_key
+        description: '{{ doc("segment_by_key") }}'
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
   - name: stg_ngpvan__contacts_activist_codes
