@@ -283,6 +283,70 @@ models:
         description: '{{ doc("segment_by") }}'
       - name: _avvan_source_relation
         description: '{{ doc("avvan_source_relation") }}'
+  - name: stg_ngpvan__content_types
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - table_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__content_types' }}"
+      tags:
+        - ngpvan_core
+    columns:	
+      - name: content_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: content_type_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("committee_id") }}'
+      - name: surpressed_by
+        description: '{{ doc("bonterra_missing") }}'
+      - name: utc_date_surpressed
+        description: '{{ doc("bonterra_missing") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
+      - name: source_schema
+        description: '{{ doc("source_schema") }}'
+      - name: source_table
+        description: '{{ doc("source_table") }}'
+      - name: vendor
+        description: '{{ doc("vendor") }}'
+      - name: vendor_unique_stg_ngpvan__content_type_id
+        description: '{{ doc("vendor_unique_id") }}'
+      - name: segment_by
+        description: '{{ doc("segment_by") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
+  - name: stg_ngpvan__contents
+    description: '{{ doc("bonterra_missing") }}'
+    tests:
+      - table_fully_documented
+    config:
+      alias: "{{ 'stg_' ~ var('dbt_ngpvan_config')['vendor_name'] ~ '__contents' }}"
+      tags:
+        - ngpvan_core
+    columns:	
+      - name: content_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: content_type_id
+        description: '{{ doc("bonterra_missing") }}'
+      - name: content_name
+        description: '{{ doc("bonterra_missing") }}'
+      - name: committee_id
+        description: '{{ doc("committee_id") }}'
+      - name: _dbt_source_relation
+        description: '{{ doc("dbt_source_relation") }}'
+      - name: source_schema
+        description: '{{ doc("source_schema") }}'
+      - name: source_table
+        description: '{{ doc("source_table") }}'
+      - name: vendor
+        description: '{{ doc("vendor") }}'
+      - name: vendor_unique_stg_ngpvan__content_type_id
+        description: '{{ doc("vendor_unique_id") }}'
+      - name: segment_by
+        description: '{{ doc("segment_by") }}'
+      - name: _avvan_source_relation
+        description: '{{ doc("avvan_source_relation") }}'
   - name: stg_ngpvan__contacts_activist_codes
     description: '{{ doc("bonterra_missing") }}'
     tests:
