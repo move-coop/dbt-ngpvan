@@ -43,6 +43,7 @@ WITH
         FROM base
         LEFT JOIN committees USING (committeeid)
         LEFT JOIN codetypes USING (codetypeid)
+        {{ ngpvan__stg__exclude_committees(field_name='base.committeeid', schema_field='base.source_schema') }}
     )
 
 SELECT

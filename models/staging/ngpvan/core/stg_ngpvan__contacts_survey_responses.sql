@@ -49,6 +49,7 @@ WITH
         FROM base
         LEFT JOIN inputtypes USING (inputtypeid)
         LEFT JOIN contacttypes USING (contacttypeid)
+        {{ ngpvan__stg__exclude_committees(field_name='base.committeeid', schema_field='base.source_schema') }}
     )
 
 SELECT * FROM renamed
