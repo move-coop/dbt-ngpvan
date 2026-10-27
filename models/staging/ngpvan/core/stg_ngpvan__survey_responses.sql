@@ -30,6 +30,7 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
         FROM base
         LEFT JOIN surveyquestions USING (surveyquestionid)
+        {{ ngpvan__stg__exclude_committees(field_name='surveyquestions.committeeid', schema_field='base.source_schema') }}
     ),
 
     dedupe AS (

@@ -28,6 +28,7 @@ WITH
             CONCAT(segment_by, '-', surveyquestionid) AS segmented_survey_question_id
             {{ ngpvan__stg__additional_fields() }}
         FROM base
+        {{ ngpvan__stg__exclude_committees(field_name='createdcommitteeid') }}
     )
 
 SELECT * FROM renamed

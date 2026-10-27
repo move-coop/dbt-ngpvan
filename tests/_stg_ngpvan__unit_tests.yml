@@ -1,0 +1,173 @@
+version: 2
+
+# Unit tests for the `ngpvan__stg__exclude_committees` macro.
+# Committee 111 is excluded in each test; 222 is never excluded.
+# Run with: dbt test --select "test_type:unit,tag:ngpvan_unit_test"
+# (upstream base models must exist first, e.g. `dbt run --select +stg_ngpvan__campaigns --empty`)
+
+unit_tests:
+  - name: exclude_committees__scoped_to_schema
+    description: >
+      Excluded committees are only removed from rows sourced from schemas in
+      `committee_exclude_schemas`; other schemas and NULL committees are kept.
+    model: stg_ngpvan__campaigns
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {"111": "test committee"}
+          committee_exclude_schemas: ["raw_bonterra__tmc_corrected"]
+    given:
+      - input: ref('base_ngpvan__campaigns')
+        rows:
+          - {campaignid: 1, committeeid: 111, source_schema: raw_bonterra__tmc_corrected}
+          - {campaignid: 2, committeeid: 111, source_schema: raw_avvan__ngpvan_corrected}
+          - {campaignid: 3, committeeid: 222, source_schema: raw_bonterra__tmc_corrected}
+          - {campaignid: 4, committeeid: null, source_schema: raw_bonterra__tmc_corrected}
+    expect:
+      rows:
+        - {campaign_id: 2, committee_id: 111, source_schema: raw_avvan__ngpvan_corrected}
+        - {campaign_id: 3, committee_id: 222, source_schema: raw_bonterra__tmc_corrected}
+        - {campaign_id: 4, committee_id: null, source_schema: raw_bonterra__tmc_corrected}
+
+  - name: exclude_committees__all_schemas
+    description: >
+      With no `committee_exclude_schemas`, excluded committees are removed from
+      every schema.
+    model: stg_ngpvan__campaigns
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {"111": "test committee"}
+          committee_exclude_schemas: []
+    given:
+      - input: ref('base_ngpvan__campaigns')
+        rows:
+          - {campaignid: 1, committeeid: 111, source_schema: raw_bonterra__tmc_corrected}
+          - {campaignid: 2, committeeid: 111, source_schema: raw_avvan__ngpvan_corrected}
+          - {campaignid: 3, committeeid: 222, source_schema: raw_bonterra__tmc_corrected}
+          - {campaignid: 4, committeeid: null, source_schema: raw_avvan__ngpvan_corrected}
+    expect:
+      rows:
+        - {campaign_id: 3, committee_id: 222, source_schema: raw_bonterra__tmc_corrected}
+        - {campaign_id: 4, committee_id: null, source_schema: raw_avvan__ngpvan_corrected}
+
+  - name: exclude_committees__empty_list_is_noop
+    description: An empty `committee_exclude_list` keeps every row.
+    model: stg_ngpvan__campaigns
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {}
+          committee_exclude_schemas: ["raw_bonterra__tmc_corrected"]
+    given:
+      - input: ref('base_ngpvan__campaigns')
+        rows:
+          - {campaignid: 1, committeeid: 111, source_schema: raw_bonterra__tmc_corrected}
+          - {campaignid: 2, committeeid: 222, source_schema: raw_avvan__ngpvan_corrected}
+    expect:
+      rows:
+        - {campaign_id: 1, committee_id: 111, source_schema: raw_bonterra__tmc_corrected}
+        - {campaign_id: 2, committee_id: 222, source_schema: raw_avvan__ngpvan_corrected}
+
+  - name: exclude_committees__joined_model
+    description: >
+      Models that join lookup tables pass qualified `base.` columns to the macro;
+      checks the filter compiles without ambiguous column errors and scopes correctly.
+    model: stg_ngpvan__contacts_codes
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {"111": "test committee"}
+          committee_exclude_schemas: ["raw_bonterra__tmc_corrected"]
+    given:
+      - input: ref('base_ngpvan__contactscodes')
+        rows:
+          - {contactscodeid: 1, committeeid: 111, inputtypeid: 10, source_schema: raw_bonterra__tmc_corrected}
+          - {contactscodeid: 2, committeeid: 111, inputtypeid: 10, source_schema: raw_avvan__ngpvan_corrected}
+          - {contactscodeid: 3, committeeid: 222, inputtypeid: 10, source_schema: raw_bonterra__tmc_corrected}
+      - input: ref('base_ngpvan__inputtypes')
+        rows:
+          - {inputtypeid: 10, inputtypename: API, source_schema: raw_avvan__ngpvan_corrected}
+    expect:
+      rows:
+        - {contacts_code_id: 2, committee_id: 111, source_schema: raw_avvan__ngpvan_corrected}
+        - {contacts_code_id: 3, committee_id: 222, source_schema: raw_bonterra__tmc_corrected}
+
+  - name: exclude_committees__null_source_schema_scoped
+    description: >
+      When `committee_exclude_schemas` is set, rows with a NULL `source_schema`
+      can't be attributed to an excluded schema, so they're kept even if their
+      committee is excluded.
+    model: stg_ngpvan__campaigns
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {"111": "test committee"}
+          committee_exclude_schemas: ["raw_bonterra__tmc_corrected"]
+    given:
+      - input: ref('base_ngpvan__campaigns')
+        rows:
+          - {campaignid: 1, committeeid: 111, source_schema: null}
+          - {campaignid: 2, committeeid: 222, source_schema: null}
+          - {campaignid: 3, committeeid: null, source_schema: null}
+          - {campaignid: 4, committeeid: 111, source_schema: raw_bonterra__tmc_corrected}
+    expect:
+      rows:
+        - {campaign_id: 1, committee_id: 111, source_schema: null}
+        - {campaign_id: 2, committee_id: 222, source_schema: null}
+        - {campaign_id: 3, committee_id: null, source_schema: null}
+
+  - name: exclude_committees__null_source_schema_all_schemas
+    description: >
+      With no `committee_exclude_schemas`, `source_schema` is ignored, so excluded
+      committees are removed even when `source_schema` is NULL.
+    model: stg_ngpvan__campaigns
+    config:
+      tags: ["ngpvan_unit_test"]
+    overrides:
+      macros:
+        dbt_ngpvan.ngpvan__stg__additional_fields: ", 'ngpvan' AS vendor"
+      vars:
+        dbt_ngpvan_config:
+          vendor_name: ngpvan
+          additional_fields: []
+          committee_exclude_list: {"111": "test committee"}
+          committee_exclude_schemas: []
+    given:
+      - input: ref('base_ngpvan__campaigns')
+        rows:
+          - {campaignid: 1, committeeid: 111, source_schema: null}
+          - {campaignid: 2, committeeid: 222, source_schema: null}
+    expect:
+      rows:
+        - {campaign_id: 2, committee_id: 222, source_schema: null}

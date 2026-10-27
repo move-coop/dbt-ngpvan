@@ -34,6 +34,7 @@ WITH
 
         FROM base
         LEFT JOIN inputtypes USING (inputtypeid)
+        {{ ngpvan__stg__exclude_committees(field_name='base.committeeid', schema_field='base.source_schema') }}
     )
 
 SELECT

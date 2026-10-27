@@ -21,6 +21,7 @@ WITH
 
         FROM base
         LEFT JOIN content_types USING (contenttypeid)
+        {{ ngpvan__stg__exclude_committees(field_name='content_types.committeeid', schema_field='base.source_schema') }}
     )
 
 SELECT

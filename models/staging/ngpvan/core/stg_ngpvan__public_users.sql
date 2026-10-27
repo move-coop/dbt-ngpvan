@@ -19,6 +19,7 @@ WITH
             {{ ngpvan__stg__additional_fields() }}
 
         FROM base
+        {{ ngpvan__stg__exclude_committees() }}
     )
 
 SELECT

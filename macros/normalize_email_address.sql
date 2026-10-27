@@ -7,7 +7,7 @@
     {% if target.type == 'redshift' %}
         AND REGEXP_SUBSTR(LOWER(TRIM( {{ email_address }} )), '^[a-z0-9][\\.\\w\\+\\-]*[a-z0-9\\_]*@[a-z0-9][\\.\\w\\-]*\\.\\w+[a-z0-9]$', 1, 'p') IS NOT NULL
 
-    {% elif target.type == 'bigquery' %}
+    {% elif target.type in ('bigquery', 'rabbitbigquery') %}
         AND REGEXP_SUBSTR(LOWER(TRIM( {{ email_address }} )), r'^[a-z0-9][\.\w\+\-]*[a-z0-9\_]*@[a-z0-9][\.\w\-]*\.\w+[a-z0-9]$', 1) IS NOT NULL
 
     {% endif %}
