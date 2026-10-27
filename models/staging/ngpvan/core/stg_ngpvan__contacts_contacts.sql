@@ -85,7 +85,7 @@ WITH
         LEFT JOIN results USING (resultid)
         LEFT JOIN inputtypes USING (inputtypeid)
         LEFT JOIN contacttypes USING (contacttypeid)
-        {{ ngpvan__stg__exclude_committees(field_name='COALESCE(base.committeeid, base.personcommitteeid)', schema_field='base.source_schema') }}
+        -- {{ ngpvan__stg__exclude_committees(field_name='COALESCE(base.committeeid, base.personcommitteeid)', schema_field='base.source_schema') }}
 
     )
 
