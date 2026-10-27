@@ -39,7 +39,7 @@ vars:
     schema_list: []
     table_logic: pattern
     table_exclude_list: []
-    committee_exclude_list: []  # list of committee IDs, or {committee_id: reason}
+    committee_exclude_list: {}  # {committee_id: reason}
     committee_exclude_schemas: []  # limit committee_exclude_list to these schemas; empty = all schemas
     packages:
       core:
